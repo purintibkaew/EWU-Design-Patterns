@@ -52,12 +52,12 @@ namespace FinalProject
         {
             if (position.X - velocity.X < 0)
                 position.X = 0;
-            else if (position.X + velocity.X + sprite.Width >= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width)
-                position.X = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - sprite.Width;
+            else if (position.X + velocity.X + sprite.Width >= GraphicsDeviceManager.DefaultBackBufferWidth)
+                position.X = GraphicsDeviceManager.DefaultBackBufferWidth - sprite.Width;
             if (position.Y - velocity.Y < 0)
                 position.Y = 0;
-            else if (position.Y + velocity.Y + sprite.Height >= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height)
-                position.Y = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - sprite.Height;
+            else if (position.Y + velocity.Y + sprite.Height >= GraphicsDeviceManager.DefaultBackBufferHeight)
+                position.Y = GraphicsDeviceManager.DefaultBackBufferHeight - sprite.Height;
         }
 
         public void Move()
