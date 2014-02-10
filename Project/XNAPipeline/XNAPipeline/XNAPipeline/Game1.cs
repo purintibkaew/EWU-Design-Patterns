@@ -1,28 +1,25 @@
-﻿#region Using Statements
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Storage;
-using Microsoft.Xna.Framework.GamerServices;
-#endregion
+using Microsoft.Xna.Framework.Media;
 
-namespace FinalProject
+namespace XNAPipeline
 {
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Game
+    public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        GameState state;
-
         public Game1()
-            : base()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -37,7 +34,6 @@ namespace FinalProject
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            state = new GamePlayState();
 
             base.Initialize();
         }
@@ -52,7 +48,6 @@ namespace FinalProject
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            state.Init(Content);
         }
 
         /// <summary>
@@ -62,7 +57,6 @@ namespace FinalProject
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
-            Content.Unload();
         }
 
         /// <summary>
@@ -72,15 +66,12 @@ namespace FinalProject
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            // Allows the game to exit
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                this.Exit();
 
             // TODO: Add your update logic here
 
-            state.HandleInput(Keyboard.GetState(), GamePad.GetState(PlayerIndex.One));
-            
-            state.Update();
-                        
             base.Update(gameTime);
         }
 
@@ -93,12 +84,6 @@ namespace FinalProject
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
-            spriteBatch.Begin();
-
-            state.Draw(spriteBatch);
-
-            spriteBatch.End();
 
             base.Draw(gameTime);
         }
