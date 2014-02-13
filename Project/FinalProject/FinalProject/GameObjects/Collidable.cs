@@ -8,15 +8,26 @@ namespace FinalProject
 {
     abstract class Collidable
     {
-        private Rectangle boundingBox;
+        protected Rectangle boundingBox;
 
-        private bool collide(Collidable toTest, Vector2 positionOffset)
+        public Rectangle BoundingBox    //the actual bounding box
         {
+            get
+            {
+                return this.boundingBox;
+            }
+        }
+
+        protected bool Collide(Collidable toTest, Vector2 positionOffset)
+        {
+            Rectangle shiftedBoundingBox = boundingBox;
+            shiftedBoundingBox.Offset((int)positionOffset.X, (int)positionOffset.Y);
+
+            if(shiftedBoundingBox.Intersects(toTest.BoundingBox))
+                return true;
             return false;
         }
 
-        public void checkCollisions()
-        {
-        }
+        //public abstract void HandleCollisions();  //commented out for now, this may or may not go here (do we really need all objects that can be collided with to handle their own collisions?)
     }
 }

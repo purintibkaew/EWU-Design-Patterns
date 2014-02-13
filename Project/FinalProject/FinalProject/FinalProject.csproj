@@ -35,6 +35,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameObjects\CollidableTestObject.cs" />
     <Compile Include="Managers\GamePlayContentManager.cs" />
     <Compile Include="GameObjects\Collidable.cs" />
     <Compile Include="GameObjects\Drawable.cs" />

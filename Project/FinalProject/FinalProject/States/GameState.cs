@@ -12,7 +12,7 @@ namespace FinalProject
     interface GameState
     {
         void Init(ContentManager gameContentManager);
-        void HandleInput(KeyboardState kb, GamePadState gp);
+        void HandleInput();
         void Update();
         void Draw(SpriteBatch spriteBatch);
     }

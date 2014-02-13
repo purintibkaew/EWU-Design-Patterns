@@ -28,11 +28,11 @@ namespace FinalProject
             players = new List<Player>();
         }
 
-        public void HandleInput(KeyboardState kb, GamePadState gp)
+        public void HandleInput()
         {
             foreach (Player p in players)
             {
-                p.HandleInput(kb, gp);
+                p.HandleInput();
             }
         }
 

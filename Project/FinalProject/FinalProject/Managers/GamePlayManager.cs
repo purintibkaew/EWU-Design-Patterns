@@ -38,9 +38,9 @@ namespace FinalProject
             contentManager.AddContent(gameContentManager);
         }
 
-        public void HandleInput(KeyboardState kb, GamePadState gp)
+        public void HandleInput()
         {
-            inputManager.HandleInput(kb, gp);
+            inputManager.HandleInput();
         }
 
         public void Update()

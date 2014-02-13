@@ -77,7 +77,7 @@ namespace FinalProject
 
             // TODO: Add your update logic here
 
-            state.HandleInput(Keyboard.GetState(), GamePad.GetState(PlayerIndex.One));
+            state.HandleInput();
             
             state.Update();
                         
