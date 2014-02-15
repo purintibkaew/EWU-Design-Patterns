@@ -53,6 +53,8 @@ namespace FinalProject
 
             // TODO: use this.Content to load your game content here
             state.Init(Content);
+
+            DebugText.GetInstance().Font = Content.Load<SpriteFont>("ArialFont");
         }
 
         /// <summary>
