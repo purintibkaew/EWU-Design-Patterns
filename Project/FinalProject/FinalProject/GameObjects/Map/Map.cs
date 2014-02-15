@@ -7,5 +7,9 @@ namespace FinalProject.GameObjects.Map
 {
     class Map
     {
+        public Map(int height, int width)
+        {
+
+        }
     }
 }

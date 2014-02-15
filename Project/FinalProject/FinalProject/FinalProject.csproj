@@ -39,6 +39,7 @@
     <Compile Include="Factories\MapFactory.cs" />
     <Compile Include="GameObjects\CollidableTestObject.cs" />
     <Compile Include="GameObjects\Map\CollidableMapEntity.cs" />
+    <Compile Include="GameObjects\Map\Map.cs" />
     <Compile Include="GameObjects\Map\MapEntity.cs" />
     <Compile Include="GameObjects\Map\MapEntityData.cs" />
     <Compile Include="Managers\GamePlayContentManager.cs" />
