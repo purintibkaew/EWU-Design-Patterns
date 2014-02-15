@@ -40,6 +40,8 @@ namespace FinalProject
 
             //temporary hacky player loading, hard coded
             Player player = new Player(cm.Load<Texture2D>("ship"), PlayerIndex.One);
+            DebugText.GetInstance().Font = cm.Load<SpriteFont>("ArialFont");
+            
             //we're going to be doing these calls a lot - consider factory or facade or similar
             drawManager.Add(player);
             inputManager.Add(player);

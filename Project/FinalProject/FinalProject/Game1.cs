@@ -97,7 +97,10 @@ namespace FinalProject
             spriteBatch.Begin();
 
             state.Draw(spriteBatch);
-
+            
+            // DebugText.Draw needs to be called last so that text can be drawn over everything.
+            DebugText.GetInstance().Draw(spriteBatch);
+            
             spriteBatch.End();
 
             base.Draw(gameTime);

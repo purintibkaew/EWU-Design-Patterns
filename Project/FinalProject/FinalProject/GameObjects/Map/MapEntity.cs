@@ -1,12 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FinalProject.GameObjects.Map
+namespace FinalProject
 {
-    class MapEntity : Drawable
+    class MapEntity// : Drawable
     {
         private MapEntityData mapEntityData;
         private Vector2 position;
@@ -15,6 +16,11 @@ namespace FinalProject.GameObjects.Map
         {
             this.mapEntityData = mapEntityData;
             this.position = position;
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+
         }
     }
 }

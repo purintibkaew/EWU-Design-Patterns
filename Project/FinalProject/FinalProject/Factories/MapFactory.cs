@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FinalProject.Factories
+namespace FinalProject
 {
     class MapFactory
     {
