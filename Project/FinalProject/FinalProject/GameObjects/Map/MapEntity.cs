@@ -7,10 +7,13 @@ using System.Text;
 
 namespace FinalProject
 {
-    class MapEntity// : Drawable
+    class MapEntity : Drawable
     {
         private MapEntityData mapEntityData;
         private Vector2 position;
+
+        public Rectangle SpriteRectangle { get { return mapEntityData.Sprite.Bounds; } }
+
 
         public MapEntity(MapEntityData mapEntityData, Vector2 position)
         {
@@ -20,7 +23,7 @@ namespace FinalProject
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
+            spriteBatch.Draw(mapEntityData.Sprite, position, Color.White);
         }
     }
 }

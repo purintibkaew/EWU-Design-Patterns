@@ -40,12 +40,22 @@ namespace FinalProject
 
             //temporary hacky player loading, hard coded
             Player player = new Player(cm.Load<Texture2D>("ship"), PlayerIndex.One);
-            
+            //temporary hacky map loading, hard coded
+            GameMap map = MapFactory.GetInstance().GetSimpleTestMap();
+            map.LoadContent();
+            //map.ClearContent();
+
             //we're going to be doing these calls a lot - consider factory or facade or similar
             drawManager.Add(player);
             inputManager.Add(player);
             logicManager.AddMovable(player);
             logicManager.AddCollidable(player);
+        }
+
+        // This method was put here Jon in order to load assets into memory for map stuff. Not sure if this should be here or not
+        public object Load(string s)
+        {
+            return gameContentManager.Load<object>(s);
         }
     }
 }

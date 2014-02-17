@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FinalProject.GameObjects.Map
+namespace FinalProject
 {
     abstract class GameMap
     {
@@ -21,7 +21,7 @@ namespace FinalProject.GameObjects.Map
                 if(value >= BASE_SIZE && value % BASE_SIZE == 0)
                     height = value;
                 else
-                    height = (value / BASE_SIZE) * BASE_SIZE; // set it to the lowest nearest divisible number of BASE_SIZE
+                    height = (value / BASE_SIZE) * BASE_SIZE; // set it to the lowest nearest divisible of BASE_SIZE
             }
         }
 
@@ -37,7 +37,7 @@ namespace FinalProject.GameObjects.Map
                 if (value >= BASE_SIZE && value % BASE_SIZE == 0)
                     width = value;
                 else
-                    width = (value / BASE_SIZE) * BASE_SIZE; // set it to the lowest nearest divisible number of BASE_SIZE
+                    width = (value / BASE_SIZE) * BASE_SIZE; // set it to the lowest nearest divisible of BASE_SIZE
             }
         }
 

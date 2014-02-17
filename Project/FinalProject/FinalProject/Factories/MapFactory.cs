@@ -8,9 +8,18 @@ namespace FinalProject
 {
     class MapFactory
     {
-        public Map GetSimpleTestMap()
+        private static MapFactory instance = new MapFactory();
+
+        private MapFactory() { }
+
+        public static MapFactory GetInstance()
         {
-            throw new NotImplementedException();
+            return instance;
+        }
+
+        public GameMap GetSimpleTestMap()
+        {
+            return new SimpleGameMap();
         }
     }
 }

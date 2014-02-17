@@ -41,9 +41,9 @@
     <Compile Include="GameObjects\CollidableTestObject.cs" />
     <Compile Include="GameObjects\Map\CollidableMapEntity.cs" />
     <Compile Include="GameObjects\Map\GameMap.cs" />
-    <Compile Include="GameObjects\Map\Map.cs" />
     <Compile Include="GameObjects\Map\MapEntity.cs" />
     <Compile Include="GameObjects\Map\MapEntityData.cs" />
+    <Compile Include="GameObjects\Map\SimpleGameMap.cs" />
     <Compile Include="Managers\GamePlayContentManager.cs" />
     <Compile Include="GameObjects\Collidable.cs" />
     <Compile Include="GameObjects\Drawable.cs" />
@@ -88,6 +88,18 @@
     <None Include="Content\ship.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Content\SimpleChest.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SimpleDirt.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SimpleGrass.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SimpleTree.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,16 +8,18 @@ namespace FinalProject
 {
     class MapEntityData
     {
-        public Texture2D sprite
+        private Texture2D spriteField;
+
+        public Texture2D Sprite
         {
             set 
             {
                 if (value != null)
-                    sprite = value;
+                    spriteField = value;
                 else
                     throw new ArgumentNullException("MapEntityData's sprite property was passed a null object. That is not allowed.");
             }
-            get { return sprite; }
+            get { return spriteField; }
         }
     }
 }

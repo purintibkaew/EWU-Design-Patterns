@@ -164,6 +164,9 @@ namespace FinalProject
 
         private void CollapseChildren(QuadTreeNode node)
         {
+            if (node == null || node.Children == null)
+                return;
+
             foreach (QuadTreeNode child in node.Children)
             {
                 while (child.Items.Count > 0)
