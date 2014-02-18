@@ -38,12 +38,15 @@ namespace FinalProject
         {
             gameContentManager = cm;
 
+            // Call all factories here so that they can load in their sprites
+            MapEntityFactory.LoadSprites(cm);
+
+
             //temporary hacky player loading, hard coded
             Player player = new Player(cm.Load<Texture2D>("ship"), PlayerIndex.One);
             //temporary hacky map loading, hard coded
             GameMap map = MapFactory.GetInstance().GetSimpleTestMap();
             map.LoadContent();
-            //map.ClearContent();
 
             //we're going to be doing these calls a lot - consider factory or facade or similar
             drawManager.Add(player);
@@ -58,12 +61,6 @@ namespace FinalProject
             test = new CollidableTestObject(cm.Load<Texture2D>("SimpleTree"), new Vector2(246, 246));
             drawManager.Add(test);
             logicManager.AddCollidable(test);
-        }
-
-        // This method was put here Jon in order to load assets into memory for map stuff. Not sure if this should be here or not
-        public object Load(string s)
-        {
-            return gameContentManager.Load<object>(s);
         }
     }
 }

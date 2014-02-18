@@ -47,6 +47,5 @@ namespace FinalProject
 
 
         public abstract void LoadContent();
-        public abstract void ClearContent();
     }
 }
