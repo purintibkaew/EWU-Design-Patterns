@@ -44,6 +44,9 @@
     <Compile Include="GameObjects\Map\MapEntity.cs" />
     <Compile Include="GameObjects\Map\MapEntityData.cs" />
     <Compile Include="GameObjects\Map\SimpleGameMap.cs" />
+    <Compile Include="GameObjects\StatsObjects\BaseStats.cs" />
+    <Compile Include="GameObjects\StatsObjects\StatModifier.cs" />
+    <Compile Include="GameObjects\StatsObjects\Stats.cs" />
     <Compile Include="Managers\GamePlayContentManager.cs" />
     <Compile Include="GameObjects\Collidable.cs" />
     <Compile Include="GameObjects\Drawable.cs" />
