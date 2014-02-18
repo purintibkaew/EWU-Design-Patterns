@@ -17,7 +17,14 @@ namespace FinalProject
             this.child = child;
         }
 
-        public int MaxHP
+
+        public override Stats Child
+        {
+            get;
+            set;
+        }
+
+        public override int MaxHP
         {
             get
             {
@@ -29,7 +36,7 @@ namespace FinalProject
             }
         }
 
-        public int Speed
+        public override int Speed
         {
             get
             {
@@ -41,7 +48,7 @@ namespace FinalProject
             }
         }
 
-        public int Attack
+        public override int Attack
         {
             get
             {
@@ -51,6 +58,12 @@ namespace FinalProject
                 }
                 return base.attack;
             }
+        }
+
+        public void Remove()
+        {
+            this.parent.Child = this.child;
+            this.child.Parent = this.parent;
         }
     }
 }

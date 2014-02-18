@@ -8,7 +8,6 @@ namespace FinalProject.GameObjects.StatsObjects
     abstract class BaseStats : Stats
     {
         protected Stats parent;
-        public abstract Stats Parent;
 
         public BaseStats(int maxHP, int attack, int speed)
             : base(maxHP, attack, speed)
@@ -16,17 +15,25 @@ namespace FinalProject.GameObjects.StatsObjects
             //Do we need something here?
         }
 
-        public int MaxHP
+        public override Stats Child
+        {
+            get
+            {
+                return null;
+            }
+        }
+
+        public override int MaxHP
         {
             get { return base.maxHP; }
         }
 
-        public int Attack
+        public override int Attack
         {
             get { return base.attack; }
         }
 
-        public int Speed
+        public override int Speed
         {
             get { return base.speed; }
         }

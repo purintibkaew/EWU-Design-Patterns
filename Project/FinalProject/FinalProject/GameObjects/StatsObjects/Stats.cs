@@ -19,9 +19,15 @@ namespace FinalProject
         protected int attack;
         protected int speed;
 
-        public abstract int MaxHP;
-        public abstract int Attack;
-        public abstract int Speed;
+        public Stats Parent 
+        { 
+            get; 
+            set;  
+        }
+        public abstract Stats Child { get; set; }
+        public abstract int MaxHP { get; }
+        public abstract int Attack { get; }
+        public abstract int Speed { get; }
 
         protected Stats(int maxHP, int attack, int speed)
         {
