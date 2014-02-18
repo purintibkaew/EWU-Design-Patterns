@@ -32,7 +32,7 @@ namespace FinalProject
         private GamePlayLogicManager()
         {
             //CHANGE THIS WHEN WE HAVE AN ACTUAL MAP OBJECT WITH CONCRETE DIMENSIONS
-            Rectangle screenRect = new Rectangle(0, 0, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
+            Rectangle screenRect = new Rectangle(0, 0, GraphicsDeviceManager.DefaultBackBufferWidth, GraphicsDeviceManager.DefaultBackBufferHeight);
 
             updateList = new List<Movable>();
             collidableEntities = new QuadTree<Collidable>((x => x.BoundingBox), screenRect);

@@ -37,13 +37,14 @@ namespace FinalProject
 
         public void WriteLine(string s)
         {
-            text += "\n" + s;
+            text += s + "\n";
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             if(displayText)
                 spriteBatch.DrawString(Font, text, Position, TextColor);
+            ClearText();    //Clear the text so we don't end up with text going off the bottom of the screen - since everything is updating every tick, this won't cause any information loss
         }
 
         public void ClearText() { text = ""; }

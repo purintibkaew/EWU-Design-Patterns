@@ -30,6 +30,8 @@ namespace FinalProject
         {
             this.sprite = sprite;
             this.position = position;
+            this.boundingBox = sprite.Bounds;
+            this.boundingBox.Location = new Point((int)position.X, (int)position.Y);
         }
 
         public void Draw(SpriteBatch spriteBatch)
