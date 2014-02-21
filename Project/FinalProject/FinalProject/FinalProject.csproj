@@ -41,6 +41,10 @@
     <Compile Include="GameObjects\CollidableTestObject.cs" />
     <Compile Include="GameObjects\Map\CollidableMapEntity.cs" />
     <Compile Include="GameObjects\Map\GameMap.cs" />
+    <Compile Include="GameObjects\Map\GameMapSimple.cs" />
+    <Compile Include="GameObjects\Map\GameMapSimplexNoiseGenerated.cs" />
+    <Compile Include="GameObjects\Map\Generator.cs" />
+    <Compile Include="GameObjects\Map\GeneratorSimplexNoise.cs" />
     <Compile Include="GameObjects\Map\MapEntity.cs" />
     <Compile Include="GameObjects\Map\MapEntityData.cs" />
     <Compile Include="GameObjects\Map\SimpleGameMap.cs" />

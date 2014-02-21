@@ -1,5 +1,4 @@
-﻿using FinalProject.GameObjects.Map;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +18,12 @@ namespace FinalProject
 
         public GameMap GetSimpleTestMap()
         {
-            return new SimpleGameMap();
+            return new GameMapSimple();
+        }
+
+        public GameMap GetSimplexNoiseMap()
+        {
+            return new GameMapSimplexNoiseGenerated(1024, 1024);
         }
     }
 }
