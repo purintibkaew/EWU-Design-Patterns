@@ -3,23 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FinalProject.GameObjects.StatsObjects
+namespace FinalProject
 {
-    abstract class BaseStats : Stats
+    class BaseStats : Stats
     {
-        protected Stats parent;
+        
 
-        public BaseStats(int maxHP, int attack, int speed)
+        public BaseStats(int maxHP, int attack, int speed, Stats parent)
             : base(maxHP, attack, speed)
         {
-            //Do we need something here?
+            base.parent = parent;
+            base.child = null;
         }
 
-        public override Stats Child
+        public override Stats Inner
         {
             get
             {
-                return null;
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
             }
         }
 
@@ -36,6 +41,11 @@ namespace FinalProject.GameObjects.StatsObjects
         public override int Speed
         {
             get { return base.speed; }
+        }
+
+        public override void Remove()
+        {
+            throw new NotImplementedException();
         }
     }
 }

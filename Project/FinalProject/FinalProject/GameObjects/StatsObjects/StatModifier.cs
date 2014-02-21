@@ -7,22 +7,31 @@ namespace FinalProject
 {
     class StatModifier : Stats
     {
-        private Stats parent;
-        private Stats child;
 
-        public StatModifier(int maxHP, int attack, int speed, Stats child) 
+        private Stats inner;
+
+        public StatModifier(int maxHP, int attack, int speed, Stats parent, Stats inner) 
             : base(maxHP, attack, speed)
         {
-            this.parent = null;
-            this.child = child;
+            base.parent = parent;
+            base.child = base.parent.Child;
+            base.child.Parent = this;
+            base.parent.Child = this;
+            this.inner = inner;
         }
 
-
-        public override Stats Child
+        public override Stats Inner
         {
-            get;
-            set;
+            get
+            {
+                return this.inner;
+            }
+            set
+            {
+                this.inner = value;
+            }
         }
+
 
         public override int MaxHP
         {
@@ -60,7 +69,7 @@ namespace FinalProject
             }
         }
 
-        public void Remove()
+        public override void Remove()
         {
             this.parent.Child = this.child;
             this.child.Parent = this.parent;

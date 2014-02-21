@@ -15,6 +15,9 @@ namespace FinalProject
 {
     abstract class Stats
     {
+        protected Stats parent;
+        protected Stats child;
+
         protected int maxHP;
         protected int attack;
         protected int speed;
@@ -24,10 +27,18 @@ namespace FinalProject
             get; 
             set;  
         }
-        public abstract Stats Child { get; set; }
+        public Stats Child 
+        { 
+            get; 
+            set; 
+        }
+
+        public abstract Stats Inner { get; set; }
         public abstract int MaxHP { get; }
         public abstract int Attack { get; }
         public abstract int Speed { get; }
+
+        public abstract void Remove();
 
         protected Stats(int maxHP, int attack, int speed)
         {
