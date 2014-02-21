@@ -9,6 +9,8 @@ namespace FinalProject
 {
     class MapEntity : Drawable
     {
+        public static readonly int MAP_ENTITY_BASE_SIZE = 32;
+ 
         private MapEntityData mapEntityData;
         private Vector2 position;
 
