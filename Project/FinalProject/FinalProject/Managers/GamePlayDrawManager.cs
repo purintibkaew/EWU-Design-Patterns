@@ -18,43 +18,33 @@ namespace FinalProject
             return instance;
         }
 
-        private QuadTree<Drawable> drawTree;
+        private List<Drawable> drawList;
         private Rectangle screenRect;
 
-        public QuadTree<Drawable> DrawTree
-        {
-            get
-            {
-                return this.drawTree;
-            }
-        }
 
         private GamePlayDrawManager()
         {
             screenRect = new Rectangle(0, 0, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
-            drawTree = new QuadTree<Drawable>((x => x.SpriteRectangle), screenRect);
+            drawList = new List<Drawable>();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Drawable[] toDraw = drawTree.GetItems(screenRect);
-
-            foreach(Drawable d in toDraw)
+            foreach(Drawable d in drawList)
             {
-                drawTree.UpdatePosition(d);
                 d.Draw(spriteBatch);
             }
         }
 
         public void Add(Drawable d)
         {
-            drawTree.Add(d);
+            drawList.Add(d);
         }
 
         public void Remove(Drawable d)
         {
             //TODO: Look into whether this is safe or not
-            drawTree.Remove(d);
+            drawList.Remove(d);
         }
     }
 }

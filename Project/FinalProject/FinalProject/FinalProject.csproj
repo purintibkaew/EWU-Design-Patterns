@@ -54,6 +54,7 @@
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="GameObjects\Movable.cs" />
     <Compile Include="GameObjects\Player.cs" />
+    <Compile Include="GameObjects\MobileEntity.cs" />
     <Compile Include="States\GameState.cs" />
     <Compile Include="States\GamePlayState.cs" />
     <Compile Include="Managers\GamePlayInputManager.cs" />

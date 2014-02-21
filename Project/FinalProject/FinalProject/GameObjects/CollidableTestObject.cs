@@ -13,33 +13,26 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace FinalProject
 {
-    class CollidableTestObject : Collidable, Drawable
+    class CollidableTestObject : MobileEntity
     {
-        private Texture2D sprite;
-        private Vector2 position;
-
-        public Rectangle SpriteRectangle    //May or may not remove this, need to see whether quad tree is worth it for draw manager
+        public CollidableTestObject(Texture2D sprite, Vector2 position) : base(sprite, position)
         {
-            get
-            {
-                return sprite.Bounds;
-            }
+            
         }
 
-        public CollidableTestObject(Texture2D sprite, Vector2 position)
+        public override void Logic()
         {
-            this.sprite = sprite;
-            this.position = position;
-            this.boundingBox = sprite.Bounds;
-            this.boundingBox.Location = new Point((int)position.X, (int)position.Y);
+            
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void CheckStatus()
         {
-            spriteBatch.Draw(sprite, position, Color.White);
+            
         }
 
-
-
+        public override void Hit(int amount, int type)
+        {
+            DebugText.GetInstance().WriteLinePerm("Entity was hit");
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace FinalProject
 
         private static DebugText instance = new DebugText();
         private string text;
+        private string permText;
         private bool displayText;
 
         private DebugText() 
@@ -22,6 +23,7 @@ namespace FinalProject
             Position = new Vector2(0, 0);
             TextColor = Color.Black;
             text = "";
+            permText = "";
             displayText = true;
         }
 
@@ -40,10 +42,23 @@ namespace FinalProject
             text += s + "\n";
         }
 
+        public void WritePerm(string s)
+        {
+            permText += s;
+        }
+
+        public void WriteLinePerm(string s)
+        {
+            permText += s + "\n";
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
-            if(displayText)
+            if (displayText)
+            {
                 spriteBatch.DrawString(Font, text, Position, TextColor);
+                spriteBatch.DrawString(Font, permText, new Vector2(400, 0), TextColor);
+            }
             ClearText();    //Clear the text so we don't end up with text going off the bottom of the screen - since everything is updating every tick, this won't cause any information loss
         }
 

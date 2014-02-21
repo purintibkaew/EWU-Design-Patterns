@@ -11,15 +11,13 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace FinalProject
 {
-    class Player : Collidable, Drawable, Movable
+    class Player : MobileEntity
     {
-        private Texture2D sprite;
-        private Vector2 position, velocity;
-        private int speed;
-
         private PlayerIndex playerNum;
 
-        private QuadTree<Collidable> collisionTree; //reference to the collision tree for easy access
+        private enum PlayerState { PLAYER_ATTACK_UP, PLAYER_ATTACK_DOWN, PLAYER_ATTACK_LEFT, PLAYER_ATTACK_RIGHT, PLAYER_OTHER };
+
+        private PlayerState curState;
 
         public PlayerIndex PlayerNum        //return player number for gamepad state checks, look into whether this is necessary if we're getting gamepad state in this object
         {
@@ -29,31 +27,49 @@ namespace FinalProject
             }
         }
 
-        public Rectangle SpriteRectangle    //May or may not remove this, need to see whether quad tree is worth it for draw manager
+        public Player(Texture2D sprite, Vector2 position, PlayerIndex playerNum) : base(sprite, position)
         {
-            get
-            {
-                return sprite.Bounds;
-            }
-        }
-
-        public Player(Texture2D sprite, PlayerIndex playerNum)
-        {
-            this.sprite = sprite;
-            this.boundingBox = sprite.Bounds; //bounding box simply defined by sprite rectangle for now, might want to change in the future
             this.playerNum = playerNum;
-            this.position = new Vector2(50, 50);
-            speed = 5;
+            curState = PlayerState.PLAYER_OTHER;
 
-            this.collisionTree = GamePlayLogicManager.GetInstance().CollisionTree;
+            this.speed = 5;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void HandleInput()
         {
-            spriteBatch.Draw(sprite, position, Color.White);
+            KeyboardState kb = Keyboard.GetState();         //these state checks might be moved, but they should work just fine here
+            GamePadState gp = GamePad.GetState(playerNum);
+
+            velocity.X = velocity.Y = 0;
+
+            if (kb.IsKeyDown(Keys.W))
+                velocity.Y -= speed;
+            if (kb.IsKeyDown(Keys.S))
+                velocity.Y += speed;
+            if (kb.IsKeyDown(Keys.D))
+                velocity.X += speed;
+            if (kb.IsKeyDown(Keys.A))
+                velocity.X -= speed;
+
+            //basic state handling for attack - hacky, change later
+            if (kb.IsKeyDown(Keys.Space))
+            {
+                if (velocity.X > 0)
+                    curState = PlayerState.PLAYER_ATTACK_RIGHT;
+                else if (velocity.X < 0)
+                    curState = PlayerState.PLAYER_ATTACK_LEFT;
+                else if (velocity.Y > 0)
+                    curState = PlayerState.PLAYER_ATTACK_DOWN;
+                else if (velocity.Y < 0)
+                    curState = PlayerState.PLAYER_ATTACK_UP;
+                else
+                    curState = PlayerState.PLAYER_ATTACK_RIGHT;
+            }
+            else
+                curState = PlayerState.PLAYER_OTHER;
         }
 
-        public void Logic()
+        public override void Logic()
         {
             DebugText dt = DebugText.GetInstance();
             dt.WriteLine("Initial Velocity: " + velocity);
@@ -74,101 +90,51 @@ namespace FinalProject
             collisionTree.UpdatePosition(this); //We'll need to do this for every moving collidable entity, consider putting in MobileEntity abstract class or something
 
             dt.WriteLine("Adjusted Velocity: " + velocity);
-        }
 
-        public void Move()
-        {
-            position += velocity;
-        }
 
-        public void HandleInput()
-        {
-            KeyboardState kb = Keyboard.GetState();         //these state checks might be moved, but they should work just fine here
-            GamePadState gp = GamePad.GetState(playerNum);
-
-            velocity.X = velocity.Y = 0;
-
-            if (kb.IsKeyDown(Keys.W))
-                velocity.Y -= speed;
-            if (kb.IsKeyDown(Keys.S))
-                velocity.Y += speed;
-            if (kb.IsKeyDown(Keys.D))
-                velocity.X += speed;
-            if (kb.IsKeyDown(Keys.A))
-                velocity.X -= speed;
-        }
-
-        public void HandleCollisions() //all of this will probably go to MobileEntity or something, every enemy/player/whatever will probably be handled the same, consider making protected or private
-        {
-            //NOTE: At the moment, I'm doing lots of int casting - we may want to move from vec2s for position to points, which use ints instead.
-
-            boundingBox.Location = new Point((int)position.X, (int)position.Y); //KLUDGY - sprite bounding box is at 0, 0, ostensibly
-            Rectangle potentialBoundingBox = boundingBox;
-
-            potentialBoundingBox.Inflate(Math.Abs((int)(velocity.X)),Math.Abs((int)(velocity.Y))); //Grow the bounding box by the absolute value of the velocity
-                                                                                                   //Abs to make sure the values won't shrink the rectangle
-
-            Collidable[] toTest = collisionTree.GetItems(potentialBoundingBox);
-
-            
-            DebugText dt = DebugText.GetInstance();
-           
-
-            dt.WriteLine("Entity bounding box being tested at " + potentialBoundingBox.Location);
-            dt.WriteLine("Potential bounding box: L: " + potentialBoundingBox.Left + ", R: " + potentialBoundingBox.Right + ", T: " + potentialBoundingBox.Top + ", B: " + potentialBoundingBox.Bottom);
-
-            foreach (Collidable c in toTest)
+            //we'll probably want to move this somewhere else, either to MobileEntity or to a player abstract class
+            //this idea should work for ranged attacks, too, though we should probably use an actual collidable object for those
+            //the rectangle I'm using here, incidentally, is a 16x32 rectangle with the short side on whatever side the player is attacking from
+            //the +/- 8s should make it centered (that is, since we're using a 32x32 sprite here, it should have eight pixels clear on either side)
+            if (curState != PlayerState.PLAYER_OTHER)
             {
-                if (c.Equals(this)) //SUPER KLUDGY, FIGURE OUT A FIX
-                    continue;
+                Rectangle hitBox = new Rectangle();
 
-                dt.WriteLine("Testing collision with entity at " + c.BoundingBox.Location);
-
-                int counter = this.speed;
-                bool hasCollided = true;
-
-                while(hasCollided && counter > 0)
+                switch(curState)
                 {
-                    hasCollided = false;
-
-                    Vector2 vecX = new Vector2(velocity.X, 0);
-                    Vector2 vecY = new Vector2(0, velocity.Y);
-                    if(this.Collide(c, vecX))
-                    {
-                        dt.WriteLine("Colliding in X");
-
-                        hasCollided = true;
-                        
-                        velocity.X /= 2;
-                        velocity.X = (int)velocity.X;
-                    }
-                    if(this.Collide(c, vecY))
-                    {
-                        dt.WriteLine("Colliding in Y");
-
-                        hasCollided = true;
-                        
-                        velocity.Y /= 2;
-                        velocity.Y = (int)velocity.Y;
-                    }
-                    if(this.Collide(c, velocity) && !hasCollided)
-                    {
-                        dt.WriteLine("Colliding in X and Y");
-
-                        hasCollided = true;
-
-                        velocity /= 2;
-                        velocity.X = (int)velocity.X;
-                        velocity.Y = (int)velocity.Y;
-                    }
-
-                    counter--;
+                    case(PlayerState.PLAYER_ATTACK_UP):
+                        hitBox = new Rectangle((int)(this.position.X + 8), (int)(this.position.Y - 32), 16, 32);
+                        break;
+                    case(PlayerState.PLAYER_ATTACK_DOWN):
+                        hitBox = new Rectangle((int)(this.position.X + 8), (int)(this.position.Y + 32), 16, 32);
+                        break;
+                    case (PlayerState.PLAYER_ATTACK_LEFT):
+                        hitBox = new Rectangle((int)(this.position.X - 32), (int)(this.position.Y - 8), 32, 16);
+                        break;
+                    case (PlayerState.PLAYER_ATTACK_RIGHT):
+                        hitBox = new Rectangle((int)(this.position.X + 32), (int)(this.position.Y - 8), 32, 16);
+                        break;
                 }
-                if (counter <= 0)
+
+                Collidable [] hitObjects = collisionTree.GetItems(hitBox);
+
+                foreach (Collidable c in hitObjects)
                 {
-                    velocity = new Vector2(0, 0);
+                    if (c != this)
+                        c.Hit(10, 0);
                 }
             }
+
+        }
+
+        public override void CheckStatus()
+        {
+            //Stuff like handling death and such will go here.
+        }
+
+        public override void Hit(int amount, int type)
+        {
+            
         }
     }
 }

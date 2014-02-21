@@ -9,20 +9,35 @@ namespace FinalProject
 {
     class CollidableMapEntity : Collidable, Drawable
     {
+        private Rectangle boundingBox;
+
         private MapEntityData mapEntityData;
         private Vector2 position;
 
-        public Rectangle SpriteRectangle { get { return mapEntityData.Sprite.Bounds; } }
+        public Rectangle BoundingBox
+        {
+            get
+            {
+                return this.boundingBox;
+            }
+        }
 
         public CollidableMapEntity(MapEntityData mapEntityData, Vector2 position)
         {
             this.mapEntityData = mapEntityData;
             this.position = position;
+            this.boundingBox = mapEntityData.Sprite.Bounds;                         //the bounding box can be set to (temporarily, at least) the sprite bounding rectangle
+            this.boundingBox.Location = new Point((int)position.X, (int)position.Y);//then need to move to the actual position, since the sprite is technically at (0, 0)
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(mapEntityData.Sprite, position, Color.White);
+        }
+
+        public void Hit(int amount, int type)
+        {
+            
         }
     }
 }

@@ -8,6 +8,7 @@ namespace FinalProject
     interface Movable
     {
         void Logic();
+        void CheckStatus();
         void Move();
     }
 }

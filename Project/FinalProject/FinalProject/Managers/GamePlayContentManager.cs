@@ -43,7 +43,7 @@ namespace FinalProject
 
 
             //temporary hacky player loading, hard coded
-            Player player = new Player(cm.Load<Texture2D>("ship"), PlayerIndex.One);
+            Player player = new Player(cm.Load<Texture2D>("ship"), new Vector2(50, 50), PlayerIndex.One);
             //temporary hacky map loading, hard coded
             GameMap map = MapFactory.GetInstance().GetSimpleTestMap();
             map.LoadContent();

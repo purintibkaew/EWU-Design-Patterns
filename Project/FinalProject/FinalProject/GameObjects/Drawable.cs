@@ -9,9 +9,6 @@ namespace FinalProject
 {
     interface Drawable
     {
-        Rectangle SpriteRectangle { get; }
-
         void Draw(SpriteBatch spriteBatch);
-
     }
 }
