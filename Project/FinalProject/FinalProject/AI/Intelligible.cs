@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FinalProject.AI
+namespace FinalProject
 {
-    class Intelligible
+    abstract class Intelligible
     {
-        public void AIMove(MobileEntity entity);
+        public abstract void AIMove(MobileEntity entity);
     }
 }

@@ -35,6 +35,12 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AI\AIData.cs" />
+    <Compile Include="AI\Attacking.cs" />
+    <Compile Include="AI\Intelligible.cs" />
+    <Compile Include="AI\Running.cs" />
+    <Compile Include="AI\Standing.cs" />
+    <Compile Include="AI\Walking.cs" />
     <Compile Include="GameObjects\AttackObjects\AttackClose.cs" />
     <Compile Include="DebugText.cs" />
     <Compile Include="Factories\MapEntityFactory.cs" />
