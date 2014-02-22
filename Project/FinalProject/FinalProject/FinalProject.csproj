@@ -35,6 +35,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameObjects\AttackObjects\AttackClose.cs" />
     <Compile Include="DebugText.cs" />
     <Compile Include="Factories\MapEntityFactory.cs" />
     <Compile Include="Factories\MapFactory.cs" />
@@ -60,6 +61,8 @@
     <Compile Include="GameObjects\Movable.cs" />
     <Compile Include="GameObjects\Player.cs" />
     <Compile Include="GameObjects\MobileEntity.cs" />
+    <Compile Include="GameObjects\AttackObjects\StabbingAttack.cs" />
+    <Compile Include="GameObjects\AttackObjects\SimpleAttack.cs" />
     <Compile Include="States\GameState.cs" />
     <Compile Include="States\GamePlayState.cs" />
     <Compile Include="Managers\GamePlayInputManager.cs" />
@@ -69,6 +72,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Managers\QuadTree.cs" />
+    <Compile Include="GameObjects\AttackObjects\SwingingAttack.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OpenTK">

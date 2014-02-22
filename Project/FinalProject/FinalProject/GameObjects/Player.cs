@@ -19,6 +19,8 @@ namespace FinalProject
 
         private PlayerState curState;
 
+        private AttackClose testAttack;
+
         public PlayerIndex PlayerNum        //return player number for gamepad state checks, look into whether this is necessary if we're getting gamepad state in this object
         {
             get
@@ -33,6 +35,7 @@ namespace FinalProject
             curState = PlayerState.PLAYER_OTHER;
 
             this.speed = 5;
+            this.testAttack = new SimpleAttack(new Rectangle(0, 0, 32, 16), this, 1.5f, 50);
         }
 
         public void HandleInput()
@@ -91,39 +94,41 @@ namespace FinalProject
 
             dt.WriteLine("Adjusted Velocity: " + velocity);
 
+            
 
             //we'll probably want to move this somewhere else, either to MobileEntity or to a player abstract class
             //this idea should work for ranged attacks, too, though we should probably use an actual collidable object for those
             //the rectangle I'm using here, incidentally, is a 16x32 rectangle with the short side on whatever side the player is attacking from
             //the +/- 8s should make it centered (that is, since we're using a 32x32 sprite here, it should have eight pixels clear on either side)
-            if (curState != PlayerState.PLAYER_OTHER)
+
+            if (testAttack.TimeLeft == 0)   //if we can make an attack (that is, it's been an acceptable length since the last one)
             {
-                Rectangle hitBox = new Rectangle();
-
-                switch(curState)
+                if (curState != PlayerState.PLAYER_OTHER)   //does the player actually want to attack?
                 {
-                    case(PlayerState.PLAYER_ATTACK_UP):
-                        hitBox = new Rectangle((int)(this.position.X + 8), (int)(this.position.Y - 32), 16, 32);
-                        break;
-                    case(PlayerState.PLAYER_ATTACK_DOWN):
-                        hitBox = new Rectangle((int)(this.position.X + 8), (int)(this.position.Y + 32), 16, 32);
-                        break;
-                    case (PlayerState.PLAYER_ATTACK_LEFT):
-                        hitBox = new Rectangle((int)(this.position.X - 32), (int)(this.position.Y - 8), 32, 16);
-                        break;
-                    case (PlayerState.PLAYER_ATTACK_RIGHT):
-                        hitBox = new Rectangle((int)(this.position.X + 32), (int)(this.position.Y - 8), 32, 16);
-                        break;
-                }
+                    switch (curState)
+                    {
+                        case (PlayerState.PLAYER_ATTACK_UP):
+                            testAttack.Attack(new Vector2(position.X + boundingBox.Width / 2, position.Y + boundingBox.Height / 2), 90, 10);
+                            //hitBox = new Rectangle((int)(this.position.X + 8), (int)(this.position.Y - 32), 16, 32);
+                            break;
+                        case (PlayerState.PLAYER_ATTACK_DOWN):
+                            testAttack.Attack(new Vector2(position.X + boundingBox.Width / 2, position.Y + boundingBox.Height / 2), 270, 10);
+                            //hitBox = new Rectangle((int)(this.position.X + 8), (int)(this.position.Y + 32), 16, 32);
+                            break;
+                        case (PlayerState.PLAYER_ATTACK_LEFT):
+                            testAttack.Attack(new Vector2(position.X + boundingBox.Width / 2, position.Y + boundingBox.Height / 2), 180, 10);
+                            //hitBox = new Rectangle((int)(this.position.X - 32), (int)(this.position.Y - 8), 32, 16);
+                            break;
+                        case (PlayerState.PLAYER_ATTACK_RIGHT):
+                            testAttack.Attack(new Vector2(position.X + boundingBox.Width / 2, position.Y + boundingBox.Height / 2), 0, 10);
+                            //hitBox = new Rectangle((int)(this.position.X + 32), (int)(this.position.Y - 8), 32, 16);
+                            break;
+                    }
 
-                Collidable [] hitObjects = collisionTree.GetItems(hitBox);
-
-                foreach (Collidable c in hitObjects)
-                {
-                    if (c != this)
-                        c.Hit(10, 0);
                 }
             }
+            else //if there has been an attack recently, do nothing, just decrement the time left
+                testAttack.DecrementTimeLeft();
 
         }
 

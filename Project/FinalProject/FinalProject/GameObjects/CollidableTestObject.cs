@@ -32,7 +32,7 @@ namespace FinalProject
 
         public override void Hit(int amount, int type)
         {
-            DebugText.GetInstance().WriteLinePerm("Entity was hit");
+            DebugText.GetInstance().WriteLinePerm("Entity was hit for " + amount + " damage");
         }
     }
 }
