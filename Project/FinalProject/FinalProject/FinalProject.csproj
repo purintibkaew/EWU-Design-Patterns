@@ -57,7 +57,6 @@
     <Compile Include="GameObjects\Map\GeneratorSimplexNoise.cs" />
     <Compile Include="GameObjects\Map\MapEntity.cs" />
     <Compile Include="GameObjects\Map\MapEntityData.cs" />
-    <Compile Include="GameObjects\Map\SimpleGameMap.cs" />
     <Compile Include="GameObjects\StatsObjects\BaseStats.cs" />
     <Compile Include="GameObjects\StatsObjects\headStat.cs" />
     <Compile Include="GameObjects\StatsObjects\StatModifier.cs" />
@@ -110,6 +109,7 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
     <None Include="ClassDiagram3.cd" />
+    <None Include="ClassDiagram4.cd" />
     <None Include="Content\ship.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -95,15 +95,5 @@ namespace FinalProject
                 }
             }
         }
-
-        private void AddToDrawList(Drawable d)
-        {
-            GamePlayDrawManager.GetInstance().Add(d);
-        }
-
-        private void AddToCollideList(Collidable c)
-        {
-            GamePlayLogicManager.GetInstance().AddCollidable(c);
-        }
     }
 }

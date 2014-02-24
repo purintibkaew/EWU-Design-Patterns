@@ -45,10 +45,5 @@ namespace FinalProject
             AddToDrawList(factory.CreateTreeMapEntity(new Vector2(96, 0)));
             AddToDrawList(factory.CreateTreeMapEntity(new Vector2(96, 128)));
         }
-
-        private void AddToDrawList(Drawable d)
-        {
-            GamePlayDrawManager.GetInstance().Add(d);
-        }
     }
 }
