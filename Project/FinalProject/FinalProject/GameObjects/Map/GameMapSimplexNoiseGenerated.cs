@@ -36,7 +36,7 @@ namespace FinalProject
 
         public override void LoadContent()
         {
-            GeneratorSimplexNoise valueGenerator = new GeneratorSimplexNoise();
+            Generator valueGenerator = new GeneratorSimplexNoise();
 
             for (int i = 0; i < this.mapPoints.Length; i++)
             {
