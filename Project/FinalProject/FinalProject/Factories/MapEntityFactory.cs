@@ -28,21 +28,21 @@ namespace FinalProject
             spriteTree = cm.Load<Texture2D>("SimpleTree");
         }
 
-        public Drawable CreateGrassMapEntity(Vector2 position)
+        public MapEntity CreateGrassMapEntity(Vector2 position)
         {
             MapEntityData data = CreateMapEntityData(spriteGrass);
             MapEntity grass = new MapEntity(data, position);
             return grass;
         }
 
-        public Drawable CreateDirtMapEntity(Vector2 position)
+        public MapEntity CreateDirtMapEntity(Vector2 position)
         {
             MapEntityData data = CreateMapEntityData(spriteDirt);
             MapEntity dirt = new MapEntity(data, position);
             return dirt;
         }
 
-        public Drawable CreateTreeMapEntity(Vector2 position)
+        public CollidableMapEntity CreateTreeMapEntity(Vector2 position)
         {
             MapEntityData data = CreateMapEntityData(spriteTree);
             CollidableMapEntity tree = new CollidableMapEntity(data, position);

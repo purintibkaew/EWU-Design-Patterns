@@ -53,14 +53,6 @@ namespace FinalProject
             inputManager.Add(player);
             logicManager.AddMovable(player);
             logicManager.AddCollidable(player);
-
-            CollidableTestObject test = new CollidableTestObject(cm.Load<Texture2D>("SimpleTree"), new Vector2(304, 304));
-            drawManager.Add(test);
-            logicManager.AddCollidable(test);
-
-            test = new CollidableTestObject(cm.Load<Texture2D>("SimpleTree"), new Vector2(246, 246));
-            drawManager.Add(test);
-            logicManager.AddCollidable(test);
         }
     }
 }

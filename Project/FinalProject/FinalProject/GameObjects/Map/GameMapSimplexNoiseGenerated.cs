@@ -7,8 +7,15 @@ using System.Text;
 namespace FinalProject
 {
     class GameMapSimplexNoiseGenerated : GameMap
-    {        
-        private float[][] mapPoints; 
+    {
+        private static readonly int MAX_PRIORITY_LEVEL = 10;
+        private float[][] mapPoints;
+
+        /*
+         * Max priority is 0, Min is at MAX_PRIORITY_LEVEL-1
+         */
+        private List<List<Drawable>> drawablesPriorityList;
+
 
         public GameMapSimplexNoiseGenerated(int height, int width)
         {
@@ -18,6 +25,13 @@ namespace FinalProject
             
             for(int i = 0; i < this.mapPoints.Length; i++)
                 this.mapPoints[i] = new float[this.Width / MapEntity.MAP_ENTITY_BASE_SIZE];
+
+            drawablesPriorityList = new List<List<Drawable>>(MAX_PRIORITY_LEVEL);
+
+            for (int i = 0; i < MAX_PRIORITY_LEVEL; i++)
+            {
+                drawablesPriorityList.Add(new List<Drawable>());
+            }
         }
 
         public override void LoadContent()
@@ -28,14 +42,15 @@ namespace FinalProject
             {
                 for (int j = 0; j < this.mapPoints[i].Length; j++)
                 {
-                    this.mapPoints[i][j] = valueGenerator.GetValue(i * MapEntity.MAP_ENTITY_BASE_SIZE, j * MapEntity.MAP_ENTITY_BASE_SIZE,0/* new Random().Next(100000)*/);
+                    this.mapPoints[i][j] = valueGenerator.GetValue(i * MapEntity.MAP_ENTITY_BASE_SIZE, j * MapEntity.MAP_ENTITY_BASE_SIZE, new Random().Next(100000));
                 }
             }
 
+            PopulatePriorityLists();
             AddContent();
         }
 
-        private void AddContent()
+        private void PopulatePriorityLists()
         {
             MapEntityFactory factory = MapEntityFactory.GetInstance();
             float value = 0.0f;
@@ -49,16 +64,34 @@ namespace FinalProject
 
                     if (value < 0.7)
                     {
-                        AddToDrawList(factory.CreateDirtMapEntity(position));
+                        AddToPriorityList(MAX_PRIORITY_LEVEL-1, factory.CreateDirtMapEntity(position));
                     }
                     else if (value < .9)
                     {
-                        AddToDrawList(factory.CreateGrassMapEntity(position));
+                        AddToPriorityList(MAX_PRIORITY_LEVEL-2, factory.CreateGrassMapEntity(position));
                     }
                     else if (value < 1)
                     {
-                        AddToDrawList(factory.CreateTreeMapEntity(position));
+                        CollidableMapEntity tree = factory.CreateTreeMapEntity(position);
+                        AddToPriorityList(MAX_PRIORITY_LEVEL-3, tree);
+                        AddToCollideList(tree);
                     }
+                }
+            }
+        }
+
+        private void AddToPriorityList(int priority, Drawable drawableToAdd)
+        {
+            drawablesPriorityList[priority].Add(drawableToAdd);
+        }
+
+        private void AddContent()
+        {
+            for (int i = drawablesPriorityList.Count - 1; i >= 0; i--)
+            {
+                for (int j = 0; j < drawablesPriorityList[i].Count; j++)
+                {
+                    AddToDrawList(drawablesPriorityList[i][j]);
                 }
             }
         }
@@ -66,6 +99,11 @@ namespace FinalProject
         private void AddToDrawList(Drawable d)
         {
             GamePlayDrawManager.GetInstance().Add(d);
+        }
+
+        private void AddToCollideList(Collidable c)
+        {
+            GamePlayLogicManager.GetInstance().AddCollidable(c);
         }
     }
 }
