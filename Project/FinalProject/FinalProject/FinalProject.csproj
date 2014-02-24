@@ -46,6 +46,9 @@
     <Compile Include="Factories\MapEntityFactory.cs" />
     <Compile Include="Factories\MapFactory.cs" />
     <Compile Include="GameObjects\CollidableTestObject.cs" />
+    <Compile Include="GameObjects\Items\DroppedItem.cs" />
+    <Compile Include="GameObjects\Items\Item.cs" />
+    <Compile Include="Factories\ItemFactory.cs" />
     <Compile Include="GameObjects\Map\CollidableMapEntity.cs" />
     <Compile Include="GameObjects\Map\GameMap.cs" />
     <Compile Include="GameObjects\Map\GameMapSimple.cs" />
@@ -104,6 +107,8 @@
     <Content Include="Content\ArialFont.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Content\ship.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

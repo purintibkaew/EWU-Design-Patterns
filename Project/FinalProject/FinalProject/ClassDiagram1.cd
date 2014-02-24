@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FinalProject.BaseStats">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <InheritanceLine Type="FinalProject.Stats" FixedFromPoint="true">
+      <Path>
+        <Point X="8.75" Y="3" />
+        <Point X="11.75" Y="3" />
+        <Point X="11.75" Y="3.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAFAABAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\StatsObjects\BaseStats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProject.headStat">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <InheritanceLine Type="FinalProject.Stats" FixedFromPoint="true">
+      <Path>
+        <Point X="8.75" Y="2.688" />
+        <Point X="13.5" Y="2.688" />
+        <Point X="13.5" Y="3.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAABAAAAAAAAAFAABAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\StatsObjects\headStat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProject.StatModifier">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <InheritanceLine Type="FinalProject.Stats" FixedFromPoint="true">
+      <Path>
+        <Point X="8.75" Y="3.25" />
+        <Point X="10" Y="3.25" />
+        <Point X="10" Y="3.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAABAAAAAAAAAFAABAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\StatsObjects\StatModifier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProject.Stats">
+    <Position X="7.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAIBAAACAVAABAJAAAQCAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\StatsObjects\Stats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

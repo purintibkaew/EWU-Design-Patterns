@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FinalProject.Item">
+    <Position X="5.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAQAAAQAAAAAAAAAAQABBAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Items\Item.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ItemStats" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FinalProject.DroppedItem">
+    <Position X="2.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAggAAAAIAIAQEADAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Items\DroppedItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Item" />
+    </ShowAsAssociation>
+    <Lollipop Orientation="Left" Position="0.1" />
+  </Class>
+  <Class Name="FinalProject.ItemFactory">
+    <Position X="9" Y="0.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="FinalProject.ItemFactory.itemType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Factories\ItemFactory.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="FinalProject.ItemFactory.effectType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Factories\ItemFactory.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>giAAAAAAAAAAAAAAAAAAAAAEAABAAAAAAEAAABAAAAA=</HashCode>
+      <FileName>Factories\ItemFactory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Item" />
+      <Property Name="GeneratedStats" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FinalProject.Stats">
+    <Position X="9" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAIBAAACAVAABAJAAAQCAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\StatsObjects\Stats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

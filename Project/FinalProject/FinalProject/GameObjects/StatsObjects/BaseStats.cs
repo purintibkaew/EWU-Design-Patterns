@@ -9,10 +9,10 @@ namespace FinalProject
     {
         
 
-        public BaseStats(int maxHP, int attack, int speed, Stats parent)
+        public BaseStats(int maxHP, int attack, int speed)
             : base(maxHP, attack, speed)
         {
-            base.parent = parent;
+            base.parent = null;
             base.child = null;
         }
 
