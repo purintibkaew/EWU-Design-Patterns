@@ -13,6 +13,8 @@ namespace FinalProject
         protected Texture2D sprite;
         protected Vector2 position, velocity;
 
+        protected bool entityIsActive;
+
         protected int speed; //this is temporary, remove when we actually get a stats object here
 
         protected Rectangle boundingBox;
@@ -24,17 +26,49 @@ namespace FinalProject
             this.sprite = sprite;
             this.position = position;
 
-            this.boundingBox = sprite.Bounds;               //hacky and temporary
-            this.boundingBox.Location = new Point((int)position.X, (int)position.Y);    
+            if (sprite != null)
+            {
+                this.boundingBox = sprite.Bounds;               //hacky and temporary
+                this.boundingBox.Location = new Point((int)position.X, (int)position.Y);
+            }
+            else
+                this.boundingBox = new Rectangle();
 
             this.collisionTree = GamePlayLogicManager.GetInstance().CollisionTree;
+
+            this.entityIsActive = true;
         }
+
+        public bool IsActive
+        {
+            get
+            {
+                return entityIsActive;
+            }
+            set
+            {
+                entityIsActive = value;
+            }
+        }
+
 
         public Rectangle BoundingBox
         {
             get
             {
                 return this.boundingBox;
+            }
+        }
+
+        public Vector2 Position
+        {
+            get
+            {
+                return position;
+            }
+            set
+            {
+                position = value;
             }
         }
 
@@ -49,7 +83,8 @@ namespace FinalProject
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, position, Color.White);
+            if(this.IsActive)
+                spriteBatch.Draw(sprite, position, Color.White);
         }
 
         protected bool Collide(Collidable toTest, Vector2 positionOffset)

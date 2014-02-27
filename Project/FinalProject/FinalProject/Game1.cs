@@ -52,7 +52,7 @@ namespace FinalProject
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            state.Init(Content);
+            state.Init(Content, GraphicsDevice);
 
             DebugText.GetInstance().Font = Content.Load<SpriteFont>("ArialFont");
         }
@@ -95,10 +95,9 @@ namespace FinalProject
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            state.Draw(spriteBatch);
 
             spriteBatch.Begin();
-
-            state.Draw(spriteBatch);
             
             // DebugText.Draw needs to be called last so that text can be drawn over everything.
             DebugText.GetInstance().Draw(spriteBatch);

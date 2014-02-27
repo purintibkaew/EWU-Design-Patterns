@@ -21,6 +21,8 @@ namespace FinalProject
 
         private AttackClose testAttack;
 
+        
+
         public PlayerIndex PlayerNum        //return player number for gamepad state checks, look into whether this is necessary if we're getting gamepad state in this object
         {
             get

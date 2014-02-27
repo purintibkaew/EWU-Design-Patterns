@@ -24,6 +24,7 @@ namespace FinalProject
         private GamePlayInputManager inputManager;
         private GamePlayLogicManager logicManager;
         private GamePlayContentManager contentManager;
+        private GamePlayPlayerManager playerManager;
 
         private GamePlayManager()
         {
@@ -31,11 +32,13 @@ namespace FinalProject
             inputManager = GamePlayInputManager.GetInstance();
             logicManager = GamePlayLogicManager.GetInstance();
             contentManager = GamePlayContentManager.GetInstance();
+            playerManager = GamePlayPlayerManager.GetInstance();
         }
 
-        public void Init(ContentManager gameContentManager)
+        public void Init(ContentManager gameContentManager, GraphicsDevice gd)
         {
             contentManager.AddContent(gameContentManager);
+            drawManager.ManagerGraphicsDevice = gd; //consider putting together an init for each manager before loading any content
         }
 
         public void HandleInput()

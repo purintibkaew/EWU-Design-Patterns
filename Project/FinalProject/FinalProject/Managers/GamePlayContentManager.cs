@@ -24,6 +24,7 @@ namespace FinalProject
         private GamePlayDrawManager drawManager;
         private GamePlayInputManager inputManager;
         private GamePlayLogicManager logicManager;
+        private GamePlayPlayerManager playerManager;
 
         private ContentManager gameContentManager;
 
@@ -32,6 +33,7 @@ namespace FinalProject
             drawManager = GamePlayDrawManager.GetInstance();
             inputManager = GamePlayInputManager.GetInstance();
             logicManager = GamePlayLogicManager.GetInstance();
+            playerManager = GamePlayPlayerManager.GetInstance();
         }
 
         public void AddContent(ContentManager cm)
@@ -49,7 +51,8 @@ namespace FinalProject
             map.LoadContent();
 
             //we're going to be doing these calls a lot - consider factory or facade or similar
-            drawManager.Add(player);
+            playerManager.SetPlayer(0, player);
+            drawManager.Add(player, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
             inputManager.Add(player);
             logicManager.AddMovable(player);
             logicManager.AddCollidable(player);

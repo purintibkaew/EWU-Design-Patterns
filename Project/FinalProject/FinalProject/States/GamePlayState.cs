@@ -18,9 +18,9 @@ namespace FinalProject
             gameManager = GamePlayManager.GetInstance();
         }
 
-        public void Init(ContentManager gameContentManager)
+        public void Init(ContentManager gameContentManager, GraphicsDevice gd)
         {
-            gameManager.Init(gameContentManager);
+            gameManager.Init(gameContentManager, gd);
         }
 
         public void HandleInput()
@@ -36,6 +36,11 @@ namespace FinalProject
         public void Draw(SpriteBatch spriteBatch)
         {
             gameManager.Draw(spriteBatch);
+        }
+
+        public void NextState()
+        {
+            //TODO
         }
     }
 }

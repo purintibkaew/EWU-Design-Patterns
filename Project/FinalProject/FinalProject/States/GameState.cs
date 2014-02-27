@@ -11,9 +11,10 @@ namespace FinalProject
 {
     interface GameState
     {
-        void Init(ContentManager gameContentManager);
+        void Init(ContentManager gameContentManager, GraphicsDevice gd);
         void HandleInput();
         void Update();
         void Draw(SpriteBatch spriteBatch);
+        void NextState();
     }
 }
