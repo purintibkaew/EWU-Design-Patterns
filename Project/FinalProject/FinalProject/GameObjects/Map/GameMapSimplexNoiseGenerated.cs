@@ -8,13 +8,7 @@ namespace FinalProject
 {
     class GameMapSimplexNoiseGenerated : GameMap
     {
-        private static readonly int MAX_PRIORITY_LEVEL = 10;
         private float[][] mapPoints;
-
-        /*
-         * Max priority is 0, Min is at MAX_PRIORITY_LEVEL-1
-         */
-        private List<List<Drawable>> drawablesPriorityList;
 
 
         public GameMapSimplexNoiseGenerated(int height, int width)
@@ -25,13 +19,6 @@ namespace FinalProject
             
             for(int i = 0; i < this.mapPoints.Length; i++)
                 this.mapPoints[i] = new float[this.Width / MapEntity.MAP_ENTITY_BASE_SIZE];
-
-            drawablesPriorityList = new List<List<Drawable>>(MAX_PRIORITY_LEVEL);
-
-            for (int i = 0; i < MAX_PRIORITY_LEVEL; i++)
-            {
-                drawablesPriorityList.Add(new List<Drawable>());
-            }
         }
 
         public override void LoadContent()
@@ -46,11 +33,10 @@ namespace FinalProject
                 }
             }
 
-            PopulatePriorityLists();
-            AddContent();
+            PopulateMap();
         }
 
-        private void PopulatePriorityLists()
+        private void PopulateMap()
         {
             MapEntityFactory factory = MapEntityFactory.GetInstance();
             float value = 0.0f;
@@ -64,34 +50,18 @@ namespace FinalProject
 
                     if (value < 0.7)
                     {
-                        AddToPriorityList(MAX_PRIORITY_LEVEL-1, factory.CreateDirtMapEntity(position));
+                        AddToDrawList(factory.CreateDirtMapEntity(position), GamePlayDrawManager.DRAW_LIST_LEVEL.MAP_BACKGROUND);
                     }
                     else if (value < .9)
                     {
-                        AddToPriorityList(MAX_PRIORITY_LEVEL-2, factory.CreateGrassMapEntity(position));
+                        AddToDrawList(factory.CreateGrassMapEntity(position), GamePlayDrawManager.DRAW_LIST_LEVEL.MAP_BACKGROUND);
                     }
                     else if (value < 1)
                     {
                         CollidableMapEntity tree = factory.CreateTreeMapEntity(position);
-                        AddToPriorityList(MAX_PRIORITY_LEVEL-3, tree);
+                        AddToDrawList(tree, GamePlayDrawManager.DRAW_LIST_LEVEL.MAP_FOREGROUND);
                         AddToCollideList(tree);
                     }
-                }
-            }
-        }
-
-        private void AddToPriorityList(int priority, Drawable drawableToAdd)
-        {
-            drawablesPriorityList[priority].Add(drawableToAdd);
-        }
-
-        private void AddContent()
-        {
-            for (int i = drawablesPriorityList.Count - 1; i >= 0; i--)
-            {
-                for (int j = 0; j < drawablesPriorityList[i].Count; j++)
-                {
-                    AddToDrawList(drawablesPriorityList[i][j]);
                 }
             }
         }

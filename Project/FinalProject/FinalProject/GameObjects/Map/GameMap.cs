@@ -48,9 +48,14 @@ namespace FinalProject
 
         public abstract void LoadContent();
 
+        protected void AddToDrawList(Drawable d, GamePlayDrawManager.DRAW_LIST_LEVEL level)
+        {
+            GamePlayDrawManager.GetInstance().Add(d, level);
+        }
+
         protected void AddToDrawList(Drawable d)
         {
-            GamePlayDrawManager.GetInstance().Add(d);
+            GamePlayDrawManager.GetInstance().Add(d, GamePlayDrawManager.DRAW_LIST_LEVEL.MAP_BACKGROUND);
         }
 
         protected void AddToCollideList(Collidable c)

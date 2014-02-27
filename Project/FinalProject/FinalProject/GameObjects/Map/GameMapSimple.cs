@@ -26,7 +26,7 @@ namespace FinalProject
         public override void LoadContent()
         {
             MapEntityFactory factory = MapEntityFactory.GetInstance();
-
+            
             AddToDrawList(factory.CreateDirtMapEntity(new Vector2(0, 0)));
             AddToDrawList(factory.CreateGrassMapEntity(new Vector2(0, 32)));
             AddToDrawList(factory.CreateGrassMapEntity(new Vector2(0, 64)));
