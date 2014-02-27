@@ -58,7 +58,7 @@ namespace FinalProject
             camera.Position = GamePlayPlayerManager.GetInstance().GetPlayerAveragePosition();
 
             //moved spritebatch.begin to here to support camera
-            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, camera.GetCameraTransform(this.gd));
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, camera.GetCameraTransform(this.gd));
 
             //need to draw back to front here
             foreach (List<Drawable> l in drawLists)
