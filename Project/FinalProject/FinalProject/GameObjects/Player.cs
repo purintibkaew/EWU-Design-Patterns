@@ -21,7 +21,15 @@ namespace FinalProject
 
         private AttackClose testAttack;
 
-        
+        private Vector2 playerCenter;
+
+        public Vector2 PlayerCenter
+        {
+            get
+            {
+                return playerCenter;
+            }
+        }
 
         public PlayerIndex PlayerNum        //return player number for gamepad state checks, look into whether this is necessary if we're getting gamepad state in this object
         {
@@ -38,6 +46,9 @@ namespace FinalProject
 
             this.speed = 5;
             this.testAttack = new SimpleAttack(new Rectangle(0, 0, 32, 16), this, 1.5f, 50);
+            
+            if(sprite != null)  //HACK
+                this.playerCenter = new Vector2(sprite.Width / 2, sprite.Height / 2);
         }
 
         public void HandleInput()
@@ -76,18 +87,19 @@ namespace FinalProject
 
         public override void Logic()
         {
+            //Lots of hack here
             DebugText dt = DebugText.GetInstance();
             dt.WriteLine("Initial Velocity: " + velocity);
             dt.WriteLine("Initial Position: " + position);
             
             if (position.X - velocity.X < 0)
                 position.X = 0;
-            else if (position.X + velocity.X + sprite.Width >= GraphicsDeviceManager.DefaultBackBufferWidth)
-                position.X = GraphicsDeviceManager.DefaultBackBufferWidth - sprite.Width;
+            else if (position.X + velocity.X + sprite.Width >= GamePlayLogicManager.GetInstance().MapRect.Width)
+                position.X = GamePlayLogicManager.GetInstance().MapRect.Width - sprite.Width;
             if (position.Y - velocity.Y < 0)
                 position.Y = 0;
-            else if (position.Y + velocity.Y + sprite.Height >= GraphicsDeviceManager.DefaultBackBufferHeight)
-                position.Y = GraphicsDeviceManager.DefaultBackBufferHeight - sprite.Height;
+            else if (position.Y + velocity.Y + sprite.Height >= GamePlayLogicManager.GetInstance().MapRect.Height)
+                position.Y = GamePlayLogicManager.GetInstance().MapRect.Height - sprite.Height;
 
             if(velocity != new Vector2(0, 0))   //small optimization - don't bother checking for collisions if the entity isn't moving
                 HandleCollisions();

@@ -21,11 +21,25 @@ namespace FinalProject
         private List<Movable> updateList;
         private QuadTree<Collidable> collidableEntities;
 
+        private Rectangle mapRect;
+
         public QuadTree<Collidable> CollisionTree
         {
             get
             {
                 return this.collidableEntities;
+            }
+        }
+
+        public Rectangle MapRect
+        {
+            get
+            {
+                return mapRect;
+            }
+            set
+            {
+                mapRect = value;
             }
         }
 
@@ -35,7 +49,13 @@ namespace FinalProject
             Rectangle screenRect = new Rectangle(0, 0, GraphicsDeviceManager.DefaultBackBufferWidth, GraphicsDeviceManager.DefaultBackBufferHeight);
 
             updateList = new List<Movable>();
-            collidableEntities = new QuadTree<Collidable>((x => x.BoundingBox), screenRect);
+            collidableEntities = null;
+        }
+
+        public void CreateCollisionTree(Rectangle r)
+        {
+            mapRect = r;
+            collidableEntities = new QuadTree<Collidable>((x => x.BoundingBox), r);
         }
 
         public void Update()
