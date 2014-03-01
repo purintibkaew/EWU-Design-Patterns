@@ -54,7 +54,7 @@ namespace FinalProject
                 if (p.IsActive)
                 {
                     numActivePlayers++;
-                    toReturn += p.Position;
+                    toReturn += p.Position + p.PlayerCenter;
                 }
             }
 

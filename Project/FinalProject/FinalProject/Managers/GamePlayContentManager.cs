@@ -44,11 +44,16 @@ namespace FinalProject
             MapEntityFactory.LoadSprites(cm);
 
 
-            //temporary hacky player loading, hard coded
-            Player player = new Player(cm.Load<Texture2D>("ship"), new Vector2(50, 50), PlayerIndex.One);
+           
             //temporary hacky map loading, hard coded
             GameMap map = MapFactory.GetInstance().GetSimplexNoiseMap();//.GetSimpleTestMap();
+            logicManager.CreateCollisionTree(new Rectangle(0, 0, map.Width, map.Height));
+
             map.LoadContent();
+
+
+            //temporary hacky player loading, hard coded
+            Player player = new Player(cm.Load<Texture2D>("ship"), new Vector2(50, 50), PlayerIndex.One);
 
             //we're going to be doing these calls a lot - consider factory or facade or similar
             playerManager.SetPlayer(0, player);

@@ -68,10 +68,9 @@ namespace FinalProject
         public Matrix GetCameraTransform(GraphicsDevice gd)
         {
             Matrix toReturn =
-                Matrix.CreateTranslation(new Vector3(-position.X, -position.Y, 0)) *
+                Matrix.CreateTranslation(new Vector3(-position.X + gd.Viewport.Width / 2, -position.Y + gd.Viewport.Height / 2, 0)) *
                 Matrix.CreateRotationZ(rotation) *
-                Matrix.CreateScale(new Vector3(zoom, zoom, 1));// *
-                //Matrix.CreateTranslation(new Vector3(gd.DisplayMode.Width * 0.5f, gd.DisplayMode.Height * 0.5f, 0));
+                Matrix.CreateScale(new Vector3(zoom, zoom, 1));
 
             return toReturn;
         }
