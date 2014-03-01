@@ -41,6 +41,7 @@
     <Compile Include="AI\Running.cs" />
     <Compile Include="AI\Standing.cs" />
     <Compile Include="AI\Walking.cs" />
+    <Compile Include="GameObjects\Map\GameMapForest.cs" />
     <Compile Include="Managers\GamePlayPlayerManager.cs" />
     <Compile Include="Managers\Camera2D.cs" />
     <Compile Include="GameObjects\AttackObjects\AttackClose.cs" />
@@ -110,6 +111,16 @@
     </Content>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
+    <None Include="Content\ArialFont.spritefont" />
+    <None Include="Content\BMOstanding.xnb" />
+    <None Include="Content\Bush1.xnb" />
+    <None Include="Content\Chest.xnb" />
+    <None Include="Content\Dirt.xnb" />
+    <None Include="Content\Grass.xnb" />
+    <None Include="Content\GrassBlades.xnb" />
+    <None Include="Content\Gunterstanding.xnb" />
+    <None Include="Content\IceKingstanding.xnb" />
+    <None Include="Content\Neptrstanding.xnb" />
     <None Include="Content\ship.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -125,6 +136,9 @@
     <Content Include="Content\SimpleTree.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Content\tempsword.xnb" />
+    <None Include="Content\Tree1.xnb" />
+    <None Include="Content\Tree2.xnb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
