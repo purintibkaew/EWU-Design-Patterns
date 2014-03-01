@@ -9,7 +9,10 @@ namespace FinalProject
 {
     class MapEntity : Drawable
     {
-        public static readonly int MAP_ENTITY_BASE_SIZE = 32;
+        /*
+         * Size of the smallest sprite image, this way our map knows how to fill in the playing area
+         */
+        public static readonly int MAP_ENTITY_BASE_SIZE = 16;
  
         private MapEntityData mapEntityData;
         private Vector2 position;

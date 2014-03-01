@@ -6,9 +6,39 @@ using Microsoft.Xna.Framework;
 
 namespace FinalProject
 {
-    public interface GameObject
+    abstract class GameObject : Collidable
     {
-        void Add();
-        void Remove();
+        protected Vector2 position;
+        protected Rectangle boundingBox;
+
+
+        public Vector2 Position
+        {
+            get
+            {
+                return position;
+            }
+            set
+            {
+                position = value;
+            }
+        }
+
+        public Rectangle BoundingBox
+        {
+            get
+            {
+                return this.boundingBox;
+            }
+        }
+
+        public GameObject(Vector2 position)
+        {
+            this.position = position;
+        }
+
+        public abstract void Logic();
+
+        public abstract void Hit(int amount, int type);
     }
 }

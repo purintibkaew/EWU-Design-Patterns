@@ -8,23 +8,20 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FinalProject
 {
-    abstract class MobileEntity: Drawable, Movable, Collidable
+    abstract class MobileEntity: GameObject, Drawable, Movable, Collidable
     {
         protected Texture2D sprite;
-        protected Vector2 position, velocity;
+        protected Vector2 velocity;
+        protected QuadTree<Collidable> collisionTree; //reference to the collision tree for easy access
 
         protected bool entityIsActive;
 
         protected int speed; //this is temporary, remove when we actually get a stats object here
 
-        protected Rectangle boundingBox;
 
-        protected QuadTree<Collidable> collisionTree; //reference to the collision tree for easy access
-
-        protected MobileEntity(Texture2D sprite, Vector2 position)
+        protected MobileEntity(Texture2D sprite, Vector2 position) : base(position)
         {
             this.sprite = sprite;
-            this.position = position;
 
             if (sprite != null)
             {
@@ -50,29 +47,6 @@ namespace FinalProject
                 entityIsActive = value;
             }
         }
-
-
-        public Rectangle BoundingBox
-        {
-            get
-            {
-                return this.boundingBox;
-            }
-        }
-
-        public Vector2 Position
-        {
-            get
-            {
-                return position;
-            }
-            set
-            {
-                position = value;
-            }
-        }
-
-        public abstract void Logic();
 
         public abstract void CheckStatus();
 
@@ -169,7 +143,5 @@ namespace FinalProject
                 }
             }
         }
-
-        public abstract void Hit(int amount, int type);
     }
 }
