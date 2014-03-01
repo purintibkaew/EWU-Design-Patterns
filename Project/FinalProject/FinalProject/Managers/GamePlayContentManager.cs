@@ -46,7 +46,7 @@ namespace FinalProject
 
            
             //temporary hacky map loading, hard coded
-            GameMap map = MapFactory.GetInstance().GetSimplexNoiseMap();//.GetSimpleTestMap();
+            GameMap map = MapFactory.GetInstance().GetMap(MapFactory.MAPS.FOREST_PATH);
             logicManager.CreateCollisionTree(new Rectangle(0, 0, map.Width, map.Height));
 
             map.LoadContent();
