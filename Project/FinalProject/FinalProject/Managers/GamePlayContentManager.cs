@@ -53,7 +53,7 @@ namespace FinalProject
 
 
             //temporary hacky player loading, hard coded
-            Player player = new Player(cm.Load<Texture2D>("ship"), new Vector2(250, 250), PlayerIndex.One);
+            Player player = new Player(cm.Load<Texture2D>("Entities/Characters/BMOStanding"), map.MapInfo.Spawn, PlayerIndex.One);
 
             //we're going to be doing these calls a lot - consider factory or facade or similar
             playerManager.SetPlayer(0, player);

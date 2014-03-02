@@ -10,9 +10,12 @@ namespace FinalProject
 {
     class MapEntityFactory
     {
-        private static Texture2D spriteGrass, spriteDirt, spriteTree;
+        private static Texture2D spriteGrass, spriteDirt, spriteTreeLarge, spriteTreeSmall, spriteGrassBlades, spriteBush, spriteChest;
 
         private static MapEntityFactory instance = new MapEntityFactory();
+
+        public enum MAP_ENTITY { DIRT = 1, GRASS = 2, GRASS_BLADES = 3, BUSH = 4, TREE_LARGE = 5, TREE_SMALL = 6, CHEST = 7 };
+
 
         private MapEntityFactory() { }
 
@@ -23,30 +26,80 @@ namespace FinalProject
 
         public static void LoadSprites(ContentManager cm)
         {
-            spriteGrass = cm.Load<Texture2D>("SimpleGrass");
-            spriteDirt = cm.Load<Texture2D>("SimpleDirt");
-            spriteTree = cm.Load<Texture2D>("SimpleTree");
+            spriteGrass = cm.Load<Texture2D>("Entities/Map/Grass");
+            spriteDirt = cm.Load<Texture2D>("Entities/Map/Dirt");
+            spriteTreeLarge = cm.Load<Texture2D>("Entities/Map/TreeLarge");
+            spriteTreeSmall = cm.Load <Texture2D>("Entities/Map/TreeSmall");
+            spriteGrassBlades = cm.Load <Texture2D>("Entities/Map/GrassBlades");
+            spriteBush = cm.Load<Texture2D>("Entities/Map/Bush");
+            spriteChest = cm.Load<Texture2D>("Entities/Map/Chest");
         }
 
-        public MapEntity CreateGrassMapEntity(Vector2 position)
+        public MapEntity CreateMapEntity(MAP_ENTITY type, Vector2 position)
         {
-            MapEntityData data = CreateMapEntityData(spriteGrass);
-            MapEntity grass = new MapEntity(data, position);
-            return grass;
+            switch (type)
+            {
+                case MAP_ENTITY.DIRT:
+                    return CreateDirtMapEntity(position);
+                case MAP_ENTITY.GRASS:
+                    return CreateGrassMapEntity(position);
+                case MAP_ENTITY.GRASS_BLADES:
+                    return CreateGrassBladesMapEntity(position);
+                default:
+                    throw new NotImplementedException();
+            }
         }
 
-        public MapEntity CreateDirtMapEntity(Vector2 position)
+        public CollidableMapEntity CreateCollidableMapEntity(MAP_ENTITY type, Vector2 position)
         {
-            MapEntityData data = CreateMapEntityData(spriteDirt);
-            MapEntity dirt = new MapEntity(data, position);
-            return dirt;
+            switch (type)
+            {
+                case MAP_ENTITY.TREE_LARGE:
+                    return CreateTreeLargeMapEntity(position);
+                case MAP_ENTITY.TREE_SMALL:
+                    return CreateTreeSmallMapEntity(position);
+                case MAP_ENTITY.BUSH:
+                    return CreateBushMapEntity(position);
+                case MAP_ENTITY.CHEST:
+                    return CreateChestMapEntity(position);
+                default:
+                    throw new NotImplementedException();
+            }
         }
 
-        public CollidableMapEntity CreateTreeMapEntity(Vector2 position)
+        private MapEntity CreateGrassMapEntity(Vector2 position)
         {
-            MapEntityData data = CreateMapEntityData(spriteTree);
-            CollidableMapEntity tree = new CollidableMapEntity(data, position);
-            return tree;
+            return new MapEntity(CreateMapEntityData(spriteGrass), position);
+        }
+
+        private MapEntity CreateGrassBladesMapEntity(Vector2 position)
+        {
+            return new MapEntity(CreateMapEntityData(spriteGrassBlades), position);
+        }
+
+        private MapEntity CreateDirtMapEntity(Vector2 position)
+        {
+            return new MapEntity(CreateMapEntityData(spriteDirt), position);
+        }
+
+        private CollidableMapEntity CreateTreeLargeMapEntity(Vector2 position)
+        {
+            return new CollidableMapEntity(CreateMapEntityData(spriteTreeLarge), position);
+        }
+
+        private CollidableMapEntity CreateTreeSmallMapEntity(Vector2 position)
+        {
+            return new CollidableMapEntity(CreateMapEntityData(spriteTreeSmall), position);
+        }
+
+        private CollidableMapEntity CreateBushMapEntity(Vector2 position)
+        {
+            return new CollidableMapEntity(CreateMapEntityData(spriteBush), position);
+        }
+
+        private CollidableMapEntity CreateChestMapEntity(Vector2 position)
+        {
+            return new CollidableMapEntity(CreateMapEntityData(spriteChest), position);
         }
 
         private MapEntityData CreateMapEntityData(Texture2D texture)

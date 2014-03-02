@@ -16,16 +16,12 @@ namespace FinalProject
             return instance;
         }
 
-        public enum MAPS { SIMPLE = 0, RANDOM_FOREST = 1, FOREST_PATH = 2 };
+        public enum MAPS { FOREST_PATH = 0 };
 
         public GameMap GetMap(MAPS map_type)
         {
             switch(map_type)
             {
-                case MAPS.SIMPLE:
-                    return new GameMapSimple();
-                case MAPS.RANDOM_FOREST:
-                    return new GameMapSimplexNoiseGenerated(1024, 1024);
                 case MAPS.FOREST_PATH:
                     return new GameMapForest(1024, 1024);
                 default:

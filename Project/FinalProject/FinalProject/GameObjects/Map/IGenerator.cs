@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FinalProject
 {
-    interface Generator
+    interface IGenerator
     {
         float GetValue(int x, int y, int z);
     }

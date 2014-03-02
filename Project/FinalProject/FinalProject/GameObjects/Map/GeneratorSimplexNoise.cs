@@ -29,7 +29,7 @@ using System;
 
 namespace FinalProject
 {
-    public class GeneratorSimplexNoise : Generator
+    public class GeneratorSimplexNoise : IGenerator
     {
         public double XScale = 0.02;
         public double YScale = 0.02;

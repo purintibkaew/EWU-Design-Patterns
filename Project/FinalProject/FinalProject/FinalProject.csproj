@@ -43,6 +43,7 @@
     <Compile Include="AI\Standing.cs" />
     <Compile Include="AI\Walking.cs" />
     <Compile Include="GameObjects\Map\GameMapForest.cs" />
+    <Compile Include="GameObjects\Map\MapData.cs" />
     <Compile Include="Managers\GamePlayPlayerManager.cs" />
     <Compile Include="Managers\Camera2D.cs" />
     <Compile Include="GameObjects\AttackObjects\AttackClose.cs" />
@@ -54,9 +55,7 @@
     <Compile Include="Factories\ItemFactory.cs" />
     <Compile Include="GameObjects\Map\CollidableMapEntity.cs" />
     <Compile Include="GameObjects\Map\GameMap.cs" />
-    <Compile Include="GameObjects\Map\GameMapSimple.cs" />
-    <Compile Include="GameObjects\Map\GameMapSimplexNoiseGenerated.cs" />
-    <Compile Include="GameObjects\Map\Generator.cs" />
+    <Compile Include="GameObjects\Map\IGenerator.cs" />
     <Compile Include="GameObjects\Map\GeneratorSimplexNoise.cs" />
     <Compile Include="GameObjects\Map\MapEntity.cs" />
     <Compile Include="GameObjects\Map\MapEntityData.cs" />
@@ -106,39 +105,60 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Content\ArialFont.xnb">
+    <Content Include="Content\Fonts\ArialFont.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
-    <None Include="Content\ArialFont.spritefont" />
-    <None Include="Content\BMOstanding.xnb" />
-    <None Include="Content\Bush1.xnb" />
-    <None Include="Content\Chest.xnb" />
-    <None Include="Content\Dirt.xnb" />
-    <None Include="Content\Grass.xnb" />
-    <None Include="Content\GrassBlades.xnb" />
-    <None Include="Content\Gunterstanding.xnb" />
-    <None Include="Content\IceKingstanding.xnb" />
-    <None Include="Content\Neptrstanding.xnb" />
-    <None Include="Content\ship.xnb">
+    <Content Include="Content\Entities\Characters\BMOstanding.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Entities\Map\Bush.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Entities\Map\Chest.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Entities\Map\Dirt.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Entities\Map\Grass.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Entities\Map\GrassBlades.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Entities\Characters\Gunterstanding.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Entities\Characters\IceKingstanding.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Entities\Characters\Neptrstanding.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Content\TempSprites\ship.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="Content\SimpleChest.xnb">
+    <Content Include="Content\TempSprites\SimpleChest.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\SimpleDirt.xnb">
+    <Content Include="Content\TempSprites\SimpleDirt.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\SimpleGrass.xnb">
+    <Content Include="Content\TempSprites\SimpleGrass.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\SimpleTree.xnb">
+    <Content Include="Content\TempSprites\SimpleTree.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Content\tempsword.xnb" />
-    <None Include="Content\Tree1.xnb" />
-    <None Include="Content\Tree2.xnb" />
+    <None Include="Content\TempSprites\tempsword.xnb" />
+    <Content Include="Content\Entities\Map\TreeSmall.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Entities\Map\TreeLarge.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
