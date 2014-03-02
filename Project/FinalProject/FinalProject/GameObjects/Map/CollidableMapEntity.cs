@@ -42,7 +42,7 @@ namespace FinalProject
 
         public override void Logic()
         {
-            //throw new NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

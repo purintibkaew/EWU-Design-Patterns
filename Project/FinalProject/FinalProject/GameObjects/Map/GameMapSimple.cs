@@ -19,8 +19,8 @@ namespace FinalProject
     {
         public GameMapSimple()
         {
-            this.Height = 128;
-            this.Width = 128;
+            this.Height = 256;
+            this.Width = 256;
         }
 
         public override void LoadContent()
@@ -42,8 +42,12 @@ namespace FinalProject
             AddToDrawList(factory.CreateGrassMapEntity(new Vector2(64, 64)));
             AddToDrawList(factory.CreateGrassMapEntity(new Vector2(64, 96)));
 
-            AddToDrawList(factory.CreateTreeMapEntity(new Vector2(96, 0)));
-            AddToDrawList(factory.CreateTreeMapEntity(new Vector2(96, 128)));
+            CollidableMapEntity tree = factory.CreateTreeMapEntity(new Vector2(96, 0));
+            AddToDrawList(tree);
+            AddToCollideList(tree);
+            tree = factory.CreateTreeMapEntity(new Vector2(96, 128));
+            AddToDrawList(tree);
+            AddToCollideList(tree);
         }
     }
 }

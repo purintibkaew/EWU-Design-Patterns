@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FinalProject
 {
-    abstract class MobileEntity: GameObject, Drawable, Movable, Collidable
+    abstract class MobileEntity: GameObject, Drawable, Movable
     {
         protected Texture2D sprite;
         protected Vector2 velocity;
@@ -28,6 +28,10 @@ namespace FinalProject
             {
                 this.boundingBox = sprite.Bounds;               //hacky and temporary
                 this.boundingBox.Location = new Point((int)position.X, (int)position.Y);
+            }
+            else
+            {
+                this.boundingBox = new Rectangle();
             }
 
             this.collisionTree = GamePlayLogicManager.GetInstance().CollisionTree;
