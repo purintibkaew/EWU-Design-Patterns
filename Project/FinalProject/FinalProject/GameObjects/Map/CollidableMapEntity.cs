@@ -7,7 +7,7 @@ using System.Text;
 
 namespace FinalProject
 {
-    class CollidableMapEntity : MobileEntity
+    class CollidableMapEntity : GameObject, Drawable
     {
         private Rectangle boundingBox;
 
@@ -22,7 +22,7 @@ namespace FinalProject
             }
         }
 
-        public CollidableMapEntity(MapEntityData mapEntityData, Vector2 position) : base(mapEntityData.Sprite, position) // a tree shouldn't be a mobile entity
+        public CollidableMapEntity(MapEntityData mapEntityData, Vector2 position)
         {
             this.mapEntityData = mapEntityData;
             this.position = position;
@@ -41,11 +41,6 @@ namespace FinalProject
         }
 
         public override void Logic()
-        {
-            //throw new NotImplementedException();
-        }
-
-        public override void CheckStatus()
         {
             //throw new NotImplementedException();
         }

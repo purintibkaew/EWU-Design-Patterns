@@ -32,11 +32,6 @@ namespace FinalProject
             }
         }
 
-        public GameObject(Vector2 position)
-        {
-            this.position = position;
-        }
-
         public abstract void Logic();
 
         public abstract void Hit(int amount, int type);

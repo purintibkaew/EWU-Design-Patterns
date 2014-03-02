@@ -19,17 +19,16 @@ namespace FinalProject
         protected int speed; //this is temporary, remove when we actually get a stats object here
 
 
-        protected MobileEntity(Texture2D sprite, Vector2 position) : base(position)
+        protected MobileEntity(Texture2D sprite, Vector2 position)
         {
             this.sprite = sprite;
+            this.position = position;
 
             if (sprite != null)
             {
                 this.boundingBox = sprite.Bounds;               //hacky and temporary
                 this.boundingBox.Location = new Point((int)position.X, (int)position.Y);
             }
-            else
-                this.boundingBox = new Rectangle();
 
             this.collisionTree = GamePlayLogicManager.GetInstance().CollisionTree;
 
