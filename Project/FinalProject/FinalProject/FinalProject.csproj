@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -48,7 +49,6 @@
     <Compile Include="DebugText.cs" />
     <Compile Include="Factories\MapEntityFactory.cs" />
     <Compile Include="Factories\MapFactory.cs" />
-    <Compile Include="GameObjects\CollidableTestObject.cs" />
     <Compile Include="GameObjects\Items\DroppedItem.cs" />
     <Compile Include="GameObjects\Items\Item.cs" />
     <Compile Include="Factories\ItemFactory.cs" />

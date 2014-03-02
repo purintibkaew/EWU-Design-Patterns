@@ -7,7 +7,7 @@ using System.Text;
 
 namespace FinalProject
 {
-    class CollidableMapEntity : GameObject, Drawable
+    class CollidableMapEntity : Collidable, Drawable
     {
         private Rectangle boundingBox;
 
@@ -26,8 +26,16 @@ namespace FinalProject
         {
             this.mapEntityData = mapEntityData;
             this.position = position;
-            this.boundingBox = mapEntityData.Sprite.Bounds;                         //the bounding box can be set to (temporarily, at least) the sprite bounding rectangle
-            this.boundingBox.Location = new Point((int)position.X, (int)position.Y);//then need to move to the actual position, since the sprite is technically at (0, 0)
+
+            if (mapEntityData.Sprite != null)
+            {
+                this.boundingBox = mapEntityData.Sprite.Bounds;                         //the bounding box can be set to (temporarily, at least) the sprite bounding rectangle
+                this.boundingBox.Location = new Point((int)position.X, (int)position.Y);//then need to move to the actual position, since the sprite is technically at (0, 0)
+            }
+            else
+            {
+                this.boundingBox = new Rectangle();
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -35,12 +43,7 @@ namespace FinalProject
             spriteBatch.Draw(mapEntityData.Sprite, position, Color.White);
         }
 
-        public override void Hit(int amount, int type)
-        {
-            
-        }
-
-        public override void Logic()
+        public void Hit(int amount, int type)
         {
             throw new NotImplementedException();
         }
