@@ -10,8 +10,6 @@ namespace FinalProject
 {
     abstract class MobileEntity: GameObject, Drawable, Movable, Collidable
     {
-        private static readonly float ORIENTATION_OFFSET = -1.5707f;
-
         protected Texture2D sprite;
         protected Vector2 velocity;
         protected QuadTree<Collidable> collisionTree; //reference to the collision tree for easy access
@@ -20,18 +18,11 @@ namespace FinalProject
 
         protected int speed; //this is temporary, remove when we actually get a stats object here
         protected Rectangle boundingBox;
-        protected float orientation;
-        protected Vector2 spriteOrigin;
+
 
         public Rectangle BoundingBox
         {
             get { return this.boundingBox; }
-        }
-
-        public float Orientation
-        {
-            get { return this.orientation; }
-            set { this.orientation = value; }
         }
 
         public bool IsActive
@@ -64,10 +55,6 @@ namespace FinalProject
             this.collisionTree = GamePlayLogicManager.GetInstance().CollisionTree;
 
             this.entityIsActive = true;
-            this.orientation = 0;
-
-            if(sprite != null)
-                this.spriteOrigin = new Vector2(sprite.Width / 2, sprite.Height / 2);
         }
 
         public abstract void CheckStatus();
@@ -79,11 +66,9 @@ namespace FinalProject
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Vector2 actualPosition = new Vector2(position.X + spriteOrigin.X, position.Y + spriteOrigin.Y);
-
             if (this.IsActive)
             {
-                spriteBatch.Draw(sprite, actualPosition, null, Color.White, orientation + ORIENTATION_OFFSET, spriteOrigin, 1.0f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(sprite, position, Color.White);
             }
         }
 
