@@ -71,7 +71,7 @@ namespace FinalProject
 
             orientation = (float)(Math.Atan2(position.Y-(ms.Y), position.X-(ms.X)));
             DebugText.GetInstance().WriteLine("mouse x:" + ms.X + " y:" + ms.Y);
-
+            
             //basic state handling for attack - hacky, change later
             if (kb.IsKeyDown(Keys.Space))
             {

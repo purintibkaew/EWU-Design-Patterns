@@ -11,6 +11,7 @@ namespace FinalProject
 {
     class GamePlayState : GameState
     {
+        private Game1 game;
         private GamePlayManager gameManager; 
 
         public GamePlayState()
@@ -18,9 +19,10 @@ namespace FinalProject
             gameManager = GamePlayManager.GetInstance();
         }
 
-        public void Init(ContentManager gameContentManager, GraphicsDevice gd)
+        public void Init(Game1 game, ContentManager gameContentManager, GraphicsDevice gd)
         {
             gameManager.Init(gameContentManager, gd);
+            this.game = game;
         }
 
         public void HandleInput()
@@ -40,7 +42,7 @@ namespace FinalProject
 
         public void NextState()
         {
-            //TODO
+            // TO DO
         }
     }
 }

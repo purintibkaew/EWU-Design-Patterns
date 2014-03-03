@@ -9,9 +9,9 @@ using Microsoft.Xna.Framework.Content;
 
 namespace FinalProject
 {
-    interface GameState
+    public interface GameState
     {
-        void Init(ContentManager gameContentManager, GraphicsDevice gd);
+        void Init(Game1 game, ContentManager gameContentManager, GraphicsDevice gd);
         void HandleInput();
         void Update();
         void Draw(SpriteBatch spriteBatch);

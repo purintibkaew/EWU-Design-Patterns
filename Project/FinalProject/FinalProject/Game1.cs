@@ -19,7 +19,9 @@ namespace FinalProject
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        GameState state;
+        private GameState state;
+
+        public GameState State { set { this.state = value; } }
 
         public Game1()
             : base()
@@ -52,7 +54,7 @@ namespace FinalProject
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            state.Init(Content, GraphicsDevice);
+            state.Init(this, Content, GraphicsDevice);
 
             DebugText.GetInstance().Font = Content.Load<SpriteFont>("Fonts/ArialFont");
         }
