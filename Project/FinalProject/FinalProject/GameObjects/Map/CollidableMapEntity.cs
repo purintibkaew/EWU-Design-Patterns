@@ -7,7 +7,7 @@ using System.Text;
 
 namespace FinalProject
 {
-    class CollidableMapEntity : Collidable, Drawable
+    class CollidableMapEntity : MapEntity, Collidable
     {
         private Rectangle boundingBox;
 
@@ -22,11 +22,8 @@ namespace FinalProject
             }
         }
 
-        public CollidableMapEntity(MapEntityData mapEntityData, Vector2 position)
+        public CollidableMapEntity(MapEntityData mapEntityData, Vector2 position) : base(mapEntityData, position)
         {
-            this.mapEntityData = mapEntityData;
-            this.position = position;
-
             if (mapEntityData.Sprite != null)
             {
                 this.boundingBox = mapEntityData.Sprite.Bounds;                         //the bounding box can be set to (temporarily, at least) the sprite bounding rectangle
