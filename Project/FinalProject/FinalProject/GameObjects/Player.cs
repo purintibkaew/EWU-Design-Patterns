@@ -55,6 +55,7 @@ namespace FinalProject
         {
             KeyboardState kb = Keyboard.GetState();         //these state checks might be moved, but they should work just fine here
             GamePadState gp = GamePad.GetState(playerNum);
+            MouseState ms = Mouse.GetState();
 
             velocity.X = velocity.Y = 0;
 
@@ -66,6 +67,10 @@ namespace FinalProject
                 velocity.X += speed;
             if (kb.IsKeyDown(Keys.A))
                 velocity.X -= speed;
+
+
+            orientation = (float)(Math.Atan2(position.Y-(ms.Y), position.X-(ms.X)));
+            DebugText.GetInstance().WriteLine("mouse x:" + ms.X + " y:" + ms.Y);
 
             //basic state handling for attack - hacky, change later
             if (kb.IsKeyDown(Keys.Space))
