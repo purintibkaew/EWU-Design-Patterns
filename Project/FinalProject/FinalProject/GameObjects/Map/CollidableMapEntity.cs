@@ -12,7 +12,6 @@ namespace FinalProject
         private Rectangle boundingBox;
 
         private MapEntityData mapEntityData;
-        private Vector2 position;
 
         public Rectangle BoundingBox
         {
@@ -21,6 +20,7 @@ namespace FinalProject
                 return this.boundingBox;
             }
         }
+
 
         public CollidableMapEntity(MapEntityData mapEntityData, Vector2 position) : base(mapEntityData, position)
         {

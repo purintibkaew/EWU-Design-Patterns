@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FinalProject
 {
-    abstract class MobileEntity: GameObject, Drawable, Movable, Collidable
+    abstract class MobileEntity: Drawable, Movable, Collidable
     {
         protected Texture2D sprite;
         protected Vector2 velocity;
@@ -18,7 +18,9 @@ namespace FinalProject
 
         protected int speed; //this is temporary, remove when we actually get a stats object here
         protected Rectangle boundingBox;
+        protected Vector2 position;
 
+        public Vector2 Position { set { position = value; } get { return position; } }
 
         public Rectangle BoundingBox
         {
