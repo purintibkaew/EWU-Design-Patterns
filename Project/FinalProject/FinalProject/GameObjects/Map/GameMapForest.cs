@@ -10,6 +10,7 @@ namespace FinalProject
     {
         private float[][] mapPoints;
         private readonly static int BORDER_WIDTH = 5;
+        private readonly static int CLEAR_AREA_LENGTH = 5;
 
         public GameMapForest(int height, int width)
         {
@@ -49,7 +50,7 @@ namespace FinalProject
             Random rand = new Random();
             int min = BORDER_WIDTH * BORDER_WIDTH * MapEntity.MAP_ENTITY_BASE_SIZE;
 
-            return new Vector2(rand.Next(min, Width - min) / 2, rand.Next(min, Height - min) / 2);
+            return new Vector2(rand.Next(min + CLEAR_AREA_LENGTH, Width - min - CLEAR_AREA_LENGTH) / 2, rand.Next(min + CLEAR_AREA_LENGTH, Height - min - CLEAR_AREA_LENGTH) / 2);
         }
 
         private Vector2 CreateEndPoint()
@@ -57,7 +58,7 @@ namespace FinalProject
             Random rand = new Random();
             int min = BORDER_WIDTH * BORDER_WIDTH * MapEntity.MAP_ENTITY_BASE_SIZE;
 
-            return new Vector2(rand.Next(min, Width - min) * 1.5f, rand.Next(min, Height - min) * 1.5f);            
+            return new Vector2(rand.Next(min + CLEAR_AREA_LENGTH, Width - min - CLEAR_AREA_LENGTH) * 1.5f, rand.Next(min + CLEAR_AREA_LENGTH, Height - min - CLEAR_AREA_LENGTH) * 1.5f);            
         }
 
         private void CreatePathFromStartToEnd()
@@ -75,11 +76,10 @@ namespace FinalProject
             int x = point[0];
             int y = point[1];
             float spawnValue = 0f;
-            int clearLength = 5;
 
-            for(int i = x - clearLength / 2; i < x + clearLength; i++)
+            for(int i = x - CLEAR_AREA_LENGTH / 2; i < x + CLEAR_AREA_LENGTH; i++)
             {
-                for(int j = y - clearLength / 2; j < y + clearLength; j++)
+                for(int j = y - CLEAR_AREA_LENGTH / 2; j < y + CLEAR_AREA_LENGTH; j++)
                 {
                     this.mapPoints[i][j] = spawnValue;
                 }
