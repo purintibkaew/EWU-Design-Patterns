@@ -33,7 +33,7 @@ namespace FinalProject
             }
         }
 
-        public enum DRAW_LIST_LEVEL { MAP_BACKGROUND = 0, MAP_FOREGROUND = 1, ENTITY = 2, PROJECTILE = 3 };
+        public enum DRAW_LIST_LEVEL { MAP_BACKGROUND = 0, MAP_TOPOFBACKGROUND = 1, MAP_FOREGROUND = 2, ENTITY = 3, PROJECTILE = 4 };
 
         private GamePlayDrawManager()
         {
@@ -46,7 +46,7 @@ namespace FinalProject
              * 2 - Entities - Players, monsters, etc
              * 3 - Projectiles, effects, maybe items, etc
              */
-            drawLists = new List<Drawable> [4];
+            drawLists = new List<Drawable> [5];
 
             for (int i = 0; i < drawLists.Length; i++ ) //need to instantiate every list in the array.
             {
