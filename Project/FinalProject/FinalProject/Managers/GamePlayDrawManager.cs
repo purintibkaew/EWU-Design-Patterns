@@ -9,7 +9,9 @@ namespace FinalProject
 {
     class GamePlayDrawManager
     {
+        private static readonly int SCREEN_OFFSET = 100;
         private static GamePlayDrawManager instance;
+
 
         public static GamePlayDrawManager GetInstance()
         {
@@ -60,12 +62,25 @@ namespace FinalProject
             //moved spritebatch.begin to here to support camera
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, camera.GetCameraTransform(this.gd));
 
+            int screenWidthDivideBy2 = GraphicsDeviceManager.DefaultBackBufferWidth / 2;
+            int screenHeightDivideBy2 = GraphicsDeviceManager.DefaultBackBufferHeight / 2;
+
+            Rectangle drawableRect = new Rectangle();
+            Rectangle screenRect = new Rectangle((int)(camera.Position.X - screenWidthDivideBy2 - SCREEN_OFFSET),
+                                                 (int)(camera.Position.Y - screenHeightDivideBy2 - SCREEN_OFFSET),
+                                                 GraphicsDeviceManager.DefaultBackBufferWidth + SCREEN_OFFSET,
+                                                 GraphicsDeviceManager.DefaultBackBufferHeight + SCREEN_OFFSET);
+
             //need to draw back to front here
             foreach (List<Drawable> l in drawLists)
             {
                 foreach (Drawable d in l)
                 {
-                    d.Draw(spriteBatch);
+                    drawableRect.X = (int) d.Position.X;
+                    drawableRect.Y = (int) d.Position.Y;
+
+                    if(drawableRect.Intersects(screenRect) || screenRect.Contains(drawableRect) || drawableRect.Contains(screenRect))
+                        d.Draw(spriteBatch);
                 }
             }
 
