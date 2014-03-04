@@ -63,18 +63,11 @@ namespace FinalProject
         private void CreatePathFromStartToEnd()
         {
             Random rand = new Random();
-            int[] curr = new int[] { (int) this.mapData.Spawn.X / MapEntity.MAP_ENTITY_BASE_SIZE, (int) this.mapData.Spawn.Y / MapEntity.MAP_ENTITY_BASE_SIZE},
-                    end = new int[] { (int) this.mapData.End.X / MapEntity.MAP_ENTITY_BASE_SIZE, (int) this.mapData.End.Y / MapEntity.MAP_ENTITY_BASE_SIZE};
-
-            int val = 0;
+            int[] curr = new int[] { (int)this.mapData.Spawn.X / MapEntity.MAP_ENTITY_BASE_SIZE, (int)this.mapData.Spawn.Y / MapEntity.MAP_ENTITY_BASE_SIZE },
+                    end = new int[] { (int)this.mapData.End.X / MapEntity.MAP_ENTITY_BASE_SIZE, (int)this.mapData.End.Y / MapEntity.MAP_ENTITY_BASE_SIZE };
 
             ClearAnOpenPath(curr);
             ClearAnOpenPath(end);
-
-            //while(!(Math.Abs(curr[0] - end[0]) < 2 && Math.Abs(curr[1] - end[1]) < 2))
-            //{
-                
-            //}
         }
 
         private void ClearAnOpenPath(int[] point)

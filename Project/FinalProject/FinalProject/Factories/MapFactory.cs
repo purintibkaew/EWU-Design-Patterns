@@ -23,7 +23,7 @@ namespace FinalProject
             switch(map_type)
             {
                 case MAPS.FOREST_PATH:
-                    return new GameMapForest(1024, 1024);
+                    return new GameMapForest(2000, 2000);
                 default:
                     throw new NotImplementedException();
             }
