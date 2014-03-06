@@ -55,7 +55,7 @@ namespace FinalProject
             {
                 addStatModifier(loot, (effectType)rand.Next(4));
             }
-            loot.Stats = new headStat(null, loot.Stats);
+            loot.Stats = new HeadStat(null, loot.Stats);
 
             return loot;
         }
@@ -70,7 +70,7 @@ namespace FinalProject
             {
                 addStatModifier(loot, (effectType)rand.Next(4));
             }
-            loot.Stats = new headStat(null, loot.Stats);
+            loot.Stats = new HeadStat(null, loot.Stats);
 
             return loot;
         }
@@ -115,7 +115,7 @@ namespace FinalProject
                     break;
             }
             GamePlayContentManager cm = GamePlayContentManager.GetInstance();
-            return new Item(null, name, basestat);
+            return new Weapon(null, name, basestat);
         }
 
         private void addStatModifier(Item item, effectType effect)

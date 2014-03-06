@@ -5,10 +5,10 @@ using System.Text;
 
 namespace FinalProject
 {
-    class headStat : Stats
+    class HeadStat : Stats
     {
         private Stats inner;
-        public headStat(Stats parent):base(0,0,0)
+        public HeadStat(Stats parent):base(0,0,0)
         {
             if(parent != null){
                 base.parent = parent;
@@ -18,7 +18,7 @@ namespace FinalProject
             }
         }
 
-        public headStat(Stats parent, Stats inner)
+        public HeadStat(Stats parent, Stats inner)
             : base(0, 0, 0)
         {
             if (parent != null)

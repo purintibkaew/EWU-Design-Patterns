@@ -57,7 +57,7 @@ namespace FinalProject
         public void Draw(SpriteBatch spriteBatch)
         {
             //update camera position to the average of the positions of all players
-            camera.Position = GamePlayPlayerManager.GetInstance().GetPlayerAveragePosition();
+            camera.Position = PlayerManager.GetInstance().GetPlayerAveragePosition();
 
             //moved spritebatch.begin to here to support camera
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, camera.GetCameraTransform(this.gd));

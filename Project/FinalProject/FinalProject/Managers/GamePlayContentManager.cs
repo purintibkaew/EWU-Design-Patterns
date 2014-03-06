@@ -24,7 +24,7 @@ namespace FinalProject
         private GamePlayDrawManager drawManager;
         private GamePlayInputManager inputManager;
         private GamePlayLogicManager logicManager;
-        private GamePlayPlayerManager playerManager;
+        private PlayerManager playerManager;
 
         private ContentManager gameContentManager;
 
@@ -33,7 +33,7 @@ namespace FinalProject
             drawManager = GamePlayDrawManager.GetInstance();
             inputManager = GamePlayInputManager.GetInstance();
             logicManager = GamePlayLogicManager.GetInstance();
-            playerManager = GamePlayPlayerManager.GetInstance();
+            playerManager = PlayerManager.GetInstance();
         }
 
         public void AddContent(ContentManager cm)
@@ -53,7 +53,7 @@ namespace FinalProject
 
 
             //temporary hacky player loading, hard coded
-            Player player = new Player(cm.Load<Texture2D>("Entities/Characters/BMOStanding"), map.MapInfo.Spawn, PlayerIndex.One);
+            Player player = new Player(cm.Load<Texture2D>("Entities/Characters/BMOStanding"), map.MapInfo.Spawn, PlayerIndex.One, new BaseStats(10, 10, 5));
 
             //we're going to be doing these calls a lot - consider factory or facade or similar
             playerManager.SetPlayer(0, player);

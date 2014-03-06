@@ -42,7 +42,7 @@ namespace FinalProject
 
         public void Hit(int amount, int type)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

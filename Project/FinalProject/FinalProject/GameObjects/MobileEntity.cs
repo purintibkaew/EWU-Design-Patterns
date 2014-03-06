@@ -16,9 +16,11 @@ namespace FinalProject
 
         protected bool entityIsActive;
 
-        protected int speed; //this is temporary, remove when we actually get a stats object here
         protected Rectangle boundingBox;
         protected Vector2 position;
+
+        protected Stats entStats;
+        protected Inventory entInv;
 
         public Vector2 Position { set { position = value; } get { return position; } }
 
@@ -39,7 +41,14 @@ namespace FinalProject
             }
         }
 
-        protected MobileEntity(Texture2D sprite, Vector2 position)
+        protected MobileEntity()    //empty constructor for initializing dummy objects - consider replacing
+        {
+            this.boundingBox = new Rectangle();
+
+            this.entityIsActive = false;
+        }
+
+        protected MobileEntity(Texture2D sprite, Vector2 position, Stats entStats)
         {
             this.sprite = sprite;
             this.position = position;
@@ -57,6 +66,9 @@ namespace FinalProject
             this.collisionTree = GamePlayLogicManager.GetInstance().CollisionTree;
 
             this.entityIsActive = true;
+
+            this.entStats = entStats;
+            this.entInv = new InventoryHumanoid(this);
         }
 
         public abstract void CheckStatus();
@@ -110,7 +122,7 @@ namespace FinalProject
 
                 dt.WriteLine("Testing collision with entity at " + c.BoundingBox.Location);
 
-                int counter = this.speed;
+                int counter = this.entStats.Speed;
                 bool hasCollided = true;
 
                 while (hasCollided && counter > 0)
