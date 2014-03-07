@@ -35,14 +35,9 @@ namespace FinalProject
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(mapEntityData.Sprite, position, Color.White);
-        }
-
         public void Hit(int amount, int type)
         {
-            
+
         }
     }
 }

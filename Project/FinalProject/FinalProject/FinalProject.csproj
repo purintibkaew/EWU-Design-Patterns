@@ -61,10 +61,14 @@
     <Compile Include="AI\Running.cs" />
     <Compile Include="AI\Standing.cs" />
     <Compile Include="AI\Walking.cs" />
+    <Compile Include="Factories\MapDataBuilder.cs" />
+    <Compile Include="GameObjects\Map\CollidableNullBox.cs" />
     <Compile Include="GameObjects\Map\GameMapForest.cs" />
+    <Compile Include="GameObjects\Map\IMapData.cs" />
     <Compile Include="GameObjects\Map\MapData.cs" />
     <Compile Include="GameObjects\Items\Inventory.cs" />
     <Compile Include="GameObjects\Items\InventoryHumanoid.cs" />
+    <Compile Include="Managers\GamePlayMapManager.cs" />
     <Compile Include="Managers\PlayerManager.cs" />
     <Compile Include="Managers\Camera2D.cs" />
     <Compile Include="GameObjects\AttackObjects\AttackClose.cs" />

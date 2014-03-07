@@ -6,7 +6,7 @@ using System.Text;
 
 namespace FinalProject
 {
-    class MapEntityData
+    public class MapEntityData
     {
         private Texture2D spriteField;
 

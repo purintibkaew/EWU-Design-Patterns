@@ -18,12 +18,12 @@ namespace FinalProject
 
         public enum MAPS { FOREST_PATH = 0 };
 
-        public GameMap GetMap(MAPS map_type)
+        public GameMap GetMap(MAPS map_type, int width, int height)
         {
             switch(map_type)
             {
                 case MAPS.FOREST_PATH:
-                    return new GameMapForest(2000, 2000);
+                    return new GameMapForest(width, height);
                 default:
                     throw new NotImplementedException();
             }

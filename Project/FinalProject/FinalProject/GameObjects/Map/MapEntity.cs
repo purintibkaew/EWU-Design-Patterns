@@ -7,7 +7,7 @@ using System.Text;
 
 namespace FinalProject
 {
-    class MapEntity : Drawable
+    public class MapEntity : Drawable
     {
         /*
          * Size of the smallest sprite image, this way our map knows how to fill in the playing area
