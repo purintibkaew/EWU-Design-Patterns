@@ -86,5 +86,10 @@ namespace FinalProject
             if(updateList.Contains(m))
                 updateList.Remove(m);
         }
+
+        public void RemoveCollidable(Collidable c)
+        {
+            collidableEntities.Remove(c);
+        }
     }
 }

@@ -9,6 +9,7 @@ namespace FinalProject
 {
     class CollidableMapEntity : MapEntity, Collidable
     {
+        private int health = 30;
         private Rectangle boundingBox;
 
         private MapEntityData mapEntityData;
@@ -37,6 +38,12 @@ namespace FinalProject
 
         public void Hit(int amount, int type)
         {
+            health -= amount;
+
+            if (health <= 0)
+            {
+                GamePlayLogicManager.GetInstance().RemoveCollidable(this);
+            }
             DebugText.GetInstance().WriteLinePerm("Amount: " + amount + " type: " + type);
         }
     }
