@@ -37,7 +37,7 @@ namespace FinalProject
 
         public void Hit(int amount, int type)
         {
-
+            DebugText.GetInstance().WriteLinePerm("Amount: " + amount + " type: " + type);
         }
     }
 }

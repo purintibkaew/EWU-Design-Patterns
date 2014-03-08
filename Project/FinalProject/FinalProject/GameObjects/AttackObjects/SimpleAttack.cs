@@ -26,7 +26,8 @@ namespace FinalProject
             else if (direction == 90) //up
             {
                 temporaryBoundingBox = new Rectangle(0, 0, boundingBox.Height, boundingBox.Width); //effectively rotate bounding box
-                temporaryBoundingBox.Location = new Point((int)point.X - boundingBox.Width / 2, (int)point.Y - boundingBox.Height); //locate above point, centered
+                temporaryBoundingBox.Location = new Point((int)point.X - boundingBox.Width / 2, (int)point.Y - 2 * boundingBox.Height); //locate above point, centered
+                DebugText.GetInstance().WriteLinePerm("Attack box: " + temporaryBoundingBox);
             }
             else if (direction == 180) //left
             {
