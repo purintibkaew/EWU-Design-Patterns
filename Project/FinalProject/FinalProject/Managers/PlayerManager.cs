@@ -6,26 +6,26 @@ using Microsoft.Xna.Framework;
 
 namespace FinalProject
 {
-    class GamePlayPlayerManager
+    class PlayerManager
     {
-        private static GamePlayPlayerManager instance;
+        private static PlayerManager instance;
 
-        public static GamePlayPlayerManager GetInstance()
+        public static PlayerManager GetInstance()
         {
             if (instance == null)
-                instance = new GamePlayPlayerManager();
+                instance = new PlayerManager();
             return instance;
         }
 
         private Player[] players;
 
-        private GamePlayPlayerManager()
+        private PlayerManager()
         {
             players = new Player[4];
 
             for (int i = 0; i < players.Length; i++)
             {
-                players[i] = new Player(null, new Vector2(), PlayerIndex.One); //init them all to garbage, consider different constructor for this in Player
+                players[i] = new Player(PlayerIndex.One);
                 players[i].IsActive = false;
             }
         }

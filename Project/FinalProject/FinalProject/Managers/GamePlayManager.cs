@@ -24,7 +24,7 @@ namespace FinalProject
         private GamePlayInputManager inputManager;
         private GamePlayLogicManager logicManager;
         private GamePlayContentManager contentManager;
-        private GamePlayPlayerManager playerManager;
+        private PlayerManager playerManager;
 
         private GamePlayManager()
         {
@@ -32,7 +32,7 @@ namespace FinalProject
             inputManager = GamePlayInputManager.GetInstance();
             logicManager = GamePlayLogicManager.GetInstance();
             contentManager = GamePlayContentManager.GetInstance();
-            playerManager = GamePlayPlayerManager.GetInstance();
+            playerManager = PlayerManager.GetInstance();
         }
 
         public void Init(ContentManager gameContentManager, GraphicsDevice gd)

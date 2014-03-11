@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FinalProject
 {
-    interface Drawable
+    interface Drawable : GameObject
     {
         void Draw(SpriteBatch spriteBatch);
     }

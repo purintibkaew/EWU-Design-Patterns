@@ -10,6 +10,7 @@ namespace FinalProject
     class GamePlayDrawManager
     {
         private static GamePlayDrawManager instance;
+        private static readonly int SCREEN_OFFSET = 50;
 
         public static GamePlayDrawManager GetInstance()
         {
@@ -19,7 +20,7 @@ namespace FinalProject
         }
 
         private List<Drawable>[] drawLists;
-        
+
         private Camera2D camera;
         private GraphicsDevice gd;
 
@@ -31,7 +32,7 @@ namespace FinalProject
             }
         }
 
-        public enum DRAW_LIST_LEVEL { MAP_BACKGROUND = 0, MAP_FOREGROUND = 1, ENTITY = 2, PROJECTILE = 3 };
+        public enum DRAW_LIST_LEVEL { MAP_BACKGROUND = 0, MAP_TOPOFBACKGROUND = 1, MAP_FOREGROUND = 2, ENTITY = 3, PROJECTILE = 4 };
 
         private GamePlayDrawManager()
         {
@@ -44,9 +45,9 @@ namespace FinalProject
              * 2 - Entities - Players, monsters, etc
              * 3 - Projectiles, effects, maybe items, etc
              */
-            drawLists = new List<Drawable> [4];
+            drawLists = new List<Drawable>[5];
 
-            for (int i = 0; i < drawLists.Length; i++ ) //need to instantiate every list in the array.
+            for (int i = 0; i < drawLists.Length; i++) //need to instantiate every list in the array.
             {
                 drawLists[i] = new List<Drawable>();
             }
@@ -55,19 +56,33 @@ namespace FinalProject
         public void Draw(SpriteBatch spriteBatch)
         {
             //update camera position to the average of the positions of all players
-            camera.Position = GamePlayPlayerManager.GetInstance().GetPlayerAveragePosition();
+            camera.Position = PlayerManager.GetInstance().GetPlayerAveragePosition();
 
             //moved spritebatch.begin to here to support camera
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, camera.GetCameraTransform(this.gd));
 
-            //need to draw back to front here
-            foreach (List<Drawable> l in drawLists)
+            int screenWidthDivideBy2 = (GraphicsDeviceManager.DefaultBackBufferWidth + 1 + SCREEN_OFFSET) / 2;
+            int screenHeightDivideBy2 = (GraphicsDeviceManager.DefaultBackBufferHeight + 1 + SCREEN_OFFSET) / 2;
+
+            Rectangle screenRect = new Rectangle((int)(camera.Position.X - screenWidthDivideBy2),
+                                                 (int)(camera.Position.Y - screenHeightDivideBy2),
+                                                 GraphicsDeviceManager.DefaultBackBufferWidth + SCREEN_OFFSET,
+                                                 GraphicsDeviceManager.DefaultBackBufferHeight + SCREEN_OFFSET);
+
+            List<List<Drawable>> list = GamePlayMapManager.GetInstance().GetDrawablesInArea(screenRect.X, screenRect.Y, screenRect.Width, screenRect.Height);
+
+            //DebugText.GetInstance().WriteLine("Need to draw: " + list.LongCount());
+
+            foreach (List<Drawable> l in list)
             {
                 foreach (Drawable d in l)
-                {
                     d.Draw(spriteBatch);
-                }
             }
+
+
+            foreach (Drawable d in drawLists[(int)DRAW_LIST_LEVEL.ENTITY])
+                d.Draw(spriteBatch);
+
 
             spriteBatch.End();
         }
@@ -84,7 +99,7 @@ namespace FinalProject
 
         public void Remove(Drawable d, DRAW_LIST_LEVEL level)
         {
-            if(drawLists[(int)level].Contains(d))
+            if (drawLists[(int)level].Contains(d))
                 drawLists[(int)level].Remove(d);
         }
     }

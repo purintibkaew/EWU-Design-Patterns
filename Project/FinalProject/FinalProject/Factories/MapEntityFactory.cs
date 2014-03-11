@@ -14,7 +14,7 @@ namespace FinalProject
 
         private static MapEntityFactory instance = new MapEntityFactory();
 
-        public enum MAP_ENTITY { DIRT = 1, GRASS = 2, GRASS_BLADES = 3, BUSH = 4, TREE_LARGE = 5, TREE_SMALL = 6, CHEST = 7 };
+        public enum MAP_ENTITY { DIRT = 1, GRASS = 2, GRASS_BLADES = 3, BUSH = 4, TREE_LARGE = 5, TREE_SMALL = 6, CHEST = 7};
 
 
         private MapEntityFactory() { }

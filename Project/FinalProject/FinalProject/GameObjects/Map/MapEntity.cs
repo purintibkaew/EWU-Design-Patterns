@@ -7,7 +7,7 @@ using System.Text;
 
 namespace FinalProject
 {
-    class MapEntity : Drawable
+    public class MapEntity : Drawable
     {
         /*
          * Size of the smallest sprite image, this way our map knows how to fill in the playing area
@@ -15,7 +15,10 @@ namespace FinalProject
         public static readonly int MAP_ENTITY_BASE_SIZE = 16;
  
         private MapEntityData mapEntityData;
-        private Vector2 position;
+
+        protected Vector2 position;
+
+        public Vector2 Position { set { position = value; } get { return position; } }
 
         public Rectangle SpriteRectangle { get { return mapEntityData.Sprite.Bounds; } }
 
@@ -23,7 +26,7 @@ namespace FinalProject
         public MapEntity(MapEntityData mapEntityData, Vector2 position)
         {
             this.mapEntityData = mapEntityData;
-            this.position = position;
+            this.Position = position;
         }
 
         public void Draw(SpriteBatch spriteBatch)

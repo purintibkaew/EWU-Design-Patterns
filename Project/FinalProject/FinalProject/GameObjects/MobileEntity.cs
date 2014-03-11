@@ -8,30 +8,25 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FinalProject
 {
-    abstract class MobileEntity: GameObject, Drawable, Movable, Collidable
+    abstract class MobileEntity: Drawable, Movable, Collidable
     {
-        private static readonly float ORIENTATION_OFFSET = -1.5707f;
-
         protected Texture2D sprite;
         protected Vector2 velocity;
         protected QuadTree<Collidable> collisionTree; //reference to the collision tree for easy access
 
         protected bool entityIsActive;
 
-        protected int speed; //this is temporary, remove when we actually get a stats object here
         protected Rectangle boundingBox;
-        protected float orientation;
-        protected Vector2 spriteOrigin;
+        protected Vector2 position;
+
+        protected Stats entStats;
+        protected Inventory entInv;
+
+        public Vector2 Position { set { position = value; } get { return position; } }
 
         public Rectangle BoundingBox
         {
             get { return this.boundingBox; }
-        }
-
-        public float Orientation
-        {
-            get { return this.orientation; }
-            set { this.orientation = value; }
         }
 
         public bool IsActive
@@ -46,7 +41,14 @@ namespace FinalProject
             }
         }
 
-        protected MobileEntity(Texture2D sprite, Vector2 position)
+        protected MobileEntity()    //empty constructor for initializing dummy objects - consider replacing
+        {
+            this.boundingBox = new Rectangle();
+
+            this.entityIsActive = false;
+        }
+
+        protected MobileEntity(Texture2D sprite, Vector2 position, Stats entStats)
         {
             this.sprite = sprite;
             this.position = position;
@@ -64,10 +66,9 @@ namespace FinalProject
             this.collisionTree = GamePlayLogicManager.GetInstance().CollisionTree;
 
             this.entityIsActive = true;
-            this.orientation = 0;
 
-            if(sprite != null)
-                this.spriteOrigin = new Vector2(sprite.Width / 2, sprite.Height / 2);
+            this.entStats = entStats;
+            this.entInv = new InventoryHumanoid(this);
         }
 
         public abstract void CheckStatus();
@@ -79,11 +80,9 @@ namespace FinalProject
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Vector2 actualPosition = new Vector2(position.X + spriteOrigin.X, position.Y + spriteOrigin.Y);
-
             if (this.IsActive)
             {
-                spriteBatch.Draw(sprite, actualPosition, null, Color.White, orientation + ORIENTATION_OFFSET, spriteOrigin, 1.0f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(sprite, position, Color.White);
             }
         }
 
@@ -123,7 +122,7 @@ namespace FinalProject
 
                 dt.WriteLine("Testing collision with entity at " + c.BoundingBox.Location);
 
-                int counter = this.speed;
+                int counter = this.entStats.Speed;
                 bool hasCollided = true;
 
                 while (hasCollided && counter > 0)

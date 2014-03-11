@@ -7,12 +7,12 @@ using System.Text;
 
 namespace FinalProject
 {
-    class CollidableMapEntity : Collidable, Drawable
+    class CollidableMapEntity : MapEntity, Collidable
     {
+        private int health = 30;
         private Rectangle boundingBox;
 
         private MapEntityData mapEntityData;
-        private Vector2 position;
 
         public Rectangle BoundingBox
         {
@@ -22,11 +22,9 @@ namespace FinalProject
             }
         }
 
-        public CollidableMapEntity(MapEntityData mapEntityData, Vector2 position)
-        {
-            this.mapEntityData = mapEntityData;
-            this.position = position;
 
+        public CollidableMapEntity(MapEntityData mapEntityData, Vector2 position) : base(mapEntityData, position)
+        {
             if (mapEntityData.Sprite != null)
             {
                 this.boundingBox = mapEntityData.Sprite.Bounds;                         //the bounding box can be set to (temporarily, at least) the sprite bounding rectangle
@@ -38,14 +36,15 @@ namespace FinalProject
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(mapEntityData.Sprite, position, Color.White);
-        }
-
         public void Hit(int amount, int type)
         {
-            throw new NotImplementedException();
+            health -= amount;
+
+            if (health <= 0)
+            {
+                GamePlayLogicManager.GetInstance().RemoveCollidable(this);
+            }
+            DebugText.GetInstance().WriteLinePerm("Amount: " + amount + " type: " + type);
         }
     }
 }

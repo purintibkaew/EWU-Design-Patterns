@@ -3,24 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace FinalProject
 {
-    abstract class GameObject
+    interface GameObject
     {
-        protected Vector2 position;
-
-
-        public Vector2 Position
+        Vector2 Position
         {
-            get
-            {
-                return position;
-            }
-            set
-            {
-                position = value;
-            }
+            get;
+            set;
         }
     }
 }

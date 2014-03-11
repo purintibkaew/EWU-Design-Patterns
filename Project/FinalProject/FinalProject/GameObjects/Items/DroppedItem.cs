@@ -11,10 +11,12 @@ namespace FinalProject
     class DroppedItem : Drawable, Collidable
     {
         private Texture2D sprite;
-        private Vector2 position;
         private Item loot;
         private Rectangle boundingBox;
         private QuadTree<Collidable> collisionTree;
+        private Vector2 position;
+
+        public Vector2 Position { set { position = value; } get { return position; } }
 
         public DroppedItem(Texture2D sprite, Vector2 position, Item loot)
         {

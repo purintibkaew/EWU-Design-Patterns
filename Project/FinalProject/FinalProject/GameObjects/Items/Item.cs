@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework;
 namespace FinalProject
 {
     //For now, I'm doing a concrete class, we may want some abstraction later
-    class Item
+    abstract class Item
     {
         private Stats stats;
         private Texture2D sprite; //Though, this class is never actually drawn, it passes its sprite to the DroppedItem container when it is dropped
@@ -57,7 +57,7 @@ namespace FinalProject
             return new DroppedItem(this.sprite, position, this);
         }
 
-
-        
+        public abstract void AddToInventory(Inventory i);
+        public abstract void DropFromInventory(Inventory i);
     }
 }

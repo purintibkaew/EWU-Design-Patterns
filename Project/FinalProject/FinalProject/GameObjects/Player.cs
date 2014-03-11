@@ -39,16 +39,19 @@ namespace FinalProject
             }
         }
 
-        public Player(Texture2D sprite, Vector2 position, PlayerIndex playerNum) : base(sprite, position)
+        public Player(Texture2D sprite, Vector2 position, PlayerIndex playerNum, Stats entStats) : base(sprite, position, entStats)
         {
             this.playerNum = playerNum;
             curState = PlayerState.PLAYER_OTHER;
 
-            this.speed = 5;
             this.testAttack = new SimpleAttack(new Rectangle(0, 0, 32, 16), this, 1.5f, 50);
             
-            if(sprite != null)  //HACK
-                this.playerCenter = new Vector2(sprite.Width / 2, sprite.Height / 2);
+            this.playerCenter = new Vector2(sprite.Width / 2, sprite.Height / 2);
+        }
+
+        public Player(PlayerIndex playerNum)
+        {
+            this.playerNum = playerNum;
         }
 
         public void HandleInput()
@@ -60,17 +63,13 @@ namespace FinalProject
             velocity.X = velocity.Y = 0;
 
             if (kb.IsKeyDown(Keys.W))
-                velocity.Y -= speed;
+                velocity.Y -= entStats.Speed;
             if (kb.IsKeyDown(Keys.S))
-                velocity.Y += speed;
+                velocity.Y += entStats.Speed;
             if (kb.IsKeyDown(Keys.D))
-                velocity.X += speed;
+                velocity.X += entStats.Speed;
             if (kb.IsKeyDown(Keys.A))
-                velocity.X -= speed;
-
-
-            orientation = (float)(Math.Atan2(position.Y-(ms.Y), position.X-(ms.X)));
-            DebugText.GetInstance().WriteLine("mouse x:" + ms.X + " y:" + ms.Y);
+                velocity.X -= entStats.Speed;
             
             //basic state handling for attack - hacky, change later
             if (kb.IsKeyDown(Keys.Space))
@@ -127,19 +126,19 @@ namespace FinalProject
                     switch (curState)
                     {
                         case (PlayerState.PLAYER_ATTACK_UP):
-                            testAttack.Attack(new Vector2(position.X + boundingBox.Width / 2, position.Y + boundingBox.Height / 2), 90, 10);
+                            testAttack.Attack(new Vector2(position.X + boundingBox.Width / 2, position.Y + boundingBox.Height / 2), 90, entStats.Attack);
                             //hitBox = new Rectangle((int)(this.position.X + 8), (int)(this.position.Y - 32), 16, 32);
                             break;
                         case (PlayerState.PLAYER_ATTACK_DOWN):
-                            testAttack.Attack(new Vector2(position.X + boundingBox.Width / 2, position.Y + boundingBox.Height / 2), 270, 10);
+                            testAttack.Attack(new Vector2(position.X + boundingBox.Width / 2, position.Y + boundingBox.Height / 2), 270, entStats.Attack);
                             //hitBox = new Rectangle((int)(this.position.X + 8), (int)(this.position.Y + 32), 16, 32);
                             break;
                         case (PlayerState.PLAYER_ATTACK_LEFT):
-                            testAttack.Attack(new Vector2(position.X + boundingBox.Width / 2, position.Y + boundingBox.Height / 2), 180, 10);
+                            testAttack.Attack(new Vector2(position.X + boundingBox.Width / 2, position.Y + boundingBox.Height / 2), 180, entStats.Attack);
                             //hitBox = new Rectangle((int)(this.position.X - 32), (int)(this.position.Y - 8), 32, 16);
                             break;
                         case (PlayerState.PLAYER_ATTACK_RIGHT):
-                            testAttack.Attack(new Vector2(position.X + boundingBox.Width / 2, position.Y + boundingBox.Height / 2), 0, 10);
+                            testAttack.Attack(new Vector2(position.X + boundingBox.Width / 2, position.Y + boundingBox.Height / 2), 0, entStats.Attack);
                             //hitBox = new Rectangle((int)(this.position.X + 32), (int)(this.position.Y - 8), 32, 16);
                             break;
                     }

@@ -35,6 +35,25 @@
   <PropertyGroup>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="AI\AIData.cs" />
     <Compile Include="AI\Attacking.cs" />
@@ -42,12 +61,19 @@
     <Compile Include="AI\Running.cs" />
     <Compile Include="AI\Standing.cs" />
     <Compile Include="AI\Walking.cs" />
+    <Compile Include="Factories\MapDataBuilder.cs" />
+    <Compile Include="GameObjects\Map\CollidableNullBox.cs" />
     <Compile Include="GameObjects\Map\GameMapForest.cs" />
+    <Compile Include="GameObjects\Map\IMapData.cs" />
     <Compile Include="GameObjects\Map\MapData.cs" />
     <Compile Include="GameObjects\Menu\mainMenu.cs" />
     <Compile Include="GameObjects\Menu\Menu.cs" />
     <Compile Include="GameObjects\Menu\MenuButton.cs" />
     <Compile Include="Managers\GamePlayPlayerManager.cs" />
+    <Compile Include="GameObjects\Items\Inventory.cs" />
+    <Compile Include="GameObjects\Items\InventoryHumanoid.cs" />
+    <Compile Include="Managers\GamePlayMapManager.cs" />
+    <Compile Include="Managers\PlayerManager.cs" />
     <Compile Include="Managers\Camera2D.cs" />
     <Compile Include="GameObjects\AttackObjects\AttackClose.cs" />
     <Compile Include="DebugText.cs" />
@@ -63,7 +89,7 @@
     <Compile Include="GameObjects\Map\MapEntity.cs" />
     <Compile Include="GameObjects\Map\MapEntityData.cs" />
     <Compile Include="GameObjects\StatsObjects\BaseStats.cs" />
-    <Compile Include="GameObjects\StatsObjects\headStat.cs" />
+    <Compile Include="GameObjects\StatsObjects\HeadStat.cs" />
     <Compile Include="GameObjects\StatsObjects\StatModifier.cs" />
     <Compile Include="GameObjects\StatsObjects\Stats.cs" />
     <Compile Include="Managers\GamePlayContentManager.cs" />
@@ -88,6 +114,7 @@
     <Compile Include="Managers\QuadTree.cs" />
     <Compile Include="GameObjects\AttackObjects\SwingingAttack.cs" />
     <Compile Include="States\MainMenuState.cs" />
+    <Compile Include="GameObjects\Items\Weapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OpenTK">

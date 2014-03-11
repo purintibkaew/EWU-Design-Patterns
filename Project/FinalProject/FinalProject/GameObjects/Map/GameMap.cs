@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,12 @@ namespace FinalProject
         protected MapData mapData;
 
         public int BASE_SIZE { get { return 128; } }
-        public MapData MapInfo { get { return mapData; } }
+        public MapData MapData { get { return mapData; } }
+
+
+        public readonly static int MAX_LAYERS = 4;
+
+        public enum LAYERS { GROUND = 0, ABOVE_GROUND = 1, TREES = 2, SKY = 3 }
 
         public int Height 
         {
@@ -44,26 +50,28 @@ namespace FinalProject
             }
         }
 
-
-        private int height;
-        private int width;
-
+        protected int height;
+        protected int width;
+        protected List<MapEntity[][]> contentLayers;
+        protected List<Collidable> collidablesToAdd;
 
         public abstract void LoadContent();
 
-        public void AddToDrawList(Drawable d)
+        protected void AddToDrawList(Drawable d)
         {
             GamePlayDrawManager.GetInstance().Add(d);
         }
 
-        public void AddToDrawList(Drawable d, GamePlayDrawManager.DRAW_LIST_LEVEL level)
+        protected void AddToCollideList(Collidable c)
         {
-            GamePlayDrawManager.GetInstance().Add(d, level);
+            collidablesToAdd.Add(c);
         }
 
-        public void AddToCollideList(Collidable c)
+        public void PopulateCollisionTree()
         {
-            GamePlayLogicManager.GetInstance().AddCollidable(c);
+            foreach(Collidable c in collidablesToAdd)
+                if(c != null)
+                    GamePlayLogicManager.GetInstance().AddCollidable(c);
         }
     }
 }
