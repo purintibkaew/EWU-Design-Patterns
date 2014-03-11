@@ -28,6 +28,11 @@ namespace FinalProject
         {
             spriteBatch.Draw(this.sprite, this.bounds, Color.White);
         }
-        
+
+        public Vector2 Position
+        {
+            get { return new Vector2(this.bounds.X, this.bounds.Y); }
+            set { this.bounds.X = (int) value.X; this.bounds.Y = (int) value.Y; }
+        }
     }
 }

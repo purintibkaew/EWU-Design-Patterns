@@ -71,5 +71,11 @@ namespace FinalProject
                 spriteBatch.Draw(b.Sprite, b.Bounds, Color.White);
             }
         }
+
+        public Vector2 Position
+        {
+            get { return new Vector2(0,0); }
+            set { }
+        }
     }
 }

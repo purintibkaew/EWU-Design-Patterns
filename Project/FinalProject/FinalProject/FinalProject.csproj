@@ -73,7 +73,6 @@
     <Compile Include="GameObjects\Menu\mainMenu.cs" />
     <Compile Include="GameObjects\Menu\Menu.cs" />
     <Compile Include="GameObjects\Menu\MenuButton.cs" />
-    <Compile Include="Managers\GamePlayPlayerManager.cs" />
     <Compile Include="Managers\Camera2D.cs" />
     <Compile Include="GameObjects\AttackObjects\AttackClose.cs" />
     <Compile Include="DebugText.cs" />
