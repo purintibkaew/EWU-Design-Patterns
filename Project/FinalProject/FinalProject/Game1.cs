@@ -19,9 +19,8 @@ namespace FinalProject
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        private GameState state;
+        private StateManager stateManager = StateManager.GetInstance();
 
-        public GameState State { set { this.state = value; } }
 
         public Game1()
             : base()
@@ -39,7 +38,7 @@ namespace FinalProject
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            state = new GamePlayState();
+            
 
             base.Initialize();
         }
@@ -54,7 +53,7 @@ namespace FinalProject
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            state.Init(this, Content, GraphicsDevice);
+            this.stateManager.CurrentState.Init(this, Content, GraphicsDevice);
 
             DebugText.GetInstance().Font = Content.Load<SpriteFont>("Fonts/ArialFont");
         }
@@ -81,9 +80,9 @@ namespace FinalProject
 
             // TODO: Add your update logic here
 
-            state.HandleInput();
-            
-            state.Update();
+            this.stateManager.CurrentState.HandleInput();
+
+            this.stateManager.CurrentState.Update();
                         
             base.Update(gameTime);
         }
@@ -97,7 +96,7 @@ namespace FinalProject
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            state.Draw(spriteBatch);
+            this.stateManager.CurrentState.Draw(spriteBatch);
 
             spriteBatch.Begin();
             
