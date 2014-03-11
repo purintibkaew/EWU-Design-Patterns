@@ -70,6 +70,10 @@
     <Compile Include="GameObjects\Items\InventoryHumanoid.cs" />
     <Compile Include="Managers\GamePlayMapManager.cs" />
     <Compile Include="Managers\PlayerManager.cs" />
+    <Compile Include="GameObjects\Menu\mainMenu.cs" />
+    <Compile Include="GameObjects\Menu\Menu.cs" />
+    <Compile Include="GameObjects\Menu\MenuButton.cs" />
+    <Compile Include="Managers\GamePlayPlayerManager.cs" />
     <Compile Include="Managers\Camera2D.cs" />
     <Compile Include="GameObjects\AttackObjects\AttackClose.cs" />
     <Compile Include="DebugText.cs" />
@@ -98,6 +102,7 @@
     <Compile Include="GameObjects\MobileEntity.cs" />
     <Compile Include="GameObjects\AttackObjects\StabbingAttack.cs" />
     <Compile Include="GameObjects\AttackObjects\SimpleAttack.cs" />
+    <Compile Include="Managers\StateManager.cs" />
     <Compile Include="States\GameState.cs" />
     <Compile Include="States\GamePlayState.cs" />
     <Compile Include="Managers\GamePlayInputManager.cs" />
@@ -109,6 +114,7 @@
     <Compile Include="Managers\QuadTree.cs" />
     <Compile Include="GameObjects\AttackObjects\SwingingAttack.cs" />
     <Compile Include="GameObjects\Items\Weapon.cs" />
+    <Compile Include="States\MainMenuState.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OpenTK">
@@ -120,6 +126,9 @@
     <Reference Include="Lidgren.Network">
       <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\MSBuild\..\MonoGame\v3.0\Assemblies\WindowsGL\Lidgren.Network.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="Tao.Sdl">
       <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\MSBuild\..\MonoGame\v3.0\Assemblies\WindowsGL\Tao.Sdl.dll</HintPath>
     </Reference>

@@ -9,35 +9,44 @@ using Microsoft.Xna.Framework.Content;
 
 namespace FinalProject
 {
-    class GamePlayState : GameState
+    class MainMenuState : GameState
     {
         private Game1 game;
-        private GamePlayManager gameManager; 
+        private GamePlayManager gameManager;
+        private Menu mainMenu;
 
-        public GamePlayState()
+        public MainMenuState()
         {
             gameManager = GamePlayManager.GetInstance();
+
         }
 
         public void Init(Game1 game, ContentManager gameContentManager, GraphicsDevice gd)
         {
             gameManager.Init(gameContentManager, gd);
             this.game = game;
+            this.mainMenu = new MainMenu(gameContentManager);
         }
 
         public void HandleInput()
         {
-            gameManager.HandleInput();
+            if (mainMenu.HandleInput())
+            {
+                this.NextState();
+            }
         }
 
         public void Update()
         {
-            gameManager.Update();
+            mainMenu.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            gameManager.Draw(spriteBatch);
+            spriteBatch.Begin();
+            spriteBatch.GraphicsDevice.Clear(Color.CornflowerBlue);
+            mainMenu.Draw(spriteBatch);
+            spriteBatch.End();
         }
 
         public GameState NextState()
