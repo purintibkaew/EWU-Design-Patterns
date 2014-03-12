@@ -28,6 +28,9 @@ namespace FinalProject
 
         private ContentManager gameContentManager;
 
+        public ContentManager GameContentManager { get { return gameContentManager; } }
+
+
         private GamePlayContentManager()
         {
             drawManager = GamePlayDrawManager.GetInstance();
@@ -51,7 +54,7 @@ namespace FinalProject
             GamePlayMapManager.GetInstance().Map = map;
 
             //temporary hacky player loading, hard coded
-            Player player = new Player(cm.Load<Texture2D>("Entities/Characters/BMOStanding"), map.MapData.Spawn, PlayerIndex.One, new BaseStats(10, 10, 5));
+            Player player = new Player(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Characters/BMOStanding"), map.MapData.Spawn, PlayerIndex.One, new BaseStats(10, 10, 5));
 
             //we're going to be doing these calls a lot - consider factory or facade or similar
             playerManager.SetPlayer(0, player);
