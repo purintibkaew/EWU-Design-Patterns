@@ -62,6 +62,7 @@
     <Compile Include="AI\Standing.cs" />
     <Compile Include="AI\Walking.cs" />
     <Compile Include="Factories\MapDataBuilder.cs" />
+    <Compile Include="Factories\SpriteFlyweightFactory.cs" />
     <Compile Include="GameObjects\Map\CollidableNullBox.cs" />
     <Compile Include="GameObjects\Map\GameMapForest.cs" />
     <Compile Include="GameObjects\Map\IMapData.cs" />
@@ -102,6 +103,13 @@
     <Compile Include="GameObjects\AttackObjects\StabbingAttack.cs" />
     <Compile Include="GameObjects\AttackObjects\SimpleAttack.cs" />
     <Compile Include="Managers\StateManager.cs" />
+    <Compile Include="Animation\Animation.cs" />
+    <Compile Include="Animation\AnimationSequence.cs" />
+    <Compile Include="Animation\IAnimate.cs" />
+    <Compile Include="Animation\IAnimationSequence.cs" />
+    <Compile Include="Sprites\ISpriteFlyweight.cs" />
+    <Compile Include="Sprites\NullSprite.cs" />
+    <Compile Include="Sprites\SpriteFlyweight.cs" />
     <Compile Include="States\GameState.cs" />
     <Compile Include="States\GamePlayState.cs" />
     <Compile Include="Managers\GamePlayInputManager.cs" />
