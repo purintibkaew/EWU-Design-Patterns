@@ -122,6 +122,7 @@
     <Compile Include="GameObjects\AttackObjects\SwingingAttack.cs" />
     <Compile Include="GameObjects\Items\Weapon.cs" />
     <Compile Include="States\MainMenuState.cs" />
+    <Compile Include="TestMonster.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OpenTK">

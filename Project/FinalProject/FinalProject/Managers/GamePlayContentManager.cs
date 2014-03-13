@@ -62,6 +62,13 @@ namespace FinalProject
             inputManager.Add(player);
             logicManager.AddMovable(player);
             logicManager.AddCollidable(player);
+
+            TestMonster monster = new TestMonster(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Characters/Gunterstanding"), map.MapData.End, new BaseStats(30, 10, 5));
+
+            drawManager.Add(monster, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
+            logicManager.AddCollidable(monster);
+            logicManager.AddMovable(monster);
+            logicManager.AddSEntity(monster);
         }
     }
 }

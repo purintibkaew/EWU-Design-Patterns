@@ -20,6 +20,8 @@ namespace FinalProject
         protected Vector2 position;
 
         protected Stats entStats;
+        protected int curHealth;
+
         protected Inventory entInv;
 
         public Vector2 Position { set { position = value; } get { return position; } }
@@ -68,6 +70,10 @@ namespace FinalProject
             this.entityIsActive = true;
 
             this.entStats = entStats;
+            //this.entStats = new HeadStat(entStats);
+
+            this.curHealth = entStats.MaxHP;
+
             this.entInv = new InventoryHumanoid(this);
         }
 
@@ -76,6 +82,7 @@ namespace FinalProject
         public void Move()
         {
             position += velocity;
+            collisionTree.UpdatePosition(this);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -112,15 +119,15 @@ namespace FinalProject
             DebugText dt = DebugText.GetInstance();
 
 
-            dt.WriteLine("Entity bounding box being tested at " + potentialBoundingBox.Location);
-            dt.WriteLine("Potential bounding box: L: " + potentialBoundingBox.Left + ", R: " + potentialBoundingBox.Right + ", T: " + potentialBoundingBox.Top + ", B: " + potentialBoundingBox.Bottom);
+            //dt.WriteLine("Entity bounding box being tested at " + potentialBoundingBox.Location);
+            //dt.WriteLine("Potential bounding box: L: " + potentialBoundingBox.Left + ", R: " + potentialBoundingBox.Right + ", T: " + potentialBoundingBox.Top + ", B: " + potentialBoundingBox.Bottom);
 
             foreach (Collidable c in toTest)
             {
                 if (c.Equals(this)) //SUPER KLUDGY, FIGURE OUT A FIX
                     continue;
 
-                dt.WriteLine("Testing collision with entity at " + c.BoundingBox.Location);
+                //dt.WriteLine("Testing collision with entity at " + c.BoundingBox.Location);
 
                 int counter = this.entStats.Speed;
                 bool hasCollided = true;
@@ -133,7 +140,7 @@ namespace FinalProject
                     Vector2 vecY = new Vector2(0, velocity.Y);
                     if (this.Collide(c, vecX))
                     {
-                        dt.WriteLine("Colliding in X");
+                        //dt.WriteLine("Colliding in X");
 
                         hasCollided = true;
 
@@ -142,7 +149,7 @@ namespace FinalProject
                     }
                     if (this.Collide(c, vecY))
                     {
-                        dt.WriteLine("Colliding in Y");
+                        //dt.WriteLine("Colliding in Y");
 
                         hasCollided = true;
 
@@ -151,7 +158,7 @@ namespace FinalProject
                     }
                     if (this.Collide(c, velocity) && !hasCollided)
                     {
-                        dt.WriteLine("Colliding in X and Y");
+                        //dt.WriteLine("Colliding in X and Y");
 
                         hasCollided = true;
 
