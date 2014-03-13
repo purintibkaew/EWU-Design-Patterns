@@ -14,7 +14,10 @@ namespace FinalProject
 
         public MainMenu(ContentManager cm) : base(cm)
         {
-            base.Buttons.Add(new MenuButton(new Rectangle(10,10,30,30), cm.Load<Texture2D>("Entities.Characters/BMOStanding"), "Test Button"));
+            Rectangle r = new Rectangle(10, 10, 30, 30);
+            Texture2D tex = cm.Load<Texture2D>("Entities/Characters/BMOstanding");
+            MenuButton b = new MenuButton(r, tex, "Test Button");
+            base.Buttons.Add(b);
         }
 
         protected override bool doInput(MenuButton buttonSelected)

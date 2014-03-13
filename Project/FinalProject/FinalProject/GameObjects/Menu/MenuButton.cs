@@ -20,9 +20,9 @@ namespace FinalProject
             this.text = text;
         }
 
-        public Texture2D Sprite { get; set; }
-        public Rectangle Bounds { get; set; }
-        public string Text { get; set; }
+        public Texture2D Sprite { get { return this.sprite; } set { this.sprite = value; } }
+        public Rectangle Bounds { get { return this.bounds; } set { this.bounds = value; } }
+        public string Text { get { return this.text; } set { this.text = value; } }
 
         public void Draw(SpriteBatch spriteBatch)
         {

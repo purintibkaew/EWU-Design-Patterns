@@ -85,6 +85,8 @@ namespace FinalProject
             this.stateManager.CurrentState.Update();
                         
             base.Update(gameTime);
+
+            this.stateManager.MoveToNextState();
         }
 
         /// <summary>

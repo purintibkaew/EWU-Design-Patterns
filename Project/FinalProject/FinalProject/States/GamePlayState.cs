@@ -40,9 +40,10 @@ namespace FinalProject
             gameManager.Draw(spriteBatch);
         }
 
-        public GameState NextState()
+        public void NextState()
         {
-            return this;
+            StateManager m = StateManager.GetInstance();
+            m.NextState = this;
         }
     }
 }

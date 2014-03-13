@@ -15,6 +15,6 @@ namespace FinalProject
         void HandleInput();
         void Update();
         void Draw(SpriteBatch spriteBatch);
-        GameState NextState();
+        void NextState();
     }
 }

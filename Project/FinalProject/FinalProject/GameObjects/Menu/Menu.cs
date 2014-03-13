@@ -17,13 +17,13 @@ namespace FinalProject
 
         protected Menu(ContentManager cm)
         {
+            this.buttons = new List<MenuButton>();
             this.cm = cm;
         }
 
         public List<MenuButton> Buttons
         {
-            get;
-            set;
+            get { return this.buttons; }
         }
 
         protected abstract bool doInput(MenuButton buttonClicked);

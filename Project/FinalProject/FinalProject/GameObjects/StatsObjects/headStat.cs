@@ -8,28 +8,15 @@ namespace FinalProject
     class HeadStat : Stats
     {
         private Stats inner;
-        public HeadStat(Stats parent):base(0,0,0)
+        public HeadStat(Stats child):base(0,0,0)
         {
-            if(parent != null){
-                base.parent = parent;
-                base.child = base.parent.Child;
+            if(child != null){
+                base.child = child;
+                base.parent = null;
                 base.child.Parent = this;
-                base.parent.Child = this;
             }
         }
 
-        public HeadStat(Stats parent, Stats inner)
-            : base(0, 0, 0)
-        {
-            if (parent != null)
-            {
-                base.parent = parent;
-                base.child = base.parent.Child;
-                base.child.Parent = this;
-                base.parent.Child = this;
-                this.inner = inner;
-            }
-        }
 
 
         public override int Speed

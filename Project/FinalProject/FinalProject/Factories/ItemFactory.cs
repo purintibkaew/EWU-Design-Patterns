@@ -55,7 +55,7 @@ namespace FinalProject
             {
                 addStatModifier(loot, (effectType)rand.Next(4));
             }
-            loot.Stats = new HeadStat(null, loot.Stats);
+            loot.Stats = new HeadStat(loot.Stats);
 
             return loot;
         }
@@ -70,7 +70,7 @@ namespace FinalProject
             {
                 addStatModifier(loot, (effectType)rand.Next(4));
             }
-            loot.Stats = new HeadStat(null, loot.Stats);
+            loot.Stats = new HeadStat(loot.Stats);
 
             return loot;
         }

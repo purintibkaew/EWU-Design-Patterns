@@ -10,14 +10,17 @@ namespace FinalProject
         private GameState gamePlayState;
         private GameState mainMenuState;
         private GameState curState = null;
+        private GameState nextState = null;
 
         private static StateManager instance;
+        public enum States { GameState, MainMenuState };
 
         private StateManager()
         {
             this.gamePlayState = new GamePlayState();
             this.mainMenuState = new MainMenuState();
-            this.curState = this.gamePlayState;
+            this.curState = this.mainMenuState;
+            this.nextState = this.curState;
         }
 
         public static StateManager GetInstance()
@@ -32,6 +35,29 @@ namespace FinalProject
         public GameState CurrentState
         {
             get { return this.curState; }
+        }
+
+        public GameState getState(States stateRequest)
+        {
+            switch (stateRequest)
+            {
+                case States.GameState:
+                    return this.gamePlayState;
+                case States.MainMenuState:
+                    return this.mainMenuState;
+                default:
+                    return this.curState;
+            }
+        }
+
+        public GameState NextState
+        {
+            set { this.nextState = value; }
+        }
+
+        public void MoveToNextState()
+        {
+            this.curState = this.nextState;
         }
     }
 }

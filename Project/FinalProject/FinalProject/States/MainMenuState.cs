@@ -49,9 +49,10 @@ namespace FinalProject
             spriteBatch.End();
         }
 
-        public GameState NextState()
+        public void NextState()
         {
-            return this;
+            StateManager m = StateManager.GetInstance();
+            m.NextState = m.getState(StateManager.States.GameState);
         }
     }
 }
