@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Title: Dungeon.java
  *
@@ -45,6 +47,7 @@
 */
 public class Dungeon
 {
+	private static Scanner keyboard = new Scanner(System.in);
     public static void main(String[] args)
 	{
 
@@ -54,6 +57,10 @@ public class Dungeon
 		do
 		{
 		    theHero = chooseHero();
+			System.out.println("Enter a name: ");
+			keyboard.nextLine();
+			theHero.setName(keyboard.nextLine());
+			
 		    theMonster = generateMonster();
 			battle(theHero, theMonster);
 
@@ -75,7 +82,8 @@ this task
 					       "1. Warrior\n" +
 						   "2. Sorceress\n" +
 						   "3. Thief");
-		choice = Keyboard.readInt();
+		choice = keyboard.nextInt();
+		
 
 		switch(choice)
 		{
@@ -119,12 +127,12 @@ true if the user chooses to continue, false otherwise.
 ---------------------------------------------------------------------*/
 	public static boolean playAgain()
 	{
-		char again;
+		String again;
 
 		System.out.println("Play again (y/n)?");
-		again = Keyboard.readChar();
+		again = keyboard.nextLine();
 
-		return (again == 'Y' || again == 'y');
+		return (again.toLowerCase().equals("y"));
 	}//end playAgain method
 
 
@@ -136,13 +144,13 @@ user has the option of quitting.
 ---------------------------------------------------------------------*/
 	public static void battle(Hero theHero, Monster theMonster)
 	{
-		char pause = 'p';
+		String pause = "p";
 		System.out.println(theHero.getName() + " battles " +
 							theMonster.getName());
 		System.out.println("---------------------------------------------");
 
 		//do battle
-		while (theHero.isAlive() && theMonster.isAlive() && pause != 'q')
+		while (theHero.isAlive() && theMonster.isAlive() && !pause.toLowerCase().equals("q"))
 		{
 		    //hero goes first
 			theHero.battleChoices(theMonster);
@@ -153,7 +161,7 @@ user has the option of quitting.
 
 			//let the player bail out if desired
 			System.out.print("\n-->q to quit, anything else to continue: ");
-			pause = Keyboard.readChar();
+			pause = keyboard.nextLine();
 
 		}//end battle loop
 

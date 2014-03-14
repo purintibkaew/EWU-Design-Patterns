@@ -41,7 +41,6 @@ public abstract class Hero extends DungeonCharacter
   {
 	super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
 	this.chanceToBlock = chanceToBlock;
-	readName();
   }
 
 /*-------------------------------------------------------
@@ -53,10 +52,9 @@ Returns: nothing
 This method calls: nothing
 This method is called by: hero constructor
 ---------------------------------------------------------*/
-  public void readName()
+  public void setName(String name)
   {
-		System.out.print("Enter character name: ");
-		name = Keyboard.readString();
+	  this.name = name;
   }//end readName method
 
 /*-------------------------------------------------------
