@@ -42,6 +42,8 @@ public abstract class DungeonCharacter implements Comparable
 	protected double chanceToHit;
 	protected int damageMin, damageMax;
 
+	protected int numTurns;
+	
 	public int compareTo(Object o)
 	{
 		return 1;
@@ -190,6 +192,10 @@ hero classes and externally
 
 //-----------------------------------------------------------------
 
+	public void incrementNumTurns()
+	{
+		numTurns++;
+	}
 
 
 }//end class Character

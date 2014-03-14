@@ -214,3 +214,14 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 Project/notes on project design.txt
+as6/Dungeon.class
+as6/DungeonCharacter.class
+as6/Gremlin.class
+as6/Hero.class
+as6/Keyboard.class
+as6/Monster.class
+as6/Ogre.class
+as6/Skeleton.class
+as6/Sorceress.class
+as6/Thief.class
+as6/Warrior.class
