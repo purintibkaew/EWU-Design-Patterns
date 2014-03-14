@@ -23,6 +23,13 @@ public class Warrior extends Hero
 
     }//end constructor
 
+    public Warrior(String name)
+	{
+
+		super(name, 125, 4, .8, 35, 60, .2);
+
+
+    }//end constructor
 
 	public void crushingBlow(DungeonCharacter opponent)
 	{

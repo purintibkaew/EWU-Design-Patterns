@@ -56,10 +56,7 @@ public class Dungeon
 
 		do
 		{
-		    theHero = chooseHero();
-			System.out.println("Enter a name: ");
-			keyboard.nextLine();
-			theHero.setName(keyboard.nextLine());
+			theHero = chooseHero();
 			
 		    theMonster = generateMonster();
 			battle(theHero, theMonster);
@@ -77,21 +74,25 @@ this task
 	{
 		int choice;
 		Hero theHero;
+		String name;
 
 		System.out.println("Choose a hero:\n" +
 					       "1. Warrior\n" +
 						   "2. Sorceress\n" +
 						   "3. Thief");
 		choice = keyboard.nextInt();
+		name = keyboard.nextLine();
+		System.out.println("Enter a name: ");
+		name = keyboard.nextLine();
 		
 
 		switch(choice)
 		{
-			case 1: return new Warrior();
+			case 1: return  ((!name.equals("")) ?  new Warrior(name) : new Warrior());
 
-			case 2: return new Sorceress();
+			case 2: return  ((!name.equals("")) ? new Sorceress(name) : new Sorceress());
 
-			case 3: return new Thief();
+			case 3: return ((!name.equals("")) ? new Thief(name) : new Thief());
 
 			default: System.out.println("invalid choice, returning Thief");
 				     return new Thief();
