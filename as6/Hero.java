@@ -31,16 +31,19 @@
 public abstract class Hero extends DungeonCharacter
 {
 	protected double chanceToBlock;
-	protected int numTurns;
+	
 
+	protected SpecialMove specialMove;
+	
 //-----------------------------------------------------------------
 //calls base constructor and gets name of hero from user
   public Hero(String name, int hitPoints, int attackSpeed,
 				     double chanceToHit, int damageMin, int damageMax,
-					 double chanceToBlock)
+					 double chanceToBlock, SpecialMove specialMove)
   {
 	super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
 	this.chanceToBlock = chanceToBlock;
+	this.specialMove = specialMove;
   }
 
 /*-------------------------------------------------------

@@ -42,6 +42,16 @@ public abstract class DungeonCharacter
 	protected double chanceToHit;
 	protected int damageMin, damageMax;
 
+<<<<<<< HEAD
+=======
+	protected int numTurns;
+	
+	public int compareTo(Object o)
+	{
+		return 1;
+	}
+
+>>>>>>> 9c95b53ad566cf08e959ff710a6a95d5d43a0808
 //-----------------------------------------------------------------
 //explicit constructor to initialize instance variables -- it is called
 // by derived classes
@@ -185,6 +195,10 @@ hero classes and externally
 
 //-----------------------------------------------------------------
 
+	public void incrementNumTurns()
+	{
+		numTurns++;
+	}
 
 
 }//end class Character

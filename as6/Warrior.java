@@ -18,11 +18,12 @@ public class Warrior extends Hero
     public Warrior()
 	{
 
-		super("Warrior", 125, 4, .8, 35, 60, .2);
+		super("Warrior", 125, 4, .8, 35, 60, .2, new MoveCrushingBlow());
 
 
     }//end constructor
 
+<<<<<<< HEAD
     public Warrior(String name)
 	{
 
@@ -48,6 +49,8 @@ public class Warrior extends Hero
 
 	}//end crushingBlow method
 
+=======
+>>>>>>> 9c95b53ad566cf08e959ff710a6a95d5d43a0808
 	public void attack(DungeonCharacter opponent)
 	{
 		System.out.println(name + " swings a mighty sword at " +
@@ -75,7 +78,7 @@ public class Warrior extends Hero
 		    {
 			    case 1: attack(opponent);
 			        break;
-			    case 2: crushingBlow(opponent);
+			    case 2: super.specialMove.execute(this, opponent);
 			        break;
 			    default:
 			        System.out.println("invalid choice!");
