@@ -15,7 +15,20 @@ namespace FinalProject
     {
         private PlayerIndex playerNum;
 
+        public enum PlayerKeyBind { PLAYER_MOVE_UP = 0, PLAYER_MOVE_DOWN = 1, PLAYER_MOVE_RIGHT = 2, PLAYER_MOVE_LEFT = 3, PLAYER_ATTACK = 4 };
+        private PlayerInputBinding[] playerInputBindings = new PlayerInputBinding[Enum.GetNames(typeof(PlayerKeyBind)).Length];
+
+        public PlayerInputBinding [] PlayerBindings
+        {
+            get
+            {
+                return playerInputBindings;
+            }
+        }
+
         private enum PlayerState { PLAYER_ATTACK_UP, PLAYER_ATTACK_DOWN, PLAYER_ATTACK_LEFT, PLAYER_ATTACK_RIGHT, PLAYER_OTHER };
+
+        
 
         private PlayerState curState;
 
@@ -62,17 +75,17 @@ namespace FinalProject
 
             velocity.X = velocity.Y = 0;
 
-            if (kb.IsKeyDown(Keys.W))
+            if(playerInputBindings[(int)PlayerKeyBind.PLAYER_MOVE_UP].IsInputDown(kb, gp))
                 velocity.Y -= entStats.Speed;
-            if (kb.IsKeyDown(Keys.S))
+            if (playerInputBindings[(int)PlayerKeyBind.PLAYER_MOVE_DOWN].IsInputDown(kb, gp))
                 velocity.Y += entStats.Speed;
-            if (kb.IsKeyDown(Keys.D))
+            if (playerInputBindings[(int)PlayerKeyBind.PLAYER_MOVE_RIGHT].IsInputDown(kb, gp))
                 velocity.X += entStats.Speed;
-            if (kb.IsKeyDown(Keys.A))
+            if (playerInputBindings[(int)PlayerKeyBind.PLAYER_MOVE_LEFT].IsInputDown(kb, gp))
                 velocity.X -= entStats.Speed;
             
             //basic state handling for attack - hacky, change later
-            if (kb.IsKeyDown(Keys.Space))
+            if (playerInputBindings[(int)PlayerKeyBind.PLAYER_ATTACK].IsInputDown(kb, gp))
             {
                 if (velocity.X > 0)
                     curState = PlayerState.PLAYER_ATTACK_RIGHT;
@@ -158,6 +171,24 @@ namespace FinalProject
         public override void Hit(int amount, int type)
         {
             
+        }
+    }
+    
+    //a basic class for associating keys and buttons to let the player class easily tell whether something has been pressed without having to check bindings
+    class PlayerInputBinding
+    {
+        private Keys keyboardKey;
+        private Buttons controllerButton;
+
+        public PlayerInputBinding(Keys keyboardKey, Buttons controllerButton)
+        {
+            this.keyboardKey = keyboardKey;
+            this.controllerButton = controllerButton;
+        }
+
+        public bool IsInputDown(KeyboardState kb, GamePadState gp)
+        {
+            return  kb.IsKeyDown(keyboardKey) || gp.IsButtonDown(controllerButton); //if either the controller button or the keyboard key is pressed, we want to return true
         }
     }
 }

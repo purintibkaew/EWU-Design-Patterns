@@ -21,7 +21,7 @@ namespace FinalProject
         private List<Movable> updateList;
         private QuadTree<Collidable> collidableEntities;
 
-        private List<MobileEntity> statusEntities; //TEMPORARY
+        private List<Updatable> updatableEntities;
 
         private Rectangle mapRect;
 
@@ -51,7 +51,7 @@ namespace FinalProject
             Rectangle screenRect = new Rectangle(0, 0, GraphicsDeviceManager.DefaultBackBufferWidth, GraphicsDeviceManager.DefaultBackBufferHeight);
 
             updateList = new List<Movable>();
-            statusEntities = new List<MobileEntity>();
+            updatableEntities = new List<Updatable>();
             collidableEntities = null;
         }
 
@@ -73,9 +73,9 @@ namespace FinalProject
                 m.Move();
             }
 
-            for (int i = 0; i < statusEntities.Count; i++ ) //because we may be removing entities from the list and foreach loops don't like that
+            for (int i = 0; i < updatableEntities.Count; i++ ) //because we may be removing entities from the list and foreach loops don't like that
             {
-                statusEntities[i].CheckStatus();
+                updatableEntities[i].CheckStatus();
             }
         }
 
@@ -100,15 +100,15 @@ namespace FinalProject
             collidableEntities.Remove(c);
         }
 
-        public void AddSEntity(MobileEntity m)
+        public void AddUpdatable(Updatable m)
         {
-            statusEntities.Add(m);
+            updatableEntities.Add(m);
         }
 
-        public void RemoveSEntity(MobileEntity m)
+        public void RemoveUpdatable(Updatable m)
         {
-            if (statusEntities.Contains(m))
-                statusEntities.Remove(m);
+            if (updatableEntities.Contains(m))
+                updatableEntities.Remove(m);
         }
     }
 }

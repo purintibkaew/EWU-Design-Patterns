@@ -55,8 +55,34 @@ namespace FinalProject
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            PlayerManager pm = PlayerManager.GetInstance();
+
             //update camera position to the average of the positions of all players
-            camera.Position = PlayerManager.GetInstance().GetPlayerAveragePosition();
+            camera.Position = pm.GetPlayerAveragePosition();
+
+            //update the camera zoom if players are a certain distance apart
+            Rectangle playerRectangle = pm.GetPlayerDistanceRectangle();
+
+            double zoomThreshhold = 0.75;
+            float zoomAmount = 1.0f;
+
+            if (playerRectangle.Width > gd.Viewport.Width * zoomThreshhold)
+            {
+                float tempZoom = (float)(playerRectangle.Width / (gd.Viewport.Width * zoomThreshhold));
+
+                if (tempZoom > zoomAmount)
+                    zoomAmount = tempZoom;
+            }
+            if (playerRectangle.Height > gd.Viewport.Height * zoomThreshhold)
+            {
+                float tempZoom = (float)(playerRectangle.Height / (gd.Viewport.Height * zoomThreshhold));
+
+                if (tempZoom > zoomAmount)
+                    zoomAmount = tempZoom;
+            }
+
+            camera.Zoom = 1 / zoomAmount;
+            
 
             //moved spritebatch.begin to here to support camera
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, camera.GetCameraTransform(this.gd));

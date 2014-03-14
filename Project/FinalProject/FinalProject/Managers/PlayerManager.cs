@@ -64,6 +64,42 @@ namespace FinalProject
             return toReturn;
         }
 
+        //return a the minimum rectangle that contains all players
+        public Rectangle GetPlayerDistanceRectangle()
+        {
+            bool dimensionsDefined = false;
+
+            int minX = -1, maxX = -1, minY = -1, maxY = -1;
+
+            foreach(Player p in players)
+            {
+                if(p.IsActive)
+                {
+                    if(!dimensionsDefined)
+                    {
+                        maxX = minX = (int)p.Position.X;
+                        maxY = minY = (int)p.Position.Y;
+
+                        dimensionsDefined = true;
+                    }
+                    else
+                    {
+                        if((int)p.Position.X < minX)
+                            minX = (int)p.Position.X; 
+                        if((int)p.Position.X > maxX)
+                            maxX = (int)p.Position.X;
+                        if((int)p.Position.Y < minY)
+                            minY = (int)p.Position.Y; 
+                        if((int)p.Position.Y > maxY)
+                            maxY = (int)p.Position.Y;
+                    }
+                }
+
+            }
+
+            return new Rectangle(minX, minY, maxX - minX, maxY - minY);
+        }
+
         public void SetPlayer(int playerIndex, Player p)
         {
             players[playerIndex] = p;

@@ -23,7 +23,7 @@ namespace FinalProject
         {
             get 
             { 
-                return (this.inner != null) ? this.Inner.Speed : 0; 
+                return (this.child != null) ? this.child.Speed : 0; 
             }
         }
 
@@ -31,7 +31,7 @@ namespace FinalProject
         {
             get
             {
-                return (this.inner != null) ? this.Inner.Attack : 0;
+                return (this.child != null) ? this.child.Attack : 0;
             }
         }
 
@@ -39,7 +39,7 @@ namespace FinalProject
         {
             get
             {
-                return (this.inner != null) ? this.Inner.MaxHP : 0;
+                return (this.child != null) ? this.child.MaxHP : 0;
             }
         }
 

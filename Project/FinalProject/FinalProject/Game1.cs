@@ -53,7 +53,7 @@ namespace FinalProject
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            this.stateManager.CurrentState.Init(this, Content, GraphicsDevice);
+            this.stateManager.InitStates(this, Content, GraphicsDevice);
 
             DebugText.GetInstance().Font = Content.Load<SpriteFont>("Fonts/ArialFont");
         }

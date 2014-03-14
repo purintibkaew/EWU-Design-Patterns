@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FinalProject
 {
-    abstract class MobileEntity: Drawable, Movable, Collidable
+    abstract class MobileEntity: Drawable, Movable, Collidable, Updatable
     {
         protected Texture2D sprite;
         protected Vector2 velocity;
@@ -70,14 +70,14 @@ namespace FinalProject
             this.entityIsActive = true;
 
             this.entStats = entStats;
-            //this.entStats = new HeadStat(entStats);
+            this.entStats = new HeadStat(entStats);
 
             this.curHealth = entStats.MaxHP;
 
             this.entInv = new InventoryHumanoid(this);
         }
 
-        public abstract void CheckStatus();
+       
 
         public void Move()
         {
@@ -179,5 +179,7 @@ namespace FinalProject
         public abstract void Logic();
 
         public abstract void Hit(int amount, int type);
+
+        public abstract void CheckStatus();
     }
 }

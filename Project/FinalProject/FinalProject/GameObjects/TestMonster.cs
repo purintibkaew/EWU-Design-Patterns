@@ -65,7 +65,7 @@ namespace FinalProject
                 dm.Remove(this, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
                 lm.Remove(this);
                 lm.RemoveCollidable(this);
-                lm.RemoveSEntity(this);
+                lm.RemoveUpdatable(this);
             }
         }
     }
