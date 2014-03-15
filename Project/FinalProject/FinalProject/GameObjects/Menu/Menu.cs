@@ -12,6 +12,8 @@ namespace FinalProject
     public abstract class Menu : Drawable
     {
         protected ContentManager cm;
+        private bool buttonPressed = false;
+        private bool buttonReleased = false;
         private List<MenuButton> buttons;
 
 
@@ -35,12 +37,22 @@ namespace FinalProject
 
             if (ms.LeftButton == ButtonState.Pressed)
             {
+                this.buttonPressed = true;
+            }
+            else if (ms.LeftButton == ButtonState.Released && this.buttonPressed)
+            {
+                this.buttonReleased = true;
+            }
+            if (this.buttonPressed && this.buttonReleased)
+            {
                 foreach (MenuButton b in buttons)
                 {
                     //If the mouse is within the bounds of the rectangle of the button
                     if (b.Bounds.Contains(ms.X, ms.Y))
                     {
                         dt.WriteLine("Clicked button " + b.Text + " at " + b.Bounds.X.ToString() + "," + b.Bounds.Y.ToString());
+                        this.buttonPressed = false;
+                        this.buttonReleased = false;
                         return doInput(b);
                     }
                 }
@@ -52,7 +64,7 @@ namespace FinalProject
         {
             DebugText dt = DebugText.GetInstance();
             MouseState ms = Mouse.GetState();
-
+            
 
             foreach (MenuButton b in buttons)
             {
@@ -64,7 +76,7 @@ namespace FinalProject
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
             foreach (MenuButton b in buttons)
             {

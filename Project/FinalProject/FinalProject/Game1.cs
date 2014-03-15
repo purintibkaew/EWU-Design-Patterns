@@ -86,6 +86,8 @@ namespace FinalProject
                         
             base.Update(gameTime);
 
+            //DebugText.GetInstance().WriteLine("Screen Size: " + this.graphics.PreferredBackBufferWidth.ToString() + "x" + this.graphics.PreferredBackBufferHeight.ToString());
+
             this.stateManager.MoveToNextState();
         }
 
