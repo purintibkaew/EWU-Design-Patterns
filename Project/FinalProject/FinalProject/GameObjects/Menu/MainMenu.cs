@@ -12,31 +12,33 @@ namespace FinalProject
     {
     	private int currentPlayer = 1;
         private ContentManager cm;
+        private PlayerManager pm;
 
         public MainMenu(ContentManager cm) : base(cm)
         {
             this.cm = cm;
+            this.pm = PlayerManager.GetInstance();
             makeButtons();
         }
 
         protected override bool doInput(MenuButton buttonSelected)
         {
-            if(buttonSelected.Text.Equals("Start"))
+            if(buttonSelected.Text.Equals("Start") && this.currentPlayer > 1)
             {
                 return true;
             }
-            else if (currentPlayer > 3)
+            else if (currentPlayer > 2)
             {
                 return true;
             }
             else if (buttonSelected.Text == "BMO")
             {
-                //Set current player to BMO
+                pm.SetPlayer(currentPlayer, PlayerManager.Character.BMO);
                 this.currentPlayer++;
             }
             else if (buttonSelected.Text == "NEPTR")
             {
-                //Set current player to BMO
+                pm.SetPlayer(currentPlayer, PlayerManager.Character.NEPTR);
                 this.currentPlayer++;
             }
             return false;
@@ -45,9 +47,18 @@ namespace FinalProject
         public override void Draw(SpriteBatch spriteBatch)
         {
             SpriteFont sf = cm.Load<SpriteFont>("Fonts/ArialFont-Big");
-            Vector2 textBox = sf.MeasureString("Player " + this.currentPlayer.ToString() + " - Choose Your Character");
+            string text;
+            if (this.currentPlayer < 3)
+            {
+                text = "Player " + this.currentPlayer.ToString() + " - Choose Your Character";
+            }
+            else
+            {
+                text = "Press any button to start!";
+            }
+            Vector2 textBox = sf.MeasureString(text);
             float textBoxPosX = (spriteBatch.GraphicsDevice.Viewport.Width / 2) - (textBox.X / 2);
-            spriteBatch.DrawString(sf, "Player "+ this.currentPlayer.ToString() +" - Choose Your Character", new Vector2(textBoxPosX, 10), Color.Black);
+            spriteBatch.DrawString(sf, text, new Vector2(textBoxPosX, 10), Color.Black);
             //DebugText.GetInstance().WriteLine("Screen Size: " + spriteBatch.GraphicsDevice.Viewport.Width.ToString() + " x " + spriteBatch.GraphicsDevice.Viewport.Height.ToString());
             base.Draw(spriteBatch);
         }

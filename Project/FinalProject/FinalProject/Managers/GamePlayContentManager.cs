@@ -53,37 +53,7 @@ namespace FinalProject
             GameMap map = MapFactory.GetInstance().GetMap(MapFactory.MAPS.FOREST_PATH, mapWidth, mapHeight);
             GamePlayMapManager.GetInstance().Map = map;
 
-            //temporary hacky player loading, hard coded
-            Player player = new Player(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Characters/BMOStanding"), map.MapData.Spawn, PlayerIndex.One, new BaseStats(10, 10, 5));
-
-            //we're going to be doing these calls a lot - consider factory or facade or similar
-            playerManager.SetPlayer(0, player);
-            drawManager.Add(player, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
-            inputManager.Add(player);
-            logicManager.AddMovable(player);
-            logicManager.AddCollidable(player);
-
-            //really hacky temporary way of setting player bindings
-            player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_ATTACK] = new PlayerInputBinding(Keys.Space, Buttons.A);
-            player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_UP] = new PlayerInputBinding(Keys.W, Buttons.DPadUp);
-            player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_DOWN] = new PlayerInputBinding(Keys.S, Buttons.DPadDown);
-            player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_LEFT] = new PlayerInputBinding(Keys.A, Buttons.DPadLeft);
-            player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_RIGHT] = new PlayerInputBinding(Keys.D, Buttons.DPadRight);
-
-            Player player2 = new Player(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Characters/NeptrStanding"), map.MapData.Spawn + new Vector2(50, 50), PlayerIndex.Two, new BaseStats(10, 10, 5));
-
-            playerManager.SetPlayer(1, player2);
-            drawManager.Add(player2, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
-            inputManager.Add(player2);
-            logicManager.AddMovable(player2);
-            logicManager.AddCollidable(player2);
-
-            //really hacky temporary way of setting player bindings
-            player2.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_ATTACK] = new PlayerInputBinding(Keys.RightControl, Buttons.A);
-            player2.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_UP] = new PlayerInputBinding(Keys.Up, Buttons.DPadUp);
-            player2.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_DOWN] = new PlayerInputBinding(Keys.Down, Buttons.DPadDown);
-            player2.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_LEFT] = new PlayerInputBinding(Keys.Left, Buttons.DPadLeft);
-            player2.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_RIGHT] = new PlayerInputBinding(Keys.Right, Buttons.DPadRight);
+            //playerManager.setupDefaultPlayers();
 
             TestMonster monster = new TestMonster(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Characters/Gunterstanding"), map.MapData.End, new BaseStats(30, 10, 5));
 
