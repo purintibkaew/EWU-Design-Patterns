@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 
 
 /**
@@ -12,6 +14,7 @@
 public class Thief extends Hero
 {
 
+	private Scanner keyboard = new Scanner(System.in);
     public Thief()
 	{
 		super("Thief", 75, 6, .8, 20, 40, .5, new MoveSurpriseAttack());
@@ -21,7 +24,7 @@ public class Thief extends Hero
     
     public Thief(String name)
 	{
-		super(name, 75, 6, .8, 20, 40, .5);
+		super(name, 75, 6, .8, 20, 40, .5, new MoveSurpriseAttack());
 
     }//end constructor
 
@@ -58,7 +61,7 @@ public class Thief extends Hero
 		    System.out.println("1. Attack Opponent");
 		    System.out.println("2. Surprise Attack");
 		    System.out.print("Choose an option: ");
-		    choice = Keyboard.readInt();
+		    choice = keyboard.nextInt();
 
 		    switch (choice)
 		    {

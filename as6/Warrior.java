@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 
 
 /**
@@ -14,7 +16,7 @@
 
 public class Warrior extends Hero
 {
-
+	private static Scanner keyboard = new Scanner(System.in);
     public Warrior()
 	{
 
@@ -23,11 +25,10 @@ public class Warrior extends Hero
 
     }//end constructor
 
-<<<<<<< HEAD
     public Warrior(String name)
 	{
 
-		super(name, 125, 4, .8, 35, 60, .2);
+		super(name, 125, 4, .8, 35, 60, .2, new MoveCrushingBlow());
 
 
     }//end constructor
@@ -49,8 +50,6 @@ public class Warrior extends Hero
 
 	}//end crushingBlow method
 
-=======
->>>>>>> 9c95b53ad566cf08e959ff710a6a95d5d43a0808
 	public void attack(DungeonCharacter opponent)
 	{
 		System.out.println(name + " swings a mighty sword at " +
@@ -72,7 +71,7 @@ public class Warrior extends Hero
 		    System.out.println("1. Attack Opponent");
 		    System.out.println("2. Crushing Blow on Opponent");
 		    System.out.print("Choose an option: ");
-		    choice = Keyboard.readInt();
+		    choice = keyboard.nextInt();
 
 		    switch (choice)
 		    {

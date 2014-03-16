@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 
 
 /**
@@ -14,24 +16,19 @@
 public class Sorceress extends Hero
 {
 	
-
+	private static Scanner keyboard = new Scanner(System.in);
 //-----------------------------------------------------------------
     public Sorceress()
 	{
-<<<<<<< HEAD
-		super("Sorceress", 75, 5, .7, 25, 50, .3);
+		super("Sorceress", 75, 5, .7, 25, 50, .3, new MoveIncreaseHitPoints());
 		
     }//end constructor
     
     public Sorceress(String name)
 	{
-		super(name, 75, 5, .7, 25, 50, .3);
-		
-=======
-		super("Sorceress", 75, 5, .7, 25, 50, .3, new MoveIncreaseHitPoints());
+		super(name, 75, 5, .7, 25, 50, .3, new MoveIncreaseHitPoints());
 
 
->>>>>>> 9c95b53ad566cf08e959ff710a6a95d5d43a0808
     }//end constructor
 
 //-----------------------------------------------------------------
@@ -53,7 +50,7 @@ public class Sorceress extends Hero
 		    System.out.println("1. Attack Opponent");
 		    System.out.println("2. Increase Hit Points");
 		    System.out.print("Choose an option: ");
-		    choice = Keyboard.readInt();
+		    choice = keyboard.nextInt();
 
 		    switch (choice)
 		    {
