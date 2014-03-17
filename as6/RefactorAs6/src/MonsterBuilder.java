@@ -1,5 +1,3 @@
-
-
 public class MonsterBuilder
 {    
     private String monsterName;

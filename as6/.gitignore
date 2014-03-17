@@ -14,7 +14,3 @@
 /MoveIncreaseHitPoints.class
 /MoveSurpriseAttack.class
 /Hero$attackType.class
-/HeroBuilder$SPECIAL_MOVE.class
-/HeroBuilder.class
-/ISpecialMove.class
-/MonsterBuilder.class
