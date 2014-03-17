@@ -141,7 +141,7 @@ namespace FinalProject
                     break;
             }
 
-            Player player = new Player(playerSprite, mapManager.Map.MapData.Spawn + new Vector2(rand.Next(50) - 25, rand.Next(50) - 25), pi, new BaseStats(10, 10, 5));
+            Player player = new Player(playerSprite, mapManager.Map.MapData.Spawn/* + new Vector2(rand.Next(50) - 25, rand.Next(50) - 25)*/, pi, new BaseStats(10, 10, 5));
             SetPlayer(playerIndex - 1, player);
 
 
