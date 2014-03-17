@@ -1,12 +1,5 @@
 public class HeroBuilder
-{	
-    public static enum HEROES
-    { 
-    	Warrior,
-    	Sorceress,
-    	Thief
-    }
-    
+{    
     public static enum SPECIAL_MOVE
     { 
     	CrushingBlow,
@@ -14,7 +7,6 @@ public class HeroBuilder
     	SurpriseAttack
     }
     
-    private HEROES heroType;
     private String heroName;
     private int hitPoints;
     private int attackSpeed;
@@ -24,11 +16,11 @@ public class HeroBuilder
     private double chanceToBlock;
     private SpecialMove specialMove;
     private String specialMoveName;
+    private String attackMessage;
     
     
     public HeroBuilder()
     {
-    	heroType = HEROES.Thief;
     	heroName = "Thief";
     	hitPoints = 75;
     	attackSpeed = 6;
@@ -38,11 +30,7 @@ public class HeroBuilder
     	chanceToBlock = .5;
     	specialMove = new MoveSurpriseAttack();
     	specialMoveName = "Surprise Attack";
-    }
-    
-    public void setHeroType(HEROES type)
-    {
-    	heroType = type;
+    	attackMessage = " slices his rusty blade at ";
     }
     
     public void setHeroName(String name)
@@ -99,21 +87,16 @@ public class HeroBuilder
     	specialMoveName = smn;
     }
     
+    public void setAttackMessage(String am)
+    {
+    	attackMessage = am;
+    }
+    
 	public Hero getHero()
 	{
-		Hero heroToBuild = null;		
-		
-		switch(heroType)
-		{
-			case Warrior:
-				heroToBuild = new Warrior(heroName, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, chanceToBlock, specialMove, specialMoveName);
-			case Sorceress:
-				heroToBuild = new Sorceress(heroName, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, chanceToBlock, specialMove, specialMoveName);
-			default:
-			case Thief:
-				heroToBuild = new Thief(heroName, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, chanceToBlock, specialMove, specialMoveName);
-		}
-		
-		return heroToBuild;
+		return new Hero(heroName, hitPoints, attackSpeed, 
+						chanceToHit, damageMin, damageMax, 
+						chanceToBlock, specialMove, 
+						specialMoveName, attackMessage);
 	}
 }

@@ -41,14 +41,15 @@ public abstract class DungeonCharacter
 	protected int attackSpeed;
 	protected double chanceToHit;
 	protected int damageMin, damageMax;
-
+	private String attackMessage;
 	protected int numTurns;
 	
 //-----------------------------------------------------------------
 //explicit constructor to initialize instance variables -- it is called
 // by derived classes
 	public DungeonCharacter(String name, int hitPoints, int attackSpeed,
-				     double chanceToHit, int damageMin, int damageMax)
+				     double chanceToHit, int damageMin, int damageMax,
+				     String attackMessage)
 	{
 
 		this.name = name;
@@ -57,6 +58,7 @@ public abstract class DungeonCharacter
 		this.chanceToHit = chanceToHit;
 		this.damageMin = damageMin;
 		this.damageMax = damageMax;
+		this.attackMessage = attackMessage;
 
 	}//end constructor
 
@@ -162,6 +164,9 @@ hero classes and externally
 	{
 		boolean canAttack;
 		int damage;
+		
+		System.out.println(name + attackMessage +
+						   opponent.getName() + ":");
 
 		canAttack = Math.random() <= chanceToHit;
 

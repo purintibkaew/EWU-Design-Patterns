@@ -87,7 +87,6 @@ this task
 		switch(choice)
 		{
 			case 1: 
-				heroBuilder.setHeroType(HeroBuilder.HEROES.Warrior);
 				heroBuilder.setAttackSpeed(4);
 				heroBuilder.setChanceToBlock(.2);
 				heroBuilder.setChanceToHit(.8);
@@ -96,10 +95,10 @@ this task
 				heroBuilder.setHitPoints(125);
 				heroBuilder.setSpecialMove(HeroBuilder.SPECIAL_MOVE.CrushingBlow);
 				heroBuilder.setSpecialMoveName("Crushing Blow");
+				heroBuilder.setAttackMessage(" swings a mighty sword at ");
 				break;
 
 			case 2: 
-				heroBuilder.setHeroType(HeroBuilder.HEROES.Sorceress);
 				heroBuilder.setAttackSpeed(5);
 				heroBuilder.setChanceToBlock(.3);
 				heroBuilder.setChanceToHit(.7);
@@ -108,6 +107,7 @@ this task
 				heroBuilder.setHitPoints(75);
 				heroBuilder.setSpecialMove(HeroBuilder.SPECIAL_MOVE.IncreaseHitPoints);
 				heroBuilder.setSpecialMoveName("Increase Hit Points");
+				heroBuilder.setAttackMessage(" casts a spell of fireball at ");
 				break;
 
 			default: System.out.println("invalid choice, returning Thief");
