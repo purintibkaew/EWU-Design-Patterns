@@ -73,30 +73,56 @@ this task
 	public static Hero chooseHero()
 	{
 		int choice;
-		Hero theHero;
 		String name;
+		HeroBuilder heroBuilder = new HeroBuilder();
 
 		System.out.println("Choose a hero:\n" +
 					       "1. Warrior\n" +
 						   "2. Sorceress\n" +
 						   "3. Thief");
 		choice = keyboard.nextInt();
-		name = keyboard.nextLine();
-		System.out.println("Enter a name: ");
-		name = keyboard.nextLine();
-		
+		keyboard.nextLine(); // clear buffer
+
 
 		switch(choice)
 		{
-			case 1: return  ((!name.equals("")) ?  new Warrior(name) : new Warrior());
+			case 1: 
+				heroBuilder.setHeroType(HeroBuilder.HEROES.Warrior);
+				heroBuilder.setAttackSpeed(4);
+				heroBuilder.setChanceToBlock(.2);
+				heroBuilder.setChanceToHit(.8);
+				heroBuilder.setDamageMax(60);
+				heroBuilder.setDamageMin(35);
+				heroBuilder.setHitPoints(125);
+				heroBuilder.setSpecialMove(HeroBuilder.SPECIAL_MOVE.CrushingBlow);
+				heroBuilder.setSpecialMoveName("Crushing Blow");
+				break;
 
-			case 2: return  ((!name.equals("")) ? new Sorceress(name) : new Sorceress());
-
-			case 3: return ((!name.equals("")) ? new Thief(name) : new Thief());
+			case 2: 
+				heroBuilder.setHeroType(HeroBuilder.HEROES.Sorceress);
+				heroBuilder.setAttackSpeed(5);
+				heroBuilder.setChanceToBlock(.3);
+				heroBuilder.setChanceToHit(.7);
+				heroBuilder.setDamageMax(25);
+				heroBuilder.setDamageMin(50);
+				heroBuilder.setHitPoints(75);
+				heroBuilder.setSpecialMove(HeroBuilder.SPECIAL_MOVE.IncreaseHitPoints);
+				heroBuilder.setSpecialMoveName("Increase Hit Points");
+				break;
 
 			default: System.out.println("invalid choice, returning Thief");
-				     return new Thief();
+			case 3: 
+				break;
 		}//end switch
+		
+		System.out.println("Enter character name: ");
+		
+		//the older code didn't allow \n to be submitted
+		while((name = keyboard.nextLine()).compareTo("") == 0);
+		
+		heroBuilder.setHeroName(name);
+		
+		return heroBuilder.getHero();
 	}//end chooseHero method
 
 /*-------------------------------------------------------------------

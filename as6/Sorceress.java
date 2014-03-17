@@ -13,17 +13,12 @@ public class Sorceress extends Hero
 {
 	
 //-----------------------------------------------------------------
-    public Sorceress()
+    public Sorceress(String sorceressName, int hitPoints, int attackSpeed, 
+    			 double chanceToHit, int damageMin, int damageMax, 
+    			 double chanceToBlock, SpecialMove specialMove, String specialMoveName)
 	{
-		super("Sorceress", 75, 5, .7, 25, 50, .3, new MoveIncreaseHitPoints(), "Heal");
-		
-    }//end constructor
-    
-    public Sorceress(String name)
-	{
-		super(name, 75, 5, .7, 25, 50, .3, new MoveIncreaseHitPoints(), "Heal");
-
-
+		super(sorceressName, hitPoints, attackSpeed, chanceToHit, 
+		      damageMin, damageMax, chanceToBlock, specialMove, specialMoveName);
     }//end constructor
 
 //-----------------------------------------------------------------
