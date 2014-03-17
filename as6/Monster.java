@@ -10,10 +10,10 @@
  */
 
 
-public abstract class Monster extends DungeonCharacter
+public class Monster extends DungeonCharacter
 {
-	protected double chanceToHeal;
-	protected int minHeal, maxHeal;
+	private double chanceToHeal;
+	private int minHeal, maxHeal;
 
 //-----------------------------------------------------------------
   public Monster(String name, int hitPoints, int attackSpeed,

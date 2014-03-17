@@ -1,5 +1,5 @@
 
-public class MoveCrushingBlow implements SpecialMove
+public class MoveCrushingBlow implements ISpecialMove
 {
 
 	@Override

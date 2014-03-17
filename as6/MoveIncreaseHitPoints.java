@@ -1,5 +1,5 @@
 
-public class MoveIncreaseHitPoints implements SpecialMove
+public class MoveIncreaseHitPoints implements ISpecialMove
 {
 
 	private final int MIN_ADD = 25;

@@ -1,5 +1,5 @@
 
-public class MoveSurpriseAttack implements SpecialMove
+public class MoveSurpriseAttack implements ISpecialMove
 {
 
 	@Override

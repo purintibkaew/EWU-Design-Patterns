@@ -30,17 +30,17 @@
 
 public class Hero extends DungeonCharacter
 {
-	protected double chanceToBlock;
+	private double chanceToBlock;
 	public enum attackType {normal, special};
 
-	protected SpecialMove specialMove;
+	private ISpecialMove specialMove;
 	private String specialMoveName;
 	
 //-----------------------------------------------------------------
 //calls base constructor and gets name of hero from user
   public Hero(String name, int hitPoints, int attackSpeed,
 				     double chanceToHit, int damageMin, int damageMax,
-					 double chanceToBlock, SpecialMove specialMove, 
+					 double chanceToBlock, ISpecialMove specialMove, 
 					 String specialMoveName, String attackMessage)
   {
 	super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax, attackMessage);

@@ -14,7 +14,7 @@ public class HeroBuilder
     private int damageMin;
     private int damageMax;
     private double chanceToBlock;
-    private SpecialMove specialMove;
+    private ISpecialMove specialMove;
     private String specialMoveName;
     private String attackMessage;
     
