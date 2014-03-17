@@ -182,6 +182,7 @@ hero classes and externally
 								" failed!");
 			System.out.println();
 		}//end else
+		numTurns--;
 
 	}//end attack method
 

@@ -31,20 +31,24 @@
 public abstract class Hero extends DungeonCharacter
 {
 	protected double chanceToBlock;
-	
+	public enum attackType {normal, special};
 
 	protected SpecialMove specialMove;
+	private String SpecialMoveName;
 	
 //-----------------------------------------------------------------
 //calls base constructor and gets name of hero from user
   public Hero(String name, int hitPoints, int attackSpeed,
 				     double chanceToHit, int damageMin, int damageMax,
-					 double chanceToBlock, SpecialMove specialMove)
+					 double chanceToBlock, SpecialMove specialMove, String specialMoveName)
   {
 	super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
 	this.chanceToBlock = chanceToBlock;
 	this.specialMove = specialMove;
+	this.SpecialMoveName = specialMoveName;
   }
+  
+  public abstract void specialMove(DungeonCharacter opponent);
 
 /*-------------------------------------------------------
 readName obtains a name for the hero from the user
@@ -113,7 +117,7 @@ Returns: nothing
 This method calls: getAttackSpeed()
 This method is called by: external sources
 ---------------------------------------------------------*/
-	public void battleChoices(DungeonCharacter opponent)
+	public void setNumberOfTurns(DungeonCharacter opponent)
 	{
 	    numTurns = attackSpeed/opponent.getAttackSpeed();
 
@@ -122,6 +126,14 @@ This method is called by: external sources
 
 		System.out.println("Number of turns this round is: " + numTurns);
 
-	}//end battleChoices
+	}
+	
+	public String getSpecialMoveName(){
+		return this.SpecialMoveName;
+	}
+	
+	public int getNumberOfTurns(){
+		return this.numTurns;
+	}
 
 }//end Hero class

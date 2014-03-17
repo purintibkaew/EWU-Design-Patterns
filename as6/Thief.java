@@ -1,7 +1,3 @@
-import java.util.Scanner;
-
-
-
 /**
  * Title:
  * Description:
@@ -14,17 +10,16 @@ import java.util.Scanner;
 public class Thief extends Hero
 {
 
-	private Scanner keyboard = new Scanner(System.in);
     public Thief()
 	{
-		super("Thief", 75, 6, .8, 20, 40, .5, new MoveSurpriseAttack());
+		super("Thief", 75, 6, .8, 20, 40, .5, new MoveSurpriseAttack(), "Surprise Attack");
 
 
     }//end constructor
     
     public Thief(String name)
 	{
-		super(name, 75, 6, .8, 20, 40, .5, new MoveSurpriseAttack());
+		super(name, 75, 6, .8, 20, 40, .5, new MoveSurpriseAttack(), "Surprise Attack");
 
     }//end constructor
 
@@ -50,34 +45,8 @@ public class Thief extends Hero
 	}//end surpriseAttack method
 
 
-    public void battleChoices(DungeonCharacter opponent)
-	{
-		super.battleChoices(opponent);
-		int choice;
-
-
-		do
-		{
-		    System.out.println("1. Attack Opponent");
-		    System.out.println("2. Surprise Attack");
-		    System.out.print("Choose an option: ");
-		    choice = keyboard.nextInt();
-
-		    switch (choice)
-		    {
-			    case 1: attack(opponent);
-			        break;
-			    case 2: surpriseAttack(opponent);
-			        break;
-			    default:
-			        System.out.println("invalid choice!");
-		    }//end switch
-
-			numTurns--;
-			if (numTurns > 0)
-			    System.out.println("Number of turns remaining is: " + numTurns);
-
-		} while(numTurns > 0);
-
-    }
+	public void specialMove(DungeonCharacter opponent){
+		specialMove.execute(this, opponent);
+		numTurns--;
+	}
 }

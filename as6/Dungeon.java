@@ -154,8 +154,13 @@ user has the option of quitting.
 		while (theHero.isAlive() && theMonster.isAlive() && !pause.toLowerCase().equals("q"))
 		{
 		    //hero goes first
-			theHero.battleChoices(theMonster);
+			boolean cont = heroAttackMenu(theHero, theMonster);
 
+			//user chose to exit
+			if(!cont){
+				break;
+			}
+			
 			//monster's turn (provided it's still alive!)
 			if (theMonster.isAlive())
 			    theMonster.attack(theHero);
@@ -176,4 +181,32 @@ user has the option of quitting.
 	}//end battle method
 
 
+	private static boolean heroAttackMenu(Hero theHero, Monster theMonster){
+		theHero.setNumberOfTurns(theMonster);
+		
+		do{
+			String choice;
+			System.out.println("\n1) Attack Opponent");
+			System.out.println("2) Use " + theHero.getSpecialMoveName());
+		    System.out.print("Choose an option: ");
+		    
+		    choice = keyboard.nextLine();
+		    
+		    switch(choice.toLowerCase()){
+		    case "1":
+		    	theHero.attack(theMonster);
+		    	break;
+		    case "2":
+		    	theHero.specialMove(theMonster);
+		    	break;
+		    case "q":
+		    	return false;
+		    default:
+		    	System.out.println("Invalid choice!");	
+		    }
+		    
+		    
+		}while(theHero.getNumberOfTurns() > 0 && theHero.isAlive() && theMonster.isAlive());
+		return true;
+	}
 }//end Dungeon class

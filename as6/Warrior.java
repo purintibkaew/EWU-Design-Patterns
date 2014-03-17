@@ -1,7 +1,3 @@
-import java.util.Scanner;
-
-
-
 /**
  * Title:
  * Description:
@@ -16,11 +12,10 @@ import java.util.Scanner;
 
 public class Warrior extends Hero
 {
-	private static Scanner keyboard = new Scanner(System.in);
     public Warrior()
 	{
 
-		super("Warrior", 125, 4, .8, 35, 60, .2, new MoveCrushingBlow());
+		super("Warrior", 125, 4, .8, 35, 60, .2, new MoveCrushingBlow(), "Crushing Blow");
 
 
     }//end constructor
@@ -28,7 +23,7 @@ public class Warrior extends Hero
     public Warrior(String name)
 	{
 
-		super(name, 125, 4, .8, 35, 60, .2, new MoveCrushingBlow());
+		super(name, 125, 4, .8, 35, 60, .2, new MoveCrushingBlow(), "Crushing Blow");
 
 
     }//end constructor
@@ -57,38 +52,9 @@ public class Warrior extends Hero
 		super.attack(opponent);
 	}//end override of attack method
 
-
-
-
-    public void battleChoices(DungeonCharacter opponent)
-	{
-		int choice;
-
-		super.battleChoices(opponent);
-
-		do
-		{
-		    System.out.println("1. Attack Opponent");
-		    System.out.println("2. Crushing Blow on Opponent");
-		    System.out.print("Choose an option: ");
-		    choice = keyboard.nextInt();
-
-		    switch (choice)
-		    {
-			    case 1: attack(opponent);
-			        break;
-			    case 2: super.specialMove.execute(this, opponent);
-			        break;
-			    default:
-			        System.out.println("invalid choice!");
-		    }//end switch
-
-			numTurns--;
-			if (numTurns > 0)
-			    System.out.println("Number of turns remaining is: " + numTurns);
-
-		} while(numTurns > 0);
-
-    }//end battleChoices method
+	public void specialMove(DungeonCharacter opponent){
+		specialMove.execute(this, opponent);
+		numTurns--;
+	}
 
 }//end Hero class
