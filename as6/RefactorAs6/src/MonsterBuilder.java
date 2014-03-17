@@ -14,16 +14,16 @@ public class MonsterBuilder
     
     public MonsterBuilder()
     {
-    	monsterName = "Gnarltooth the Gremlin";
-    	hitPoints = 70;
-    	attackSpeed = 5;
+    	monsterName = "Sargath the Skeleton";
+    	hitPoints = 100;
+    	attackSpeed = 3;
     	chanceToHit = .8;
-    	damageMin = 15;
-    	damageMax = 30;
-    	chanceToHeal = .4;
-    	minHeal = 20;
-    	maxHeal = 40;
-    	attackMessage = " jabs his kris at ";
+    	damageMin = 30;
+    	damageMax = 50;
+    	chanceToHeal = .3;
+    	minHeal = 30;
+    	maxHeal = 50;
+    	attackMessage = " slices his rusty blade at ";
     }
     
     public void setmonsterName(String name)

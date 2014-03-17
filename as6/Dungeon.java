@@ -48,6 +48,7 @@ import java.util.Scanner;
 public class Dungeon
 {
 	private static Scanner keyboard = new Scanner(System.in);
+	
     public static void main(String[] args)
 	{
 
@@ -70,7 +71,7 @@ chooseHero allows the user to select a hero, creates that hero, and
 returns it.  It utilizes a polymorphic reference (Hero) to accomplish
 this task
 ---------------------------------------------------------------------*/
-	public static Hero chooseHero()
+	private static Hero chooseHero()
 	{
 		int choice;
 		String name;
@@ -87,27 +88,11 @@ this task
 		switch(choice)
 		{
 			case 1: 
-				heroBuilder.setAttackSpeed(4);
-				heroBuilder.setChanceToBlock(.2);
-				heroBuilder.setChanceToHit(.8);
-				heroBuilder.setDamageMax(60);
-				heroBuilder.setDamageMin(35);
-				heroBuilder.setHitPoints(125);
-				heroBuilder.setSpecialMove(HeroBuilder.SPECIAL_MOVE.CrushingBlow);
-				heroBuilder.setSpecialMoveName("Crushing Blow");
-				heroBuilder.setAttackMessage(" swings a mighty sword at ");
+				buildWarrior(heroBuilder);
 				break;
 
 			case 2: 
-				heroBuilder.setAttackSpeed(5);
-				heroBuilder.setChanceToBlock(.3);
-				heroBuilder.setChanceToHit(.7);
-				heroBuilder.setDamageMax(25);
-				heroBuilder.setDamageMin(50);
-				heroBuilder.setHitPoints(75);
-				heroBuilder.setSpecialMove(HeroBuilder.SPECIAL_MOVE.IncreaseHitPoints);
-				heroBuilder.setSpecialMoveName("Increase Hit Points");
-				heroBuilder.setAttackMessage(" casts a spell of fireball at ");
+				buildSorceress(heroBuilder);
 				break;
 
 			default: System.out.println("invalid choice, returning Thief");
@@ -124,35 +109,95 @@ this task
 		
 		return heroBuilder.getHero();
 	}//end chooseHero method
+	
+	private static void buildWarrior(HeroBuilder heroBuilder)
+	{
+		heroBuilder.setAttackSpeed(4);
+		heroBuilder.setChanceToBlock(.2);
+		heroBuilder.setChanceToHit(.8);
+		heroBuilder.setDamageMax(60);
+		heroBuilder.setDamageMin(35);
+		heroBuilder.setHitPoints(125);
+		heroBuilder.setSpecialMove(HeroBuilder.SPECIAL_MOVE.CrushingBlow);
+		heroBuilder.setSpecialMoveName("Crushing Blow");
+		heroBuilder.setAttackMessage(" swings a mighty sword at ");
+	}
 
+	private static void buildSorceress(HeroBuilder heroBuilder)
+	{
+		heroBuilder.setAttackSpeed(5);
+		heroBuilder.setChanceToBlock(.3);
+		heroBuilder.setChanceToHit(.7);
+		heroBuilder.setDamageMax(25);
+		heroBuilder.setDamageMin(50);
+		heroBuilder.setHitPoints(75);
+		heroBuilder.setSpecialMove(HeroBuilder.SPECIAL_MOVE.IncreaseHitPoints);
+		heroBuilder.setSpecialMoveName("Increase Hit Points");
+		heroBuilder.setAttackMessage(" casts a spell of fireball at ");
+	}
 /*-------------------------------------------------------------------
 generateMonster randomly selects a Monster and returns it.  It utilizes
 a polymorphic reference (Monster) to accomplish this task.
 ---------------------------------------------------------------------*/
-	public static Monster generateMonster()
+	private static Monster generateMonster()
 	{
 		int choice;
+		MonsterBuilder monsterBuilder = new MonsterBuilder();
 
 		choice = (int)(Math.random() * 3) + 1;
 
 		switch(choice)
 		{
-			case 1: return new Ogre();
+			case 1: 
+				buildOgre(monsterBuilder);
+				break;
 
-			case 2: return new Gremlin();
-
-			case 3: return new Skeleton();
+			case 2: 
+				buildGremlin(monsterBuilder);
+				break;
 
 			default: System.out.println("invalid choice, returning Skeleton");
-				     return new Skeleton();
+			case 3: 
+				break;
+
 		}//end switch
+
+		return monsterBuilder.getMonster();
 	}//end generateMonster method
+	
+	private static void buildOgre(MonsterBuilder monsterBuilder)
+	{
+		monsterBuilder.setAttackMessage(" slowly swings a club toward's ");
+		monsterBuilder.setAttackSpeed(2);
+		monsterBuilder.setChanceToHeal(.1);
+		monsterBuilder.setChanceToHit(.6);
+		monsterBuilder.setDamageMax(50);
+		monsterBuilder.setDamageMin(30);
+		monsterBuilder.setHitPoints(200);
+		monsterBuilder.setMaxHeal(50);
+		monsterBuilder.setMinHeal(30);
+		monsterBuilder.setmonsterName("Oscar the Ogre");
+	}
+	
+	private static void buildGremlin(MonsterBuilder monsterBuilder)
+	{
+		monsterBuilder.setAttackMessage(" jabs his kris at ");
+		monsterBuilder.setAttackSpeed(5);
+		monsterBuilder.setChanceToHeal(.4);
+		monsterBuilder.setChanceToHit(.8);
+		monsterBuilder.setDamageMax(30);
+		monsterBuilder.setDamageMin(15);
+		monsterBuilder.setHitPoints(70);
+		monsterBuilder.setMaxHeal(40);
+		monsterBuilder.setMinHeal(20);
+		monsterBuilder.setmonsterName("Gnarltooth the Gremlin");
+	}
 
 /*-------------------------------------------------------------------
 playAgain allows gets choice from user to play another game.  It returns
 true if the user chooses to continue, false otherwise.
 ---------------------------------------------------------------------*/
-	public static boolean playAgain()
+	private static boolean playAgain()
 	{
 		String again;
 
@@ -169,7 +214,7 @@ and a Monster to be passed in.  Battle occurs in rounds.  The Hero
 goes first, then the Monster.  At the conclusion of each round, the
 user has the option of quitting.
 ---------------------------------------------------------------------*/
-	public static void battle(Hero theHero, Monster theMonster)
+	private static void battle(Hero theHero, Monster theMonster)
 	{
 		String continuePlaying = "play";
 		System.out.println(theHero.getName() + " battles " +

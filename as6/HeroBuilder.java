@@ -74,11 +74,14 @@ public class HeroBuilder
     	{
 	    	case CrushingBlow:
 	    		specialMove = new MoveCrushingBlow();
+	    		break;
 	    	case IncreaseHitPoints:
 	    		specialMove = new MoveIncreaseHitPoints();
+	    		break;
 	    	default:
 	    	case SurpriseAttack:
 	    		specialMove = new MoveSurpriseAttack();
+	    		break;
     	}
     }
 
