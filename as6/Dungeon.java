@@ -171,13 +171,13 @@ user has the option of quitting.
 ---------------------------------------------------------------------*/
 	public static void battle(Hero theHero, Monster theMonster)
 	{
-		String pause = "p";
+		String continuePlaying = "play";
 		System.out.println(theHero.getName() + " battles " +
 							theMonster.getName());
 		System.out.println("---------------------------------------------");
 
 		//do battle
-		while (theHero.isAlive() && theMonster.isAlive() && !pause.toLowerCase().equals("q"))
+		while (theHero.isAlive() && theMonster.isAlive() && !continuePlaying.toLowerCase().equals("q"))
 		{
 		    //hero goes first
 			boolean cont = heroAttackMenu(theHero, theMonster);
@@ -193,7 +193,7 @@ user has the option of quitting.
 
 			//let the player bail out if desired
 			System.out.print("\n-->q to quit, anything else to continue: ");
-			pause = keyboard.nextLine();
+			continuePlaying = keyboard.nextLine();
 
 		}//end battle loop
 
