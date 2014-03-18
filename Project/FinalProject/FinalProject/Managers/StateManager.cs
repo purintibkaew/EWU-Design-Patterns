@@ -17,7 +17,7 @@ namespace FinalProject
         private GameState nextState = null;
 
         private static StateManager instance;
-        public enum States { GameState, MainMenuState, GameOverState, GameWonState };
+        public enum States { GameState, MainMenuState, GameOverState, GameWonState};
 
         private StateManager()
         {
