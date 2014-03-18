@@ -43,6 +43,8 @@ namespace FinalProject
         {
             gameContentManager = cm;
 
+            drawManager.UI.Font = gameContentManager.Load<SpriteFont>("Fonts/ArialFont");
+
             // Call all factories here so that they can load in their sprites
             MapEntityFactory.LoadSprites(cm);
 

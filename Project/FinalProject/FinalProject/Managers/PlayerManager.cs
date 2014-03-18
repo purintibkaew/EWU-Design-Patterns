@@ -113,16 +113,22 @@ namespace FinalProject
             Random rand = new Random();
 
             Texture2D playerSprite;
+            Stats playerStats;
+            GameUIElement playerUI;
+
             switch (c)
             {
                 case Character.BMO:
                     playerSprite = SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Characters/BMOStanding");
+                    playerStats = new BaseStats(50, 10, 5);
                     break;
                 case Character.NEPTR:
                     playerSprite = SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Characters/NeptrStanding");
+                    playerStats = new BaseStats(75, 20, 3);
                     break;
                 default:
                     playerSprite = SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Characters/BMOStanding");
+                    playerStats = new BaseStats(50, 10, 5);
                     break;
 
             }
@@ -132,48 +138,49 @@ namespace FinalProject
             {
                 case 1:
                     pi = PlayerIndex.One;
+                    playerUI = new GameUIElement(drawManager.UI, "", new Vector2(10, 100));
                     break;
                 case 2:
                     pi = PlayerIndex.Two;
+                    playerUI = new GameUIElement(drawManager.UI, "", new Vector2(10, 200));
                     break;
                 default:
                     pi = PlayerIndex.One;
+                    playerUI = new GameUIElement(drawManager.UI, "", new Vector2(10, 100));
                     break;
             }
 
-            Player player = new Player(playerSprite, mapManager.Map.MapData.Spawn/* + new Vector2(rand.Next(50) - 25, rand.Next(50) - 25)*/, pi, new BaseStats(10, 10, 5));
+            Player player = new Player(playerSprite, mapManager.Map.MapData.Spawn/* + new Vector2(rand.Next(50) - 25, rand.Next(50) - 25)*/, pi, playerStats, playerUI);
             SetPlayer(playerIndex - 1, player);
 
+            drawManager.UI.AddElementR(playerUI);
 
+            drawManager.Add(player, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
+            inputManager.Add(player);
+            logicManager.AddMovable(player);
+            logicManager.AddCollidable(player);
+            logicManager.AddUpdatable(player);
 
             //Setting up player specific input
             if (playerIndex == 1)
             {
-                drawManager.Add(player, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
-                inputManager.Add(player);
-                logicManager.AddMovable(player);
-                logicManager.AddCollidable(player);
-
                 //really hacky temporary way of setting player bindings
                 player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_ATTACK] = new PlayerInputBinding(Keys.Space, Buttons.A);
                 player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_UP] = new PlayerInputBinding(Keys.W, Buttons.DPadUp);
                 player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_DOWN] = new PlayerInputBinding(Keys.S, Buttons.DPadDown);
                 player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_LEFT] = new PlayerInputBinding(Keys.A, Buttons.DPadLeft);
                 player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_RIGHT] = new PlayerInputBinding(Keys.D, Buttons.DPadRight);
+                player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_RIGHT] = new PlayerInputBinding(Keys.E, Buttons.X);
             }
             else
             {
-                drawManager.Add(player, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
-                inputManager.Add(player);
-                logicManager.AddMovable(player);
-                logicManager.AddCollidable(player);
-
                 //really hacky temporary way of setting player bindings
                 player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_ATTACK] = new PlayerInputBinding(Keys.RightControl, Buttons.A);
                 player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_UP] = new PlayerInputBinding(Keys.Up, Buttons.DPadUp);
                 player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_DOWN] = new PlayerInputBinding(Keys.Down, Buttons.DPadDown);
                 player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_LEFT] = new PlayerInputBinding(Keys.Left, Buttons.DPadLeft);
                 player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_RIGHT] = new PlayerInputBinding(Keys.Right, Buttons.DPadRight);
+                player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_RIGHT] = new PlayerInputBinding(Keys.RightShift, Buttons.X);
             }
 
         }
@@ -184,6 +191,20 @@ namespace FinalProject
             p.IsActive = true;
         }
 
+        public void PlayerKilled()
+        {
+            int numPlayersAlive = 0;
+
+            for (int i = 0; i < players.Length; i++)
+            {
+                if (players[i].IsActive)
+                    numPlayersAlive++;
+            }
+
+            if (numPlayersAlive == 0) //all players dead
+                StateManager.GetInstance().NextState = StateManager.GetInstance().getState(StateManager.States.GameOverState);
+        }
+
 
         public void setupDefaultPlayers()
         {
@@ -192,9 +213,10 @@ namespace FinalProject
             GamePlayLogicManager logicManager = GamePlayLogicManager.GetInstance();
             GamePlayMapManager mapManager = GamePlayMapManager.GetInstance();
 
+            GameUIElement playerUI = new GameUIElement(drawManager.UI, "", new Vector2(10, 100));
 
             //temporary hacky player loading, hard coded
-            Player player = new Player(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Characters/BMOStanding"), mapManager.Map.MapData.Spawn, PlayerIndex.One, new BaseStats(10, 10, 5));
+            Player player = new Player(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Characters/BMOStanding"), mapManager.Map.MapData.Spawn, PlayerIndex.One, new BaseStats(10, 10, 5), playerUI);
 
             //we're going to be doing these calls a lot - consider factory or facade or similar
             this.SetPlayer(0, player);
@@ -202,6 +224,7 @@ namespace FinalProject
             inputManager.Add(player);
             logicManager.AddMovable(player);
             logicManager.AddCollidable(player);
+            logicManager.AddUpdatable(player);
 
             //really hacky temporary way of setting player bindings
             player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_ATTACK] = new PlayerInputBinding(Keys.Space, Buttons.A);
@@ -210,13 +233,14 @@ namespace FinalProject
             player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_LEFT] = new PlayerInputBinding(Keys.A, Buttons.DPadLeft);
             player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_RIGHT] = new PlayerInputBinding(Keys.D, Buttons.DPadRight);
 
-            Player player2 = new Player(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Characters/NeptrStanding"), mapManager.Map.MapData.Spawn + new Vector2(50, 50), PlayerIndex.Two, new BaseStats(10, 10, 5));
+            Player player2 = new Player(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Characters/NeptrStanding"), mapManager.Map.MapData.Spawn + new Vector2(50, 50), PlayerIndex.Two, new BaseStats(15, 12, 4), playerUI);
 
             this.SetPlayer(1, player2);
             drawManager.Add(player2, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
             inputManager.Add(player2);
             logicManager.AddMovable(player2);
             logicManager.AddCollidable(player2);
+            logicManager.AddUpdatable(player2);
 
             //really hacky temporary way of setting player bindings
             player2.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_ATTACK] = new PlayerInputBinding(Keys.RightControl, Buttons.A);

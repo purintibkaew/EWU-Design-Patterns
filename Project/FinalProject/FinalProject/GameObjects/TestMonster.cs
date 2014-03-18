@@ -11,17 +11,28 @@ namespace FinalProject
     {
         private int actionTimer;
 
+        private AttackClose passive, active;
+
         private Random entRNG;
 
         public TestMonster(Texture2D sprite, Vector2 position, Stats entStats) : base(sprite, position, entStats)
         {
             actionTimer = 0;
 
+            passive = new PassiveAttack(new Rectangle(0, 0, sprite.Bounds.Width + 2, sprite.Bounds.Height + 2), this, .5f, 15);
+
             entRNG = new Random();
         }
 
         public override void Logic()
         {
+            if (passive.TimeLeft == 0)
+            {
+                passive.Attack(position, 0, entStats.Attack);
+            }
+            else
+                passive.DecrementTimeLeft();
+
             if (actionTimer == 0)
             {
                 int action = entRNG.Next(0, 7);
@@ -51,7 +62,7 @@ namespace FinalProject
             curHealth -= amount;
             DebugText.GetInstance().WriteLinePerm("Gunter hit for " + amount + " damage,  " + curHealth + " remaining.");
 
-            
+            GamePlayDrawManager.GetInstance().UI.AddElementA(new GameUIElement(GamePlayDrawManager.GetInstance().UI, "*THUNK*", position, 10));
         }
 
         public override void CheckStatus()

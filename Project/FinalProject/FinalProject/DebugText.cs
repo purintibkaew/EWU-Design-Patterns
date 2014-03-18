@@ -21,6 +21,18 @@ namespace FinalProject
         private static readonly int PERMTEXT_CAPACITY = 15;
         private bool displayText;
 
+        public bool Active
+        {
+            get
+            {
+                return displayText;
+            }
+            set
+            {
+                displayText = value;
+            }
+        }
+
         private DebugText() 
         {
             Position = new Vector2(0, 0);

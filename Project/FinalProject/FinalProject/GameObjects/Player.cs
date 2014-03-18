@@ -15,7 +15,9 @@ namespace FinalProject
     {
         private PlayerIndex playerNum;
 
-        public enum PlayerKeyBind { PLAYER_MOVE_UP = 0, PLAYER_MOVE_DOWN = 1, PLAYER_MOVE_RIGHT = 2, PLAYER_MOVE_LEFT = 3, PLAYER_ATTACK = 4 };
+        private GameUIElement playerUI;
+
+        public enum PlayerKeyBind { PLAYER_MOVE_UP = 0, PLAYER_MOVE_DOWN = 1, PLAYER_MOVE_RIGHT = 2, PLAYER_MOVE_LEFT = 3, PLAYER_ATTACK = 4, PLAYER_PICKUP_ITEM = 5 };
         private PlayerInputBinding[] playerInputBindings = new PlayerInputBinding[Enum.GetNames(typeof(PlayerKeyBind)).Length];
 
         public PlayerInputBinding [] PlayerBindings
@@ -52,10 +54,12 @@ namespace FinalProject
             }
         }
 
-        public Player(Texture2D sprite, Vector2 position, PlayerIndex playerNum, Stats entStats) : base(sprite, position, entStats)
+        public Player(Texture2D sprite, Vector2 position, PlayerIndex playerNum, Stats entStats, GameUIElement playerUI) : base(sprite, position, entStats)
         {
             this.playerNum = playerNum;
             curState = PlayerState.PLAYER_OTHER;
+
+            this.playerUI = playerUI;
 
             this.testAttack = new SimpleAttack(new Rectangle(0, 0, 32, 16), this, 1.5f, 50);
             
@@ -83,7 +87,9 @@ namespace FinalProject
                 velocity.X += entStats.Speed;
             if (playerInputBindings[(int)PlayerKeyBind.PLAYER_MOVE_LEFT].IsInputDown(kb, gp))
                 velocity.X -= entStats.Speed;
-            
+            if (playerInputBindings[(int)PlayerKeyBind.PLAYER_PICKUP_ITEM].IsInputDown(kb, gp))
+                PickUpItem();
+
             //basic state handling for attack - hacky, change later
             if (playerInputBindings[(int)PlayerKeyBind.PLAYER_ATTACK].IsInputDown(kb, gp))
             {
@@ -166,11 +172,50 @@ namespace FinalProject
         public override void CheckStatus()
         {
             //Stuff like handling death and such will go here.
+
+            playerUI.UIText = "HP: " + curHealth + "/" + entStats.MaxHP + "\nAttack: " + entStats.Attack;
+
+            //on death
+            if(curHealth <= 0)
+            {
+                //remove self from various managers
+                GamePlayLogicManager.GetInstance().RemoveCollidable(this);
+                GamePlayLogicManager.GetInstance().RemoveUpdatable(this);
+                GamePlayLogicManager.GetInstance().Remove(this);
+                GamePlayDrawManager.GetInstance().Remove(this, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
+
+                //disable entity
+                this.entityIsActive = false;
+
+                //update the player manager to check to see if there are any players left
+                PlayerManager.GetInstance().PlayerKilled();
+
+            }
         }
 
         public override void Hit(int amount, int type)
         {
-            
+            GamePlayDrawManager.GetInstance().UI.AddElementA(new GameUIElement(GamePlayDrawManager.GetInstance().UI, "*THUNK*", position, 10));
+
+            curHealth -= amount;
+        }
+
+        private void PickUpItem()
+        {
+            boundingBox.Location = new Point((int)position.X, (int)position.Y); //KLUDGY - sprite bounding box is at 0, 0, ostensibly
+
+            /*
+            Collidable[] nearbyCollidables = collisionTree.GetItems(boundingBox);
+
+            for (int i = 0; i < nearbyCollidables.Length; i++)
+            {
+                if (!nearbyCollidables[i].Equals(this))
+                {
+ 
+                }
+            }
+             * 
+             */
         }
     }
     

@@ -44,7 +44,9 @@ namespace FinalProject
             {
                 GamePlayLogicManager.GetInstance().RemoveCollidable(this);
             }
-            DebugText.GetInstance().WriteLinePerm("Amount: " + amount + " type: " + type);
+            //DebugText.GetInstance().WriteLinePerm("Amount: " + amount + " type: " + type);
+
+            GamePlayDrawManager.GetInstance().UI.AddElementA(new GameUIElement(GamePlayDrawManager.GetInstance().UI, "*THUNK*", position, 10));
         }
     }
 }

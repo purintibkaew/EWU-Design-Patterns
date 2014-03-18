@@ -21,6 +21,7 @@ namespace FinalProject
 
         private StateManager stateManager = StateManager.GetInstance();
 
+        private int debugTextTimer = 0; //hacky, but this way the debugtext is toggleable easily
 
         public Game1()
             : base()
@@ -79,6 +80,17 @@ namespace FinalProject
                 Exit();
 
             // TODO: Add your update logic here
+
+            if (Keyboard.GetState().IsKeyDown(Keys.OemTilde))
+            {
+                if (debugTextTimer == 0)
+                {
+                    DebugText.GetInstance().Active = !DebugText.GetInstance().Active;
+                    debugTextTimer = 10;
+                }
+                else
+                    debugTextTimer--;
+            }
 
             this.stateManager.CurrentState.HandleInput();
 

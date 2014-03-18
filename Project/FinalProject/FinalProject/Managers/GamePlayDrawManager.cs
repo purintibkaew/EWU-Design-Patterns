@@ -12,6 +12,8 @@ namespace FinalProject
         private static GamePlayDrawManager instance;
         private static readonly int SCREEN_OFFSET = 50;
 
+        private GameUI ui;
+
         public static GamePlayDrawManager GetInstance()
         {
             if (instance == null)
@@ -32,11 +34,20 @@ namespace FinalProject
             }
         }
 
+        public GameUI UI
+        {
+            get
+            {
+                return this.ui;
+            }
+        }
+
         public enum DRAW_LIST_LEVEL { MAP_BACKGROUND = 0, MAP_TOPOFBACKGROUND = 1, MAP_FOREGROUND = 2, ENTITY = 3, PROJECTILE = 4 };
 
         private GamePlayDrawManager()
         {
             camera = new Camera2D();
+            ui = new GameUI();
 
             /*
              * Initially setting this to an array of four lists - can change later.
@@ -109,6 +120,13 @@ namespace FinalProject
             foreach (Drawable d in drawLists[(int)DRAW_LIST_LEVEL.ENTITY])
                 d.Draw(spriteBatch);
 
+            ui.DrawAbsolute(spriteBatch);
+
+            spriteBatch.End();
+
+            spriteBatch.Begin();
+
+            ui.DrawRelative(spriteBatch);
 
             spriteBatch.End();
         }
