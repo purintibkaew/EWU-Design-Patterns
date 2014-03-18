@@ -111,6 +111,14 @@ namespace FinalProject
             while (Math.Abs(start.X - end.X) >= CLEAR_AREA_LENGTH/2 || Math.Abs(start.Y - end.Y) >= CLEAR_AREA_LENGTH/2)
             {
                 this.contentLayers[(int)LAYERS.GROUND][start.X][start.Y] = this.CreateMapEntity(path_type, start.X, start.Y);
+
+                value = rand.NextDouble();
+                
+                if (value < monsterFrequency)
+                {
+                    Vector2 position = new Vector2(start.X, start.Y);
+                    SpawnMonster(monster_type, position);
+                }
                 
                 if(value < .25 && start.X+1 < this.contentLayers[0].Length - mapWidthBorder)
                 {
@@ -131,16 +139,16 @@ namespace FinalProject
             }
         }
 
-        private void SpawnMonsters()
+        private void SpawnMonster(MonsterFactory.MONSTER_TYPE monster_type, Vector2 position)
         {
-
-            for(int i = A
-
+            if (monsterSpawnCount < MAX_MONSTERS)
+            {
                 MobileEntity monster = MonsterFactory.GetInstance().CreateMonster(MonsterFactory.MONSTER_TYPE.Gunter, position);
                 GamePlayDrawManager.GetInstance().Add(monster, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
                 GamePlayLogicManager.GetInstance().AddCollidable(monster);
                 GamePlayLogicManager.GetInstance().AddMovable(monster);
                 GamePlayLogicManager.GetInstance().AddUpdatable(monster);
+                monsterSpawnCount++;
             }
         }
 
