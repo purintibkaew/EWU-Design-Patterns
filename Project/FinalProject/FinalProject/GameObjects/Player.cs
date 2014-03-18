@@ -14,6 +14,9 @@ namespace FinalProject
     class Player : MobileEntity
     {
         private PlayerIndex playerNum;
+        private GamePlayLogicManager logicManager;
+        private GamePlayDrawManager drawManager;
+        private PlayerManager playerManager;
 
         private GameUIElement playerUI;
 
@@ -64,6 +67,10 @@ namespace FinalProject
             this.testAttack = new SimpleAttack(new Rectangle(0, 0, 32, 16), this, 1.5f, 50);
             
             this.playerCenter = new Vector2(sprite.Width / 2, sprite.Height / 2);
+
+            this.logicManager = GamePlayLogicManager.GetInstance();
+            this.drawManager = GamePlayDrawManager.GetInstance();
+            this.playerManager = PlayerManager.GetInstance();
         }
 
         public Player(PlayerIndex playerNum)
@@ -117,12 +124,12 @@ namespace FinalProject
             
             if (position.X - velocity.X < 0)
                 position.X = 0;
-            else if (position.X + velocity.X + sprite.Width >= GamePlayLogicManager.GetInstance().MapRect.Width)
-                position.X = GamePlayLogicManager.GetInstance().MapRect.Width - sprite.Width;
+            else if (position.X + velocity.X + sprite.Width >= this.logicManager.MapRect.Width)
+                position.X = this.logicManager.MapRect.Width - sprite.Width;
             if (position.Y - velocity.Y < 0)
                 position.Y = 0;
-            else if (position.Y + velocity.Y + sprite.Height >= GamePlayLogicManager.GetInstance().MapRect.Height)
-                position.Y = GamePlayLogicManager.GetInstance().MapRect.Height - sprite.Height;
+            else if (position.Y + velocity.Y + sprite.Height >= this.logicManager.MapRect.Height)
+                position.Y = this.logicManager.MapRect.Height - sprite.Height;
 
             if(velocity != new Vector2(0, 0))   //small optimization - don't bother checking for collisions if the entity isn't moving
                 HandleCollisions();
@@ -179,23 +186,23 @@ namespace FinalProject
             if(curHealth <= 0)
             {
                 //remove self from various managers
-                GamePlayLogicManager.GetInstance().RemoveCollidable(this);
-                GamePlayLogicManager.GetInstance().RemoveUpdatable(this);
-                GamePlayLogicManager.GetInstance().Remove(this);
-                GamePlayDrawManager.GetInstance().Remove(this, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
+                this.logicManager.RemoveCollidable(this);
+                this.logicManager.RemoveUpdatable(this);
+                this.logicManager.Remove(this);
+                this.drawManager.Remove(this, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
 
                 //disable entity
                 this.entityIsActive = false;
 
                 //update the player manager to check to see if there are any players left
-                PlayerManager.GetInstance().PlayerKilled();
+                this.playerManager.PlayerKilled();
 
             }
         }
 
         public override void Hit(int amount, int type)
         {
-            GamePlayDrawManager.GetInstance().UI.AddElementA(new GameUIElement(GamePlayDrawManager.GetInstance().UI, "*THUNK*", position, 10));
+            this.drawManager.UI.AddElementA(new GameUIElement(this.drawManager.UI, "*THUNK*", position, 10));
 
             curHealth -= amount;
         }
