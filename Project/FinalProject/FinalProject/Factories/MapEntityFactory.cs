@@ -10,8 +10,6 @@ namespace FinalProject
 {
     class MapEntityFactory
     {
-        private static Texture2D spriteGrass, spriteDirt, spriteTreeLarge, spriteTreeSmall, spriteGrassBlades, spriteBush, spriteChest;
-
         private static MapEntityFactory instance = new MapEntityFactory();
 
         public enum MAP_ENTITY { DIRT = 1, GRASS = 2, GRASS_BLADES = 3, BUSH = 4, TREE_LARGE = 5, TREE_SMALL = 6, CHEST = 7};
@@ -22,17 +20,6 @@ namespace FinalProject
         public static MapEntityFactory GetInstance()
         {
             return instance;
-        }
-
-        public static void LoadSprites(ContentManager cm)
-        {
-            spriteGrass = cm.Load<Texture2D>("Entities/Map/Grass");
-            spriteDirt = cm.Load<Texture2D>("Entities/Map/Dirt");
-            spriteTreeLarge = cm.Load<Texture2D>("Entities/Map/TreeLarge");
-            spriteTreeSmall = cm.Load <Texture2D>("Entities/Map/TreeSmall");
-            spriteGrassBlades = cm.Load <Texture2D>("Entities/Map/GrassBlades");
-            spriteBush = cm.Load<Texture2D>("Entities/Map/Bush");
-            spriteChest = cm.Load<Texture2D>("Entities/Map/Chest");
         }
 
         public MapEntity CreateMapEntity(MAP_ENTITY type, Vector2 position)
@@ -69,37 +56,37 @@ namespace FinalProject
 
         private MapEntity CreateGrassMapEntity(Vector2 position)
         {
-            return new MapEntity(CreateMapEntityData(spriteGrass), position);
+            return new MapEntity(CreateMapEntityData(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Map/Grass")), position);
         }
 
         private MapEntity CreateGrassBladesMapEntity(Vector2 position)
         {
-            return new MapEntity(CreateMapEntityData(spriteGrassBlades), position);
+            return new MapEntity(CreateMapEntityData(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Map/GrassBlades")), position);
         }
 
         private MapEntity CreateDirtMapEntity(Vector2 position)
         {
-            return new MapEntity(CreateMapEntityData(spriteDirt), position);
+            return new MapEntity(CreateMapEntityData(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Map/Dirt")), position);
         }
 
         private CollidableMapEntity CreateTreeLargeMapEntity(Vector2 position)
         {
-            return new CollidableMapEntity(CreateMapEntityData(spriteTreeLarge), position);
+            return new CollidableMapEntity(CreateMapEntityData(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Map/TreeLarge")), position);
         }
 
         private CollidableMapEntity CreateTreeSmallMapEntity(Vector2 position)
         {
-            return new CollidableMapEntity(CreateMapEntityData(spriteTreeSmall), position);
+            return new CollidableMapEntity(CreateMapEntityData(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Map/TreeSmall")), position);
         }
 
         private CollidableMapEntity CreateBushMapEntity(Vector2 position)
         {
-            return new CollidableMapEntity(CreateMapEntityData(spriteBush), position);
+            return new CollidableMapEntity(CreateMapEntityData(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Map/Bush")), position);
         }
 
         private CollidableMapEntity CreateChestMapEntity(Vector2 position)
         {
-            return new CollidableMapEntity(CreateMapEntityData(spriteChest), position);
+            return new CollidableMapEntity(CreateMapEntityData(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Map/Chest")), position);
         }
 
         private MapEntityData CreateMapEntityData(Texture2D texture)

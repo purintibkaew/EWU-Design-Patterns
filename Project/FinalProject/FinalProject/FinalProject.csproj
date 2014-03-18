@@ -61,6 +61,7 @@
     <Compile Include="AI\Running.cs" />
     <Compile Include="AI\Standing.cs" />
     <Compile Include="AI\Walking.cs" />
+    <Compile Include="Factories\MonsterFactory.cs" />
     <Compile Include="GameObjects\ChestMapEntity.cs" />
     <Compile Include="Factories\MapDataBuilder.cs" />
     <Compile Include="Factories\SpriteFlyweightFactory.cs" />
@@ -230,6 +231,7 @@
     <Content Include="Content\Entities\Map\TreeLarge.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Graph1.dgml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
