@@ -9,10 +9,12 @@ namespace FinalProject
     class GameMapForest : GameMap
     {
         private MapDataBuilder mapDataBuilder;
+        private int monsterSpawnCount;
 
         private readonly static int CLEAR_AREA_LENGTH = 10;
         private readonly static int MAP_WIDTH_BORDER = GraphicsDeviceManager.DefaultBackBufferWidth / 2;
         private readonly static int MAP_HEIGHT_BORDER = GraphicsDeviceManager.DefaultBackBufferHeight / 2;
+        private readonly static int MAX_MONSTERS = 50;
 
         public GameMapForest(int height, int width)
         {
@@ -42,6 +44,7 @@ namespace FinalProject
             this.mapDataBuilder.SetMapContents(this.contentLayers);
             this.mapDataBuilder.SetEnd(GetRandomMapPoint());
             this.mapData = this.mapDataBuilder.GetResult();
+            this.monsterSpawnCount = 0;
             
             CreateStartAndEnd();
             PopulateCollisionTree();
@@ -75,7 +78,7 @@ namespace FinalProject
 
             ClearAnOpenPath(start);
             ClearAnOpenPath(end);
-            CreatePath(start, end, MapEntityFactory.MAP_ENTITY.DIRT);
+            CreatePath(start, end, MapEntityFactory.MAP_ENTITY.DIRT, MonsterFactory.MONSTER_TYPE.Gunter, .0001);
         }
 
         private void ClearAnOpenPath(Point point)
@@ -97,7 +100,7 @@ namespace FinalProject
             }
         }
 
-        private void CreatePath(Point start, Point end, MapEntityFactory.MAP_ENTITY path_type, MonsterFactory.MONSTER monster_type, double monsterFrequency)
+        private void CreatePath(Point start, Point end, MapEntityFactory.MAP_ENTITY path_type, MonsterFactory.MONSTER_TYPE monster_type, double monsterFrequency)
         {
             int mapWidthBorder = MAP_WIDTH_BORDER / MapEntity.MAP_ENTITY_BASE_SIZE,
                 mapHeightBorder = MAP_HEIGHT_BORDER / MapEntity.MAP_ENTITY_BASE_SIZE;
@@ -110,12 +113,13 @@ namespace FinalProject
                 this.contentLayers[(int)LAYERS.GROUND][start.X][start.Y] = this.CreateMapEntity(path_type, start.X, start.Y);
 
                 value = rand.NextDouble();
-
+                
                 if (value < monsterFrequency)
                 {
-                    SpawnMonster(monster_type);
+                    Vector2 position = new Vector2(start.X, start.Y);
+                    SpawnMonster(monster_type, position);
                 }
-
+                
                 if(value < .25 && start.X+1 < this.contentLayers[0].Length - mapWidthBorder)
                 {
                     start.X++;
@@ -135,9 +139,17 @@ namespace FinalProject
             }
         }
 
-        private void SpawnMonster(MapEntityFactory.MAP_ENTITY monster_type)
+        private void SpawnMonster(MonsterFactory.MONSTER_TYPE monster_type, Vector2 position)
         {
-            throw new NotImplementedException();
+            if (monsterSpawnCount < MAX_MONSTERS)
+            {
+                MobileEntity monster = MonsterFactory.GetInstance().CreateMonster(MonsterFactory.MONSTER_TYPE.Gunter, position);
+                GamePlayDrawManager.GetInstance().Add(monster, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
+                GamePlayLogicManager.GetInstance().AddCollidable(monster);
+                GamePlayLogicManager.GetInstance().AddMovable(monster);
+                GamePlayLogicManager.GetInstance().AddUpdatable(monster);
+                monsterSpawnCount++;
+            }
         }
 
         private MapEntity CreateMapEntity(MapEntityFactory.MAP_ENTITY type, int x, int y)
