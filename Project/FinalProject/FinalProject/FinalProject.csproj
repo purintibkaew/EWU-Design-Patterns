@@ -201,6 +201,7 @@
     <Content Include="Content\Buttons\ButtonStart.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="ClassDiagram3.cd" />
     <None Include="Content\TempSprites\ship.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

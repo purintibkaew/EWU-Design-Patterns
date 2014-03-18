@@ -10,7 +10,7 @@ namespace FinalProject
     {
         private MapDataBuilder mapDataBuilder;
 
-        private readonly static int CLEAR_AREA_LENGTH = 5;
+        private readonly static int CLEAR_AREA_LENGTH = 10;
         private readonly static int MAP_WIDTH_BORDER = GraphicsDeviceManager.DefaultBackBufferWidth / 2;
         private readonly static int MAP_HEIGHT_BORDER = GraphicsDeviceManager.DefaultBackBufferHeight / 2;
 
@@ -36,6 +36,8 @@ namespace FinalProject
             }
 
             this.mapDataBuilder.SetSpawn(GetRandomMapPoint());
+            this.mapDataBuilder.SetSpawnHeight(CLEAR_AREA_LENGTH);
+            this.mapDataBuilder.SetSpawnWidth(CLEAR_AREA_LENGTH);
             LoadContent();
             this.mapDataBuilder.SetMapContents(this.contentLayers);
             this.mapDataBuilder.SetEnd(GetRandomMapPoint());
@@ -95,7 +97,7 @@ namespace FinalProject
             }
         }
 
-        private void CreatePath(Point start, Point end, MapEntityFactory.MAP_ENTITY path_type)
+        private void CreatePath(Point start, Point end, MapEntityFactory.MAP_ENTITY path_type, MonsterFactory.MONSTER monster_type, double monsterFrequency)
         {
             int mapWidthBorder = MAP_WIDTH_BORDER / MapEntity.MAP_ENTITY_BASE_SIZE,
                 mapHeightBorder = MAP_HEIGHT_BORDER / MapEntity.MAP_ENTITY_BASE_SIZE;
@@ -108,6 +110,11 @@ namespace FinalProject
                 this.contentLayers[(int)LAYERS.GROUND][start.X][start.Y] = this.CreateMapEntity(path_type, start.X, start.Y);
 
                 value = rand.NextDouble();
+
+                if (value < monsterFrequency)
+                {
+                    SpawnMonster(monster_type);
+                }
 
                 if(value < .25 && start.X+1 < this.contentLayers[0].Length - mapWidthBorder)
                 {
@@ -126,6 +133,11 @@ namespace FinalProject
                     start.Y--;
                 }
             }
+        }
+
+        private void SpawnMonster(MapEntityFactory.MAP_ENTITY monster_type)
+        {
+            throw new NotImplementedException();
         }
 
         private MapEntity CreateMapEntity(MapEntityFactory.MAP_ENTITY type, int x, int y)

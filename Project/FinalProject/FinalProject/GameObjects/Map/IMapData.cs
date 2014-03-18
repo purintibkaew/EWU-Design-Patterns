@@ -10,6 +10,8 @@ namespace FinalProject
     {
         List<MapEntity[][]> Contents { get; }
         Vector2 Spawn { get; }
+        int SpawnHeight { get; }
+        int SpawnWidth { get; }
         Vector2 End { get; }
     }
 }

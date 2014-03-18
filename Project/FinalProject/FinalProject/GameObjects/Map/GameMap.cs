@@ -67,7 +67,7 @@ namespace FinalProject
             collidablesToAdd.Add(c);
         }
 
-        public void PopulateCollisionTree()
+        protected void PopulateCollisionTree()
         {
             foreach(Collidable c in collidablesToAdd)
                 if(c != null)
