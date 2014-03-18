@@ -11,6 +11,7 @@ namespace FinalProject
     abstract class Item
     {
         private Stats stats;
+        private StatModifier modifyingStats;
         private Texture2D sprite; //Though, this class is never actually drawn, it passes its sprite to the DroppedItem container when it is dropped
         private string name;
 
@@ -18,8 +19,11 @@ namespace FinalProject
         {
             this.sprite = sprite;
             this.stats = stats;
+            this.modifyingStats = new StatModifier(0, 0, 0, null, this.stats);
+            this.stats = new HeadStat(this.stats);
             this.name = name;
         }
+
 
         public string Name
         {
@@ -39,21 +43,18 @@ namespace FinalProject
             }
         }
 
-        internal Stats ItemStats
+        public StatModifier Modifier
         {
             get
             {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
+                return this.modifyingStats;
             }
         }
 
         
         public DroppedItem Drop(Vector2 position) //May need to add more functionality
         {
-            this.stats.Remove();
+            this.modifyingStats.Remove();
             return new DroppedItem(this.sprite, position, this);
         }
 

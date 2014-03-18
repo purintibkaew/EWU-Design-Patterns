@@ -23,14 +23,26 @@ namespace FinalProject
         protected int speed;
 
         public Stats Parent 
-        { 
-            get; 
-            set;  
+        {
+            get
+            {
+                return parent;
+            }
+            set
+            {
+                parent = value;
+            }
         }
         public Stats Child 
-        { 
-            get; 
-            set; 
+        {
+            get
+            {
+                return child;
+            }
+            set
+            {
+                child = value;
+            }
         }
 
         public abstract Stats Inner { get; set; }

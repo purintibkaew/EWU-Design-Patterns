@@ -13,6 +13,7 @@ namespace FinalProject
         protected Texture2D sprite;
         protected Vector2 velocity;
         protected QuadTree<Collidable> collisionTree; //reference to the collision tree for easy access
+        protected QuadTree<DroppedItem> droppedItems;
 
         protected bool entityIsActive;
 
@@ -66,11 +67,12 @@ namespace FinalProject
             }
 
             this.collisionTree = GamePlayLogicManager.GetInstance().CollisionTree;
+            this.droppedItems = GamePlayLogicManager.GetInstance().DroppedItems;
 
             this.entityIsActive = true;
 
             this.entStats = entStats;
-            this.entStats = new HeadStat(entStats);
+            this.entStats = new HeadStat(this.entStats);
 
             this.curHealth = entStats.MaxHP;
 
@@ -174,6 +176,23 @@ namespace FinalProject
                     velocity = new Vector2(0, 0);
                 }
             }
+        }
+
+        protected void PickUpItem()
+        {
+            boundingBox.Location = new Point((int)position.X, (int)position.Y); //KLUDGY - sprite bounding box is at 0, 0, ostensibly
+
+
+            DroppedItem[] items = droppedItems.GetItems(boundingBox);
+
+
+            for (int i = 0; i < items.Length; i++)
+            {
+                entInv.Pickup(items[i].Item);
+                items[i].Item.Modifier.Insert(this.entStats, this.entStats.Child);
+                items[i].RemoveFromWorld();
+            }
+
         }
 
         public abstract void Logic();

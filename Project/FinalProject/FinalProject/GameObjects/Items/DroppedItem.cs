@@ -37,14 +37,11 @@ namespace FinalProject
             }
         }
 
-        internal Item Item
+        public Item Item
         {
             get
             {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
+                return loot;
             }
         }
 
@@ -66,6 +63,18 @@ namespace FinalProject
         public void Hit(int amount, int type)
         {
 
+        }
+
+        public void AddToWorld()
+        {
+            GamePlayDrawManager.GetInstance().Add(this, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
+            GamePlayLogicManager.GetInstance().AddDroppedItem(this);
+        }
+
+        public void RemoveFromWorld()
+        {
+            GamePlayDrawManager.GetInstance().Remove(this, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
+            GamePlayLogicManager.GetInstance().RemoveDroppedItem(this);
         }
     }
 }

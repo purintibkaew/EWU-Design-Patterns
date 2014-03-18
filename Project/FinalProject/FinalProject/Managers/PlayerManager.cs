@@ -170,7 +170,7 @@ namespace FinalProject
                 player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_DOWN] = new PlayerInputBinding(Keys.S, Buttons.DPadDown);
                 player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_LEFT] = new PlayerInputBinding(Keys.A, Buttons.DPadLeft);
                 player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_RIGHT] = new PlayerInputBinding(Keys.D, Buttons.DPadRight);
-                player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_RIGHT] = new PlayerInputBinding(Keys.E, Buttons.X);
+                player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_PICKUP_ITEM] = new PlayerInputBinding(Keys.E, Buttons.X);
             }
             else
             {
@@ -180,7 +180,7 @@ namespace FinalProject
                 player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_DOWN] = new PlayerInputBinding(Keys.Down, Buttons.DPadDown);
                 player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_LEFT] = new PlayerInputBinding(Keys.Left, Buttons.DPadLeft);
                 player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_RIGHT] = new PlayerInputBinding(Keys.Right, Buttons.DPadRight);
-                player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_RIGHT] = new PlayerInputBinding(Keys.RightShift, Buttons.X);
+                player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_PICKUP_ITEM] = new PlayerInputBinding(Keys.RightShift, Buttons.X);
             }
 
         }
@@ -232,6 +232,7 @@ namespace FinalProject
             player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_DOWN] = new PlayerInputBinding(Keys.S, Buttons.DPadDown);
             player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_LEFT] = new PlayerInputBinding(Keys.A, Buttons.DPadLeft);
             player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_RIGHT] = new PlayerInputBinding(Keys.D, Buttons.DPadRight);
+            player.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_PICKUP_ITEM] = new PlayerInputBinding(Keys.E, Buttons.X);
 
             Player player2 = new Player(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Characters/NeptrStanding"), mapManager.Map.MapData.Spawn + new Vector2(50, 50), PlayerIndex.Two, new BaseStats(15, 12, 4), playerUI);
 
@@ -248,6 +249,7 @@ namespace FinalProject
             player2.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_DOWN] = new PlayerInputBinding(Keys.Down, Buttons.DPadDown);
             player2.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_LEFT] = new PlayerInputBinding(Keys.Left, Buttons.DPadLeft);
             player2.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_MOVE_RIGHT] = new PlayerInputBinding(Keys.Right, Buttons.DPadRight);
+            player2.PlayerBindings[(int)Player.PlayerKeyBind.PLAYER_PICKUP_ITEM] = new PlayerInputBinding(Keys.RightShift, Buttons.X);
         }
     }
 }

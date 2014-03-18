@@ -20,6 +20,7 @@ namespace FinalProject
 
         private List<Movable> updateList;
         private QuadTree<Collidable> collidableEntities;
+        private QuadTree<DroppedItem> droppedItems;
 
         private List<Updatable> updatableEntities;
 
@@ -30,6 +31,14 @@ namespace FinalProject
             get
             {
                 return this.collidableEntities;
+            }
+        }
+
+        public QuadTree<DroppedItem> DroppedItems
+        {
+            get
+            {
+                return this.droppedItems;
             }
         }
 
@@ -47,9 +56,6 @@ namespace FinalProject
 
         private GamePlayLogicManager()
         {
-            //CHANGE THIS WHEN WE HAVE AN ACTUAL MAP OBJECT WITH CONCRETE DIMENSIONS
-            Rectangle screenRect = new Rectangle(0, 0, GraphicsDeviceManager.DefaultBackBufferWidth, GraphicsDeviceManager.DefaultBackBufferHeight);
-
             updateList = new List<Movable>();
             updatableEntities = new List<Updatable>();
             collidableEntities = null;
@@ -59,6 +65,7 @@ namespace FinalProject
         {
             mapRect = r;
             collidableEntities = new QuadTree<Collidable>((x => x.BoundingBox), r);
+            droppedItems = new QuadTree<DroppedItem>((x => x.BoundingBox), r);
         }
 
         public void Update()
@@ -109,6 +116,16 @@ namespace FinalProject
         {
             if (updatableEntities.Contains(m))
                 updatableEntities.Remove(m);
+        }
+
+        public void AddDroppedItem(DroppedItem d)
+        {
+            droppedItems.Add(d);
+        }
+
+        public void RemoveDroppedItem(DroppedItem d)
+        {
+            droppedItems.Remove(d);
         }
     }
 }

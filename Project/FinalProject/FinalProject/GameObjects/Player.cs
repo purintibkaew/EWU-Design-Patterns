@@ -200,23 +200,7 @@ namespace FinalProject
             curHealth -= amount;
         }
 
-        private void PickUpItem()
-        {
-            boundingBox.Location = new Point((int)position.X, (int)position.Y); //KLUDGY - sprite bounding box is at 0, 0, ostensibly
 
-            /*
-            Collidable[] nearbyCollidables = collisionTree.GetItems(boundingBox);
-
-            for (int i = 0; i < nearbyCollidables.Length; i++)
-            {
-                if (!nearbyCollidables[i].Equals(this))
-                {
- 
-                }
-            }
-             * 
-             */
-        }
     }
     
     //a basic class for associating keys and buttons to let the player class easily tell whether something has been pressed without having to check bindings

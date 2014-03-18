@@ -13,10 +13,13 @@ namespace FinalProject
         public StatModifier(int maxHP, int attack, int speed, Stats parent, Stats inner) 
             : base(maxHP, attack, speed)
         {
-            base.parent = parent;
-            base.child = base.parent.Child;
-            base.child.Parent = this;
-            base.parent.Child = this;
+            if (parent != null && child != null)
+            {
+                base.parent = parent;
+                base.child = base.parent.Child;
+                base.child.Parent = this;
+                base.parent.Child = this;
+            }
             this.inner = inner;
         }
 
@@ -39,7 +42,7 @@ namespace FinalProject
             {
                 if (child != null)
                 {
-                    return this.child.MaxHP + base.maxHP;
+                    return this.child.MaxHP + inner.MaxHP;
                 }
                 return base.maxHP;
             }
@@ -51,7 +54,7 @@ namespace FinalProject
             {
                 if (child != null)
                 {
-                    return this.child.Speed + base.speed;
+                    return this.child.Speed + inner.Speed;
                 }
                 return base.speed;
             }
@@ -63,16 +66,27 @@ namespace FinalProject
             {
                 if (child != null)
                 {
-                    return this.child.Attack + base.attack;
+                    return this.child.Attack + inner.Attack;
                 }
                 return base.attack;
             }
         }
 
+        public void Insert(Stats parent, Stats child)
+        {
+            parent.Child = this;
+            child.Parent = this;
+            this.child = child;
+            this.parent = parent;
+        }
+
         public override void Remove()
         {
-            this.parent.Child = this.child;
-            this.child.Parent = this.parent;
+            if (this.parent != null && this.child != null)
+            {
+                this.parent.Child = this.child;
+                this.child.Parent = this.parent;
+            }
         }
     }
 }

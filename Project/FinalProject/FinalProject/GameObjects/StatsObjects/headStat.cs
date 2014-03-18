@@ -11,9 +11,9 @@ namespace FinalProject
         public HeadStat(Stats child):base(0,0,0)
         {
             if(child != null){
-                base.child = child;
-                base.parent = null;
-                base.child.Parent = this;
+                this.child = child;
+                this.parent = null;
+                this.child.Parent = this;
             }
         }
 

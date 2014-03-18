@@ -61,6 +61,7 @@
     <Compile Include="AI\Running.cs" />
     <Compile Include="AI\Standing.cs" />
     <Compile Include="AI\Walking.cs" />
+    <Compile Include="GameObjects\ChestMapEntity.cs" />
     <Compile Include="Factories\MapDataBuilder.cs" />
     <Compile Include="Factories\SpriteFlyweightFactory.cs" />
     <Compile Include="GameObjects\AttackObjects\PassiveAttack.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="GameObjects\Map\MapData.cs" />
     <Compile Include="GameObjects\Items\Inventory.cs" />
     <Compile Include="GameObjects\Items\InventoryHumanoid.cs" />
+    <Compile Include="GameObjects\Items\InventoryContainer.cs" />
     <Compile Include="Managers\GameUIElement.cs" />
     <Compile Include="Managers\GameUI.cs" />
     <Compile Include="States\GameOverState.cs" />

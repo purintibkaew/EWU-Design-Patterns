@@ -11,6 +11,8 @@ namespace FinalProject
         void Pickup(Item i);
         void Drop(Item i);
 
+        void DropAll();
+
         void AddWeapon(Weapon w);
         void AddNonEquippable(Item i);
 

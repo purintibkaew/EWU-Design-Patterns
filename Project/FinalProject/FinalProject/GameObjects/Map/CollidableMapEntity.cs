@@ -9,8 +9,8 @@ namespace FinalProject
 {
     class CollidableMapEntity : MapEntity, Collidable
     {
-        private int health = 30;
-        private Rectangle boundingBox;
+        protected int health = 30;
+        protected Rectangle boundingBox;
 
         private MapEntityData mapEntityData;
 
@@ -36,7 +36,7 @@ namespace FinalProject
             }
         }
 
-        public void Hit(int amount, int type)
+        public virtual void Hit(int amount, int type)
         {
             health -= amount;
 

@@ -2,26 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Xna.Framework;
-
-/*
- * The idea here is to get around the double dispatch problem. Each item basically gives itself to the inventory, which can then work with specifics. This way, we can pick up an item from the ground and, if it's
- * a weapon, put it in a weapon slot, rather than in the regular inventory. A bit kludgy at the moment.
- */
 
 namespace FinalProject
 {
-    class InventoryHumanoid : Inventory
+    class InventoryContainer : Inventory
     {
-        private Weapon heldWeapon;
-
-        private MobileEntity ent;
-
         private List<Item> bag;
 
-        public InventoryHumanoid(MobileEntity ent)
+        private CollidableMapEntity ent;
+
+        public InventoryContainer(CollidableMapEntity ent)
         {
-            heldWeapon = null;
             bag = new List<Item>();
 
             this.ent = ent; //super hacky, consider creating interface or something for ents that can have inventory (or just position, really) and moving up to Inventory
@@ -39,12 +30,7 @@ namespace FinalProject
 
         public void AddWeapon(Weapon w)
         {
-            if (heldWeapon != null)
-            {
-                Drop(heldWeapon);
-            }
 
-            heldWeapon = w;
         }
 
         public void AddNonEquippable(Item i)
@@ -54,20 +40,17 @@ namespace FinalProject
 
         public void DropWeapon(Weapon w)
         {
-            if (heldWeapon == w)
-            {
-                heldWeapon = null;
-                DroppedItem d = w.Drop(ent.Position);
-                d.AddToWorld();
-            } 
-        }
+            DroppedItem d = w.Drop(ent.Position);
+            d.AddToWorld();
+        }   
 
         public void DropNonEquippable(Item i)
         {
             if (bag.Contains(i))
             {
                 bag.Remove(i);
-                i.Drop(ent.Position);
+                DroppedItem d = i.Drop(ent.Position);
+                d.AddToWorld();
             }
         }
 
