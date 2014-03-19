@@ -75,6 +75,7 @@
     <Compile Include="GameObjects\Items\InventoryHumanoid.cs" />
     <Compile Include="GameObjects\Items\InventoryContainer.cs" />
     <Compile Include="GameObjects\Menu\PauseMenu.cs" />
+    <Compile Include="GameObjects\Sticker.cs" />
     <Compile Include="Managers\GameUIElement.cs" />
     <Compile Include="Managers\GameUI.cs" />
     <Compile Include="Managers\RandomManager.cs" />
@@ -234,6 +235,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Entities\Map\TreeLarge.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Well.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Graph1.dgml" />

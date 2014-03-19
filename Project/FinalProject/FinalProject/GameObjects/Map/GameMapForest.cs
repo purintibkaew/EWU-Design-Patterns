@@ -133,8 +133,8 @@ namespace FinalProject
 
         private void SpawnEntities()
         {
-            int mapWidthOffset = MAP_WIDTH_BORDER / MapEntity.MAP_ENTITY_BASE_SIZE,
-                mapHeightOffset = MAP_HEIGHT_BORDER / MapEntity.MAP_ENTITY_BASE_SIZE;
+            int mapWidthOffset = MAP_WIDTH_BORDER / MapEntity.MAP_ENTITY_BASE_SIZE + 5,
+                mapHeightOffset = MAP_HEIGHT_BORDER / MapEntity.MAP_ENTITY_BASE_SIZE + 5;
 
             double value;
             Vector2 position;
@@ -148,12 +148,10 @@ namespace FinalProject
 
                     if (value < 2)
                     {
-                        DebugText.GetInstance().WriteLinePerm("placing chest: " + position);
                         SpawnChest(position);
                     }
                     else if (value < 5)
                     {
-                        DebugText.GetInstance().WriteLinePerm("placing Gunter: " + position);
                         SpawnMonster(MonsterFactory.MONSTER_TYPE.Gunter, position);
                     }
                 }

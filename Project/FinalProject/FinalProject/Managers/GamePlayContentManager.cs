@@ -52,8 +52,9 @@ namespace FinalProject
             GameMap map = MapFactory.GetInstance().GetMap(MapFactory.MAPS.FOREST_PATH, mapWidth, mapHeight);
             GamePlayMapManager.GetInstance().Map = map;
 
-            
-            GameEndTrigger endTrigger = new GameEndTrigger(new Rectangle((int)map.MapData.End.X, (int)map.MapData.End.Y, 100, 100));
+            Texture2D gameEndSprite = SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Well");
+            drawManager.Add(new Sticker(gameEndSprite, map.MapData.End), GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
+            GameEndTrigger endTrigger = new GameEndTrigger(new Rectangle((int)map.MapData.End.X, (int)map.MapData.End.Y, gameEndSprite.Width, gameEndSprite.Height));
             logicManager.AddUpdatable(endTrigger);
         }
     }
