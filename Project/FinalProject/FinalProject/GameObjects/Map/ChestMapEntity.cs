@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FinalProject
 {
-    class ChestMapEntity : CollidableMapEntity, Drawable
+    class ChestMapEntity : CollidableMapEntity
     {
         private Inventory inv;
 
@@ -37,11 +37,6 @@ namespace FinalProject
             //DebugText.GetInstance().WriteLinePerm("Amount: " + amount + " type: " + type);
 
             GamePlayDrawManager.GetInstance().UI.AddElementA(new GameUIElement(GamePlayDrawManager.GetInstance().UI, "*THUNK*", position, 10));
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(data.Sprite, boundingBox, Color.White);
         }
     }
 }

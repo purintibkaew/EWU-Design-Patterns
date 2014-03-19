@@ -48,7 +48,7 @@ namespace FinalProject
                 case MAP_ENTITY.BUSH:
                     return CreateBushMapEntity(position);
                 case MAP_ENTITY.CHEST:
-                    return CreateChestMapEntity(position);
+                    return CreateChestMapEntityWithSword(position);
                 default:
                     throw new NotImplementedException();
             }
@@ -84,9 +84,11 @@ namespace FinalProject
             return new CollidableMapEntity(CreateMapEntityData(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Map/Bush")), position);
         }
 
-        private CollidableMapEntity CreateChestMapEntity(Vector2 position)
+        private CollidableMapEntity CreateChestMapEntityWithSword(Vector2 position)
         {
-            return new CollidableMapEntity(CreateMapEntityData(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Map/Chest")), position);
+            List<Item> chestItems = new List<Item>();
+            chestItems.Add(new Weapon(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("TempSprites/tempsword"), "Test sword", new BaseStats(10, 10, 2)));
+            return new ChestMapEntity(CreateMapEntityData(SpriteFlyweightFactory.GetSpriteFlyweight().GetSprite("Entities/Map/Chest")), position, chestItems);
         }
 
         private MapEntityData CreateMapEntityData(Texture2D texture)
