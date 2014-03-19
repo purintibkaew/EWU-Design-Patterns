@@ -150,7 +150,7 @@ namespace FinalProject
                     break;
             }
 
-            Player player = new Player(playerSprite, mapManager.Map.MapData.Spawn + new Vector2(rand.Next(100) - 25, rand.Next(100) - 25), pi, playerStats, playerUI);
+            Player player = new Player(playerSprite, mapManager.Map.MapData.Spawn + new Vector2(40 * playerIndex, 40 * playerIndex), pi, playerStats, playerUI);
             SetPlayer(playerIndex - 1, player);
 
             drawManager.UI.AddElementR(playerUI);
