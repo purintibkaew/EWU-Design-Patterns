@@ -13,11 +13,12 @@ namespace FinalProject
         private GameState mainMenuState;
         private GameState gameWonState;
         private GameState gameOverState;
+        private GameState pauseState;
         private GameState curState = null;
         private GameState nextState = null;
 
         private static StateManager instance;
-        public enum States { GameState, MainMenuState, GameOverState, GameWonState};
+        public enum States { GameState, MainMenuState, GameOverState, GameWonState, PauseState};
 
         private StateManager()
         {
@@ -25,6 +26,7 @@ namespace FinalProject
             this.mainMenuState = new MainMenuState();
             this.gameOverState = new GameOverState();
             this.gameWonState = new GameWonState();
+            this.pauseState = new PauseState();
 
             this.curState = this.mainMenuState;
             this.nextState = this.curState;
@@ -45,6 +47,7 @@ namespace FinalProject
             mainMenuState.Init(game, gameContentManager, gd);
             gameOverState.Init(game, gameContentManager, gd);
             gameWonState.Init(game, gameContentManager, gd);
+            pauseState.Init(game, gameContentManager, gd);
         }
 
         public GameState CurrentState
@@ -64,6 +67,8 @@ namespace FinalProject
                     return this.gameOverState;
                 case States.GameWonState:
                     return this.gameWonState;
+                case States.PauseState:
+                    return this.pauseState;
                 default:
                     return this.curState;
             }

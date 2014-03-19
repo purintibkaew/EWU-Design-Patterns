@@ -74,6 +74,7 @@
     <Compile Include="GameObjects\Items\Inventory.cs" />
     <Compile Include="GameObjects\Items\InventoryHumanoid.cs" />
     <Compile Include="GameObjects\Items\InventoryContainer.cs" />
+    <Compile Include="GameObjects\Menu\PauseMenu.cs" />
     <Compile Include="Managers\GameUIElement.cs" />
     <Compile Include="Managers\GameUI.cs" />
     <Compile Include="States\GameOverState.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="States\MainMenuState.cs" />
     <Compile Include="GameObjects\TestMonster.cs" />
     <Compile Include="GameObjects\Updatable.cs" />
+    <Compile Include="States\PauseState.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OpenTK">

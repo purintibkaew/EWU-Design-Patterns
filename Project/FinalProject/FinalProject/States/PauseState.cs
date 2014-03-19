@@ -2,57 +2,55 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace FinalProject
 {
-    class GamePlayState : GameState
+    class PauseState : GameState
     {
         private Game1 game;
-        private GamePlayManager gameManager; 
+        private GamePlayManager gameManager;
+        private Menu pauseMenu;
 
-        public GamePlayState()
+        public PauseState()
         {
             gameManager = GamePlayManager.GetInstance();
         }
 
         public void Init(Game1 game, ContentManager gameContentManager, GraphicsDevice gd)
         {
-            gameManager.Init(gameContentManager, gd);
+            //gameManager.Init(gameContentManager, gd);
             this.game = game;
+            this.pauseMenu = new PauseMenu(gameContentManager);
         }
 
         public void HandleInput()
         {
-            KeyboardState ks = Keyboard.GetState();
-            if (ks.IsKeyDown(Keys.Escape))
+            if (pauseMenu.HandleInput())
             {
-                StateManager sm = StateManager.GetInstance();
-                sm.NextState = sm.getState(StateManager.States.PauseState);
-            }
-            else
-            {
-                gameManager.HandleInput();
+                this.NextState();
             }
         }
 
         public void Update()
         {
-            gameManager.Update();
+            pauseMenu.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            gameManager.Draw(spriteBatch);
+            spriteBatch.Begin();
+            spriteBatch.GraphicsDevice.Clear(Color.CornflowerBlue);
+            pauseMenu.Draw(spriteBatch);
+            spriteBatch.End();
         }
 
         public void NextState()
         {
             StateManager m = StateManager.GetInstance();
-            m.NextState = this;
+            m.NextState = m.getState(StateManager.States.GameState);
         }
     }
 }
