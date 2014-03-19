@@ -21,7 +21,6 @@ namespace FinalProject
 
         public void Init(Game1 game, ContentManager gameContentManager, GraphicsDevice gd)
         {
-            //gameManager.Init(gameContentManager, gd);
             this.game = game;
             this.pauseMenu = new PauseMenu(gameContentManager);
         }
