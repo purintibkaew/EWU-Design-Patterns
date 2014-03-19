@@ -60,7 +60,7 @@ namespace FinalProject
         public override void Hit(int amount, int type)
         {
             curHealth -= amount;
-            DebugText.GetInstance().WriteLinePerm("Gunter hit for " + amount + " damage,  " + curHealth + " remaining.");
+            //DebugText.GetInstance().WriteLinePerm("Gunter hit for " + amount + " damage,  " + curHealth + " remaining.");
 
             GamePlayDrawManager.GetInstance().UI.AddElementA(new GameUIElement(GamePlayDrawManager.GetInstance().UI, "*THUNK*", position, 10));
         }

@@ -15,6 +15,7 @@ namespace FinalProject
         private readonly static int MAP_WIDTH_BORDER = GraphicsDeviceManager.DefaultBackBufferWidth / 2;
         private readonly static int MAP_HEIGHT_BORDER = GraphicsDeviceManager.DefaultBackBufferHeight / 2;
         private readonly static int MAX_MONSTERS = 50;
+        private static Random rand = RandomManager.GetRandom();
 
         public GameMapForest(int height, int width)
         {
@@ -56,12 +57,11 @@ namespace FinalProject
         {
             CreateMapBorder();
             RandomlyGenerateTerrain();
+            SpawnEntities();
         }
 
         private Vector2 GetRandomMapPoint()
         {
-            Random rand = new Random();
-
             return new Vector2((float)rand.Next(CLEAR_AREA_LENGTH * MapEntity.MAP_ENTITY_BASE_SIZE + MAP_WIDTH_BORDER, 
                                          Width - MAP_WIDTH_BORDER - CLEAR_AREA_LENGTH * MapEntity.MAP_ENTITY_BASE_SIZE),
                                (float)rand.Next(CLEAR_AREA_LENGTH * MapEntity.MAP_ENTITY_BASE_SIZE + MAP_HEIGHT_BORDER,
@@ -70,7 +70,6 @@ namespace FinalProject
 
         private void CreateStartAndEnd()
         {
-            Random rand = new Random();
             Point start = new Point( (int)this.mapData.Spawn.X / MapEntity.MAP_ENTITY_BASE_SIZE, 
                                      (int)this.mapData.Spawn.Y / MapEntity.MAP_ENTITY_BASE_SIZE ),
                     end = new Point( (int)this.mapData.End.X / MapEntity.MAP_ENTITY_BASE_SIZE,
@@ -78,7 +77,7 @@ namespace FinalProject
 
             ClearAnOpenPath(start);
             ClearAnOpenPath(end);
-            CreatePath(start, end, MapEntityFactory.MAP_ENTITY.DIRT, MonsterFactory.MONSTER_TYPE.Gunter, .0001);
+            CreatePath(start, end, MapEntityFactory.MAP_ENTITY.DIRT);
         }
 
         private void ClearAnOpenPath(Point point)
@@ -100,12 +99,11 @@ namespace FinalProject
             }
         }
 
-        private void CreatePath(Point start, Point end, MapEntityFactory.MAP_ENTITY path_type, MonsterFactory.MONSTER_TYPE monster_type, double monsterFrequency)
+        private void CreatePath(Point start, Point end, MapEntityFactory.MAP_ENTITY path_type)
         {
             int mapWidthBorder = MAP_WIDTH_BORDER / MapEntity.MAP_ENTITY_BASE_SIZE,
                 mapHeightBorder = MAP_HEIGHT_BORDER / MapEntity.MAP_ENTITY_BASE_SIZE;
 
-            Random rand = new Random();
             double value = 0;
 
             while (Math.Abs(start.X - end.X) >= CLEAR_AREA_LENGTH/2 || Math.Abs(start.Y - end.Y) >= CLEAR_AREA_LENGTH/2)
@@ -113,12 +111,6 @@ namespace FinalProject
                 this.contentLayers[(int)LAYERS.GROUND][start.X][start.Y] = this.CreateMapEntity(path_type, start.X, start.Y);
 
                 value = rand.NextDouble();
-                
-                if (value < monsterFrequency)
-                {
-                    Vector2 position = new Vector2(start.X, start.Y);
-                    SpawnMonster(monster_type, position);
-                }
                 
                 if(value < .25 && start.X+1 < this.contentLayers[0].Length - mapWidthBorder)
                 {
@@ -139,17 +131,49 @@ namespace FinalProject
             }
         }
 
+        private void SpawnEntities()
+        {
+            int mapWidthOffset = MAP_WIDTH_BORDER / MapEntity.MAP_ENTITY_BASE_SIZE,
+                mapHeightOffset = MAP_HEIGHT_BORDER / MapEntity.MAP_ENTITY_BASE_SIZE;
+
+            double value;
+            Vector2 position;
+
+            for (int i = mapWidthOffset; i < contentLayers[0].Length - mapWidthOffset; i+=rand.Next(10,40))
+            {
+                for (int j = mapHeightOffset; j < contentLayers[0][0].Length - mapHeightOffset; j+=rand.Next(10, 40))
+                {
+                    value = rand.Next(10);
+                    position = new Vector2(i * MapEntity.MAP_ENTITY_BASE_SIZE, j * MapEntity.MAP_ENTITY_BASE_SIZE);
+
+                    if (value < 2)
+                    {
+                        DebugText.GetInstance().WriteLinePerm("placing chest: " + position);
+                        SpawnChest(position);
+                    }
+                    else if (value < 5)
+                    {
+                        DebugText.GetInstance().WriteLinePerm("placing Gunter: " + position);
+                        SpawnMonster(MonsterFactory.MONSTER_TYPE.Gunter, position);
+                    }
+                }
+            }
+        }
+
+        private void SpawnChest(Vector2 position)
+        {
+            CollidableMapEntity chest = MapEntityFactory.GetInstance().CreateCollidableMapEntity(MapEntityFactory.MAP_ENTITY.CHEST, position);
+            GamePlayDrawManager.GetInstance().Add(chest, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
+            GamePlayLogicManager.GetInstance().AddCollidable(chest);
+        }
+
         private void SpawnMonster(MonsterFactory.MONSTER_TYPE monster_type, Vector2 position)
         {
-            if (monsterSpawnCount < MAX_MONSTERS)
-            {
-                MobileEntity monster = MonsterFactory.GetInstance().CreateMonster(MonsterFactory.MONSTER_TYPE.Gunter, position);
-                GamePlayDrawManager.GetInstance().Add(monster, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
-                GamePlayLogicManager.GetInstance().AddCollidable(monster);
-                GamePlayLogicManager.GetInstance().AddMovable(monster);
-                GamePlayLogicManager.GetInstance().AddUpdatable(monster);
-                monsterSpawnCount++;
-            }
+            MobileEntity monster = MonsterFactory.GetInstance().CreateMonster(MonsterFactory.MONSTER_TYPE.Gunter, position);
+            GamePlayDrawManager.GetInstance().Add(monster, GamePlayDrawManager.DRAW_LIST_LEVEL.ENTITY);
+            GamePlayLogicManager.GetInstance().AddCollidable(monster);
+            GamePlayLogicManager.GetInstance().AddMovable(monster);
+            GamePlayLogicManager.GetInstance().AddUpdatable(monster);
         }
 
         private MapEntity CreateMapEntity(MapEntityFactory.MAP_ENTITY type, int x, int y)
@@ -179,7 +203,6 @@ namespace FinalProject
 
         private void FillEntireMapWithBorder()
         {
-            Random rand = new Random();
             CollidableMapEntity toAdd = null;
 
             for (int i = 0; i < contentLayers[0].Length; i += rand.Next(0, 2))
@@ -251,7 +274,7 @@ namespace FinalProject
                         continue;
 
 
-                    value = valueGenerator.GetValue(i * MapEntity.MAP_ENTITY_BASE_SIZE, j * MapEntity.MAP_ENTITY_BASE_SIZE, new Random().Next(100000));
+                    value = valueGenerator.GetValue(i * MapEntity.MAP_ENTITY_BASE_SIZE, j * MapEntity.MAP_ENTITY_BASE_SIZE, rand.Next(100000));
 
                     if (value < 0.1f)
                     {

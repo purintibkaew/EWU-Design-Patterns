@@ -62,7 +62,7 @@
     <Compile Include="AI\Standing.cs" />
     <Compile Include="AI\Walking.cs" />
     <Compile Include="Factories\MonsterFactory.cs" />
-    <Compile Include="GameObjects\ChestMapEntity.cs" />
+    <Compile Include="GameObjects\Map\ChestMapEntity.cs" />
     <Compile Include="Factories\MapDataBuilder.cs" />
     <Compile Include="Factories\SpriteFlyweightFactory.cs" />
     <Compile Include="GameObjects\AttackObjects\PassiveAttack.cs" />
@@ -77,6 +77,7 @@
     <Compile Include="GameObjects\Menu\PauseMenu.cs" />
     <Compile Include="Managers\GameUIElement.cs" />
     <Compile Include="Managers\GameUI.cs" />
+    <Compile Include="Managers\RandomManager.cs" />
     <Compile Include="States\GameOverState.cs" />
     <Compile Include="States\GameWonState.cs" />
     <Compile Include="Managers\GamePlayMapManager.cs" />
@@ -226,7 +227,9 @@
     <Content Include="Content\TempSprites\SimpleTree.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Content\TempSprites\tempsword.xnb" />
+    <Content Include="Content\TempSprites\tempsword.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Entities\Map\TreeSmall.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
