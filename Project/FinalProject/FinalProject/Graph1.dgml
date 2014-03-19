@@ -1,45 +1,403 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph DataVirtualized="True" Layout="Sugiyama" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="(@1 Namespace=FinalProject Type=(Name=QuadTree GenericParameterCount=1))" Category="CodeSchema_Class" Bounds="0,0,135.73,25" CodeSchemaProperty_IsPublic="True" CommonLabel="QuadTree‎&lt;T‎&gt;" DelayedChildNodesState="NotFetched" Group="Collapsed" Icon="CodeSchema_Class" Label="QuadTree‎&lt;T‎&gt;" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Managers/QuadTree.cs StartLineNumber=15 StartCharacterOffset=4 EndLineNumber=15 EndCharacterOffset=4)" />
+    <Node Id="(@1 @2 @11 Member=(@23 OverloadingParameters=[(@21 @42 Type=Double),(@21 @42 Type=Byte)]))" Category="CodeSchema_Method" Bounds="-264.278183583781,-26.6361469668362,160.77,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GeneratorSimplexNoise" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="GeneratorSimplexNoise" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GeneratorSimplexNoise.cs StartLineNumber=52 StartCharacterOffset=8 EndLineNumber=52 EndCharacterOffset=8)" />
+    <Node Id="(@1 @2 @11 Member=(@23 OverloadingParameters=[(@21 @42 Type=Double),(@21 @42 Type=Double),(@21 @42 Type=Byte)]))" Category="CodeSchema_Method" Bounds="-264.278183583781,29.3238530331639,160.77,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GeneratorSimplexNoise" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="GeneratorSimplexNoise" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GeneratorSimplexNoise.cs StartLineNumber=59 StartCharacterOffset=8 EndLineNumber=59 EndCharacterOffset=8)" />
+    <Node Id="(@1 @2 @11 Member=(Name=GetValue OverloadingParameters=[@43,@43,@43]))" Category="CodeSchema_Method" Bounds="-264.278183583781,-82.5961469668362,84.1100000000001,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="GetValue" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="GetValue" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GeneratorSimplexNoise.cs StartLineNumber=66 StartCharacterOffset=8 EndLineNumber=66 EndCharacterOffset=8)" />
+    <Node Id="@10" Category="CodeSchema_Class" Bounds="-193.359655898412,-923.908541554782,519.290005715688,365.7607" CodeSchemaProperty_IsInternal="True" CommonLabel="GameMapForest" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Icon="CodeSchema_Class" Label="GameMapForest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMapForest.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@12" Category="CodeSchema_Class" Bounds="-284.278183583781,-122.596146966836,314.88,197.88" CodeSchemaProperty_IsPublic="True" CommonLabel="GeneratorSimplexNoise" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Icon="CodeSchema_Class" Label="GeneratorSimplexNoise" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GeneratorSimplexNoise.cs StartLineNumber=31 StartCharacterOffset=4 EndLineNumber=31 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@13" Category="CodeSchema_Interface" Bounds="-148.994700250448,105.283953033164,117.32,25" CodeSchemaProperty_IsInternal="True" CommonLabel="IGenerator" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="IGenerator" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/IGenerator.cs StartLineNumber=7 StartCharacterOffset=4 EndLineNumber=7 EndCharacterOffset=4)" />
+    <Node Id="@14" Category="CodeSchema_Interface" Bounds="-766.075746123741,144.864587200276,145.992394787382,85" CodeSchemaProperty_IsPublic="True" CommonLabel="IMapData" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Icon="CodeSchema_Interface" Label="IMapData" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/IMapData.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@16" Category="CodeSchema_Class" Bounds="-609.017983583781,-26.0955127997242,262.67,140.96" CodeSchemaProperty_IsPublic="True" CommonLabel="MapData" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Icon="CodeSchema_Class" Label="MapData" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/MapData.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@17" Category="CodeSchema_Class" Bounds="-72.2120183795698,333.163953033164,154.896666666667,141.92" CodeSchemaProperty_IsPublic="True" CommonLabel="MapEntity" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Icon="CodeSchema_Class" Label="MapEntity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/MapEntity.cs StartLineNumber=9 StartCharacterOffset=4 EndLineNumber=9 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@18" Category="CodeSchema_Class" Bounds="77.9318471388418,505.084053033164,139.336666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="MapEntityData" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="MapEntityData" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/MapEntityData.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" />
+    <Node Id="@22" Category="CodeSchema_Method" Bounds="275.139981996973,201.348587538947,124.196666666667,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="SetMapContents" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="SetMapContents" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Factories/MapDataBuilder.cs StartLineNumber=61 StartCharacterOffset=8 EndLineNumber=61 EndCharacterOffset=8)" />
+    <Node Id="@24" Category="CodeSchema_Method" Bounds="82.4588330828853,92.8193411584977,137.443333333333,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="InventoryContainer" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="InventoryContainer" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Items/InventoryContainer.cs StartLineNumber=13 StartCharacterOffset=8 EndLineNumber=13 EndCharacterOffset=8)" />
+    <Node Id="@26" Category="CodeSchema_Method" Bounds="208.483685639881,-349.516246966836,100.323333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="AddContent" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="AddContent" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Managers/GamePlayContentManager.cs StartLineNumber=41 StartCharacterOffset=8 EndLineNumber=41 EndCharacterOffset=8)" />
+    <Node Id="@27" Category="CodeSchema_Method" Bounds="134.003676045736,-827.948341554782,130.273333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="ClearAnOpenPath" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="ClearAnOpenPath" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMapForest.cs StartLineNumber=82 StartCharacterOffset=8 EndLineNumber=82 EndCharacterOffset=8)" />
+    <Node Id="@28" Category="CodeSchema_Method" Bounds="226.412116416218,-215.175662799725,129.586666666667,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="CollidableNullBox" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="CollidableNullBox" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/CollidableNullBox.cs StartLineNumber=17 StartCharacterOffset=8 EndLineNumber=17 EndCharacterOffset=8)" />
+    <Node Id="@29" Category="CodeSchema_Method" Bounds="31.5820164162191,-211.020658841502,124.83,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GameEndTrigger" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="GameEndTrigger" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameEndTrigger.cs StartLineNumber=16 StartCharacterOffset=8 EndLineNumber=16 EndCharacterOffset=8)" />
+    <Node Id="@3" Category="CodeSchema_Class" Bounds="60.6019164162191,-79.1006588415022,159.3,141.92" CodeSchemaProperty_IsInternal="True" CommonLabel="ChestMapEntity" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Icon="CodeSchema_Class" Label="ChestMapEntity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/ChestMapEntity.cs StartLineNumber=9 StartCharacterOffset=4 EndLineNumber=9 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@31" Category="CodeSchema_Method" Bounds="112.684748287097,320.561978324784,148.666666666667,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CreateMapEntityData" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CreateMapEntityData" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Factories/MapEntityFactory.cs StartLineNumber=93 StartCharacterOffset=8 EndLineNumber=93 EndCharacterOffset=8)" />
+    <Node Id="@34" Category="CodeSchema_Method" Bounds="249.902016416219,31.9844872002756,149.526666666667,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CreateBushMapEntity" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CreateBushMapEntity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Factories/MapEntityFactory.cs StartLineNumber=81 StartCharacterOffset=8 EndLineNumber=81 EndCharacterOffset=8)" />
+    <Node Id="@35" Category="CodeSchema_Method" Bounds="206.412016416218,-135.060658841502,211.92,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CreateChestMapEntityWithSword" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CreateChestMapEntityWithSword" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Factories/MapEntityFactory.cs StartLineNumber=86 StartCharacterOffset=8 EndLineNumber=86 EndCharacterOffset=8)" />
+    <Node Id="@36" Category="CodeSchema_Method" Bounds="-373.080068003026,276.244153033164,143.533333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CreateDirtMapEntity" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CreateDirtMapEntity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Factories/MapEntityFactory.cs StartLineNumber=66 StartCharacterOffset=8 EndLineNumber=66 EndCharacterOffset=8)" />
+    <Node Id="@37" Category="CodeSchema_Method" Bounds="-590.08335133636,203.904487200276,187.003333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CreateGrassBladesMapEntity" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CreateGrassBladesMapEntity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Factories/MapEntityFactory.cs StartLineNumber=61 StartCharacterOffset=8 EndLineNumber=61 EndCharacterOffset=8)" />
+    <Node Id="@38" Category="CodeSchema_Method" Bounds="-199.546634669693,276.244153033164,152.673333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CreateGrassMapEntity" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CreateGrassMapEntity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Factories/MapEntityFactory.cs StartLineNumber=56 StartCharacterOffset=8 EndLineNumber=56 EndCharacterOffset=8)" />
+    <Node Id="@39" Category="CodeSchema_Method" Bounds="841.608983082886,31.9844872002755,176.26,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CreateTreeLargeMapEntity" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CreateTreeLargeMapEntity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Factories/MapEntityFactory.cs StartLineNumber=71 StartCharacterOffset=8 EndLineNumber=71 EndCharacterOffset=8)" />
+    <Node Id="@4" Category="CodeSchema_Class" Bounds="580.96684866364,161.243953033164,182.233333333333,141.92" CodeSchemaProperty_IsInternal="True" CommonLabel="CollidableMapEntity" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Icon="CodeSchema_Class" Label="CollidableMapEntity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/CollidableMapEntity.cs StartLineNumber=9 StartCharacterOffset=4 EndLineNumber=9 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@40" Category="CodeSchema_Method" Bounds="635.992216416219,31.9844872002755,175.616666666667,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CreateTreeSmallMapEntity" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CreateTreeSmallMapEntity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Factories/MapEntityFactory.cs StartLineNumber=76 StartCharacterOffset=8 EndLineNumber=76 EndCharacterOffset=8)" />
+    <Node Id="@41" Category="CodeSchema_Method" Bounds="-49.3463238016765,-883.908441554782,100.653333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="SpawnChest" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="SpawnChest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMapForest.cs StartLineNumber=160 StartCharacterOffset=8 EndLineNumber=160 EndCharacterOffset=8)" />
+    <Node Id="@44" Category="CodeSchema_Method" Bounds="-173.359653778076,-827.948341554782,123.39,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GameMapForest" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="GameMapForest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMapForest.cs StartLineNumber=19 StartCharacterOffset=8 EndLineNumber=19 EndCharacterOffset=8)" />
+    <Node Id="@45" Category="CodeSchema_Method" Bounds="429.428783082886,31.9844872002756,176.563333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="CreateCollidableMapEntity" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CreateCollidableMapEntity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Factories/MapEntityFactory.cs StartLineNumber=39 StartCharacterOffset=8 EndLineNumber=39 EndCharacterOffset=8)" />
+    <Node Id="@46" Category="CodeSchema_Method" Bounds="-16.8735513363597,203.904487200276,123.973333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="CreateMapEntity" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CreateMapEntity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Factories/MapEntityFactory.cs StartLineNumber=24 StartCharacterOffset=8 EndLineNumber=24 EndCharacterOffset=8)" />
+    <Node Id="@47" Category="CodeSchema_Method" Bounds="600.96684866364,257.203953033164,142.233333333333,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="CollidableMapEntity" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="CollidableMapEntity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/CollidableMapEntity.cs StartLineNumber=25 StartCharacterOffset=8 EndLineNumber=25 EndCharacterOffset=8)" />
+    <Node Id="@48" Category="CodeSchema_Method" Bounds="-52.2120183795698,373.163953033164,89.6433333333333,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="MapEntity" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="MapEntity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/MapEntity.cs StartLineNumber=25 StartCharacterOffset=8 EndLineNumber=25 EndCharacterOffset=8)" />
+    <Node Id="@49" Category="CodeSchema_Method" Bounds="-173.359652048747,-883.908441554782,94.0133333333334,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CreatePath" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CreatePath" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMapForest.cs StartLineNumber=101 StartCharacterOffset=8 EndLineNumber=101 EndCharacterOffset=8)" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="206.412116416218,-255.175662799725,169.586666666667,85.96" CodeSchemaProperty_IsPublic="True" CommonLabel="CollidableNullBox" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Icon="CodeSchema_Class" Label="CollidableNullBox" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/CollidableNullBox.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@50" Category="CodeSchema_Method" Bounds="80.6019164162191,16.8593411584979,119.3,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="ChestMapEntity" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="ChestMapEntity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/ChestMapEntity.cs StartLineNumber=15 StartCharacterOffset=8 EndLineNumber=15 EndCharacterOffset=8)" />
+    <Node Id="@51" Category="CodeSchema_Method" Bounds="30.7736750539144,-660.068041554782,176.563333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CreateCollidableMapEntity" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CreateCollidableMapEntity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMapForest.cs StartLineNumber=181 StartCharacterOffset=8 EndLineNumber=181 EndCharacterOffset=8)" />
+    <Node Id="@52" Category="CodeSchema_Method" Bounds="-19.9696550242106,-827.948341554782,123.973333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CreateMapEntity" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CreateMapEntity" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMapForest.cs StartLineNumber=176 StartCharacterOffset=8 EndLineNumber=176 EndCharacterOffset=8)" />
+    <Node Id="@53" Category="CodeSchema_Method" Bounds="22.6561608250936,-979.868641554782,78.5133333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="GetMap" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="GetMap" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Factories/MapFactory.cs StartLineNumber=20 StartCharacterOffset=8 EndLineNumber=20 EndCharacterOffset=8)" />
+    <Node Id="@54" Category="CodeSchema_Method" Bounds="-173.359652455648,-771.988241554782,132.116666666667,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CreateTreeOrBush" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CreateTreeOrBush" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMapForest.cs StartLineNumber=240 StartCharacterOffset=8 EndLineNumber=240 EndCharacterOffset=8)" />
+    <Node Id="@55" Category="CodeSchema_Method" Bounds="34.8235856398812,-349.516246966836,143.66,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="GetDrawablesInArea" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="GetDrawablesInArea" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Managers/GamePlayMapManager.cs StartLineNumber=23 StartCharacterOffset=8 EndLineNumber=23 EndCharacterOffset=8)" />
+    <Node Id="@56" Category="CodeSchema_Method" Bounds="-589.017983583781,13.9044872002758,84.6300000000001,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="MapData" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="MapData" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/MapData.cs StartLineNumber=23 StartCharacterOffset=8 EndLineNumber=23 EndCharacterOffset=8)" />
+    <Node Id="@57" Category="CodeSchema_Method" Bounds="-150.168183583781,-82.5961469668362,160.77,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GeneratorSimplexNoise" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="GeneratorSimplexNoise" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GeneratorSimplexNoise.cs StartLineNumber=47 StartCharacterOffset=8 EndLineNumber=47 EndCharacterOffset=8)" />
+    <Node Id="@58" Category="CodeSchema_Method" Bounds="429.33674866364,203.904487200276,121.63,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="MapDataBuilder" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="MapDataBuilder" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Factories/MapDataBuilder.cs StartLineNumber=17 StartCharacterOffset=8 EndLineNumber=17 EndCharacterOffset=8)" />
+    <Node Id="@59" Category="CodeSchema_Field" Bounds="-149.088083583781,-253.556246966836,110.67,25.96" CodeSchemaProperty_IsProtected="True" DelayedCrossGroupLinksState="Fetched" Label="contentLayers" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMap.cs StartLineNumber=54 StartCharacterOffset=38 EndLineNumber=54 EndCharacterOffset=38)" />
+    <Node Id="@6" Category="CodeSchema_Class" Bounds="11.5820164162191,-251.020658841502,164.83,85.96" CodeSchemaProperty_IsInternal="True" CommonLabel="GameEndTrigger" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Icon="CodeSchema_Class" Label="GameEndTrigger" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameEndTrigger.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@60" Category="CodeSchema_Property" Bounds="-746.075746123741,184.864587200276,105.992394787382,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Property Assignment" Group="Collapsed" Label="Contents" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/IMapData.cs StartLineNumber=10 StartCharacterOffset=8 EndLineNumber=10 EndCharacterOffset=8)" />
+    <Node Id="@61" Category="CodeSchema_Property" Bounds="-589.017983583781,69.8644872002758,105.992394787382,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Property Assignment" Group="Collapsed" Label="Contents" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/MapData.cs StartLineNumber=16 StartCharacterOffset=8 EndLineNumber=16 EndCharacterOffset=8)" />
+    <Node Id="@62" Category="CodeSchema_Method" Bounds="-173.35965441068,-716.028141554782,158.52,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CreateCollidableBorder" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CreateCollidableBorder" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMapForest.cs StartLineNumber=193 StartCharacterOffset=8 EndLineNumber=193 EndCharacterOffset=8)" />
+    <Node Id="@63" Category="CodeSchema_Method" Bounds="-11.2429927062988,-771.988241554782,136.64,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CreateStartAndEnd" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CreateStartAndEnd" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMapForest.cs StartLineNumber=70 StartCharacterOffset=8 EndLineNumber=70 EndCharacterOffset=8)" />
+    <Node Id="@64" Category="CodeSchema_Method" Bounds="-173.359653752645,-604.107941554782,213.586666666667,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="CutOutMiddleMapWithoutBorder" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="CutOutMiddleMapWithoutBorder" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMapForest.cs StartLineNumber=223 StartCharacterOffset=8 EndLineNumber=223 EndCharacterOffset=8)" />
+    <Node Id="@65" Category="CodeSchema_Field" Bounds="80.6019164162191,-39.1006588415022,60.3466666666666,25.96" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="data" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/ChestMapEntity.cs StartLineNumber=13 StartCharacterOffset=30 EndLineNumber=13 EndCharacterOffset=30)" />
+    <Node Id="@66" Category="CodeSchema_Field" Bounds="-1.6746002504475,105.283953033164,54.1333333333333,25.96" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="ent" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Items/InventoryContainer.cs StartLineNumber=11 StartCharacterOffset=36 EndLineNumber=11 EndCharacterOffset=36)" />
+    <Node Id="@67" Category="CodeSchema_Method" Bounds="15.1603455893199,-716.028141554782,165.373333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="FillEntireMapWithBorder" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="FillEntireMapWithBorder" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMapForest.cs StartLineNumber=201 StartCharacterOffset=8 EndLineNumber=201 EndCharacterOffset=8)" />
+    <Node Id="@68" Category="CodeSchema_Field" Bounds="-85.8998476934519,-349.516346966836,90.7233333333334,25.96" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="gameMap" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Managers/GamePlayMapManager.cs StartLineNumber=19 StartCharacterOffset=24 EndLineNumber=19 EndCharacterOffset=24)" />
+    <Node Id="@69" Category="CodeSchema_Method" Bounds="155.397014363607,-771.988241554782,150.533333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="GetRandomMapPoint" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="GetRandomMapPoint" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMapForest.cs StartLineNumber=62 StartCharacterOffset=8 EndLineNumber=62 EndCharacterOffset=8)" />
+    <Node Id="@70" Category="CodeSchema_Method" Bounds="-401.164950250448,-82.0556127997244,86.8866666666667,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="GetResult" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="GetResult" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Factories/MapDataBuilder.cs StartLineNumber=26 StartCharacterOffset=8 EndLineNumber=26 EndCharacterOffset=8)" />
+    <Node Id="@71" Category="CodeSchema_Property" Bounds="-198.285675814167,-348.556346966836,82.3857281207149,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Property Assignment" Group="Collapsed" Label="Map" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Managers/GamePlayMapManager.cs StartLineNumber=21 StartCharacterOffset=8 EndLineNumber=21 EndCharacterOffset=8)" />
+    <Node Id="@72" Category="CodeSchema_Field" Bounds="-474.387983583781,13.9044872002758,108.04,25.96" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="mapContents" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/MapData.cs StartLineNumber=10 StartCharacterOffset=36 EndLineNumber=10 EndCharacterOffset=36)" />
+    <Node Id="@73" Category="CodeSchema_Field" Bounds="137.099881996973,203.904487200276,108.04,25.96" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="mapContents" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/Factories/MapDataBuilder.cs StartLineNumber=14 StartCharacterOffset=36 EndLineNumber=14 EndCharacterOffset=36)" />
+    <Node Id="@74" Category="CodeSchema_Field" Bounds="-264.278083583781,-253.556246966836,85.19,25.96" CodeSchemaProperty_IsProtected="True" DelayedCrossGroupLinksState="Fetched" Label="mapData" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMap.cs StartLineNumber=10 StartCharacterOffset=26 EndLineNumber=10 EndCharacterOffset=26)" />
+    <Node Id="@75" Category="CodeSchema_Property" Bounds="-264.278083583781,-197.596246966836,107.079061454048,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Property Assignment" Group="Collapsed" Label="MapData" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMap.cs StartLineNumber=13 StartCharacterOffset=8 EndLineNumber=13 EndCharacterOffset=8)" />
+    <Node Id="@76" Category="CodeSchema_Field" Bounds="600.96684866364,201.243953033164,114.896666666667,25.96" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="mapEntityData" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/CollidableMapEntity.cs StartLineNumber=14 StartCharacterOffset=30 EndLineNumber=14 EndCharacterOffset=30)" />
+    <Node Id="@77" Category="CodeSchema_Field" Bounds="-52.2120183795698,429.123953033164,114.896666666667,25.96" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="mapEntityData" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/MapEntity.cs StartLineNumber=16 StartCharacterOffset=30 EndLineNumber=16 EndCharacterOffset=30)" />
+    <Node Id="@78" Category="CodeSchema_Method" Bounds="-173.359652582804,-660.068041554782,174.133333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="RandomlyGenerateTerrain" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="RandomlyGenerateTerrain" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMapForest.cs StartLineNumber=258 StartCharacterOffset=8 EndLineNumber=258 EndCharacterOffset=8)" />
+    <Node Id="@79" Category="CodeSchema_Method" Bounds="81.3070100911458,-883.908441554782,109.173333333333,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="SpawnEntities" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="SpawnEntities" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMapForest.cs StartLineNumber=133 StartCharacterOffset=8 EndLineNumber=133 EndCharacterOffset=8)" />
+    <Node Id="@8" Category="CodeSchema_Class" Bounds="-284.278083583781,-293.556246966836,265.86,140.96" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsInternal="True" CommonLabel="GameMap" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Icon="CodeSchema_Class" Label="GameMap" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/GameObjects/Map/GameMap.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" UseManualLocation="True" />
   </Nodes>
-  <Links />
+  <Links>
+    <Link Source="@10" Target="@27" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="@41" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="@44" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="@49" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="@51" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="@52" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="@54" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="@62" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="@63" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="@64" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="@67" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="@69" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="@78" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="@79" Category="Contains" FetchingParent="@10" />
+    <Link Source="@10" Target="@8" Category="InheritsFrom" Bounds="-278.609008789063,-383.205657958984,99.3355407714844,80.9178466796875" Weight="1" />
+    <Link Source="@12" Target="(@1 @2 @11 Member=(@23 OverloadingParameters=[(@21 @42 Type=Double),(@21 @42 Type=Byte)]))" Category="Contains" FetchingParent="@12" />
+    <Link Source="@12" Target="(@1 @2 @11 Member=(@23 OverloadingParameters=[(@21 @42 Type=Double),(@21 @42 Type=Double),(@21 @42 Type=Byte)]))" Category="Contains" FetchingParent="@12" />
+    <Link Source="@12" Target="(@1 @2 @11 Member=(Name=GetValue OverloadingParameters=[@43,@43,@43]))" Category="Contains" FetchingParent="@12" />
+    <Link Source="@12" Target="@13" Category="Implements" Bounds="-101.303313055551,75.2838530331639,5.49349317809379,21.2856460125651" Weight="1" />
+    <Link Source="@12" Target="@57" Category="Contains" FetchingParent="@12" />
+    <Link Source="@14" Target="@60" Category="Contains" FetchingParent="@14" />
+    <Link Source="@16" Target="@14" Category="Implements" Bounds="-621.555816223485,114.864487200276,37.696169513093,25.0226928314243" Weight="1" />
+    <Link Source="@16" Target="@56" Category="Contains" FetchingParent="@16" />
+    <Link Source="@16" Target="@61" Category="Contains" FetchingParent="@16" />
+    <Link Source="@16" Target="@72" Category="Contains" FetchingParent="@16" />
+    <Link Source="@17" Target="@48" Category="Contains" FetchingParent="@17" />
+    <Link Source="@17" Target="@77" Category="Contains" FetchingParent="@17" />
+    <Link Source="@22" Target="@17" Category="References" Bounds="85.5196304321289,227.30859375,220.019676208496,99.9901428222656" Weight="1" />
+    <Link Source="@22" Target="@73" Category="CodeSchema_FieldWrite" Bounds="254.138511775799,215.414806726973,21.0014666584457,0.367355046357602" Weight="1" />
+    <Link Source="@24" Target="@4" Category="References" Bounds="204.670012845342,118.779341158498,367.550666007231,89.1914577018156" Weight="1" />
+    <Link Source="@24" Target="@66" Category="CodeSchema_FieldWrite" Bounds="61.4148681445086,112.6095844758,21.043961404645,2.08535689706238" Weight="1" />
+    <Link Source="@26" Target="@29" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@26" Target="@53" Category="CodeSchema_Calls" Bounds="110.105590820313,-961.114685058594,225.958984375,611.598449707031" Weight="1" />
+    <Link Source="@26" Target="@6" Bounds="156.164671402623,-323.556246966836,85.8487059775024,66.9984297425625" />
+    <Link Source="@26" Target="@71" Category="CodeSchema_Calls" Bounds="-120.415809631348,-323.556243896484,345.201454162598,10.1341857910156" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@26" Target="@75" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="3" />
+    <Link Source="@26" Target="@8" Bounds="-9.74409646704645,-323.556246966836,221.485563722859,61.2930594984397" />
+    <Link Source="@27" Target="@17" Category="References" Weight="2" />
+    <Link Source="@27" Target="@4" Bounds="219.911708965201,-623.356967656562,410.463415660466,776.643861621837" />
+    <Link Source="@27" Target="@52" Category="CodeSchema_Calls" Bounds="113.003680806982,-814.968341554782,21.0000002311415,0" Weight="1" />
+    <Link Source="@27" Target="@59" Category="CodeSchema_FieldRead" Weight="5" />
+    <Link Source="@3" Target="@4" Category="InheritsFrom" Bounds="219.901916503906,52.8633918762207,352.65087890625,141.554515838623" Weight="1" />
+    <Link Source="@3" Target="@50" Category="Contains" FetchingParent="@3" />
+    <Link Source="@3" Target="@65" Category="Contains" FetchingParent="@3" />
+    <Link Source="@31" Target="@18" Category="CodeSchema_Calls" Bounds="152.162276591589,346.521978324784,32.0757648792443,149.761660166313" IsTargetVirtualized="True" Weight="3">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@34" Target="@31" Category="CodeSchema_Calls" Bounds="201.794189453125,57.9444885253906,117.314331054688,255.34716796875" Weight="1" />
+    <Link Source="@34" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="348.749416477573,57.9444872002756,224.294793465357,120.882675341252" Weight="1" />
+    <Link Source="@34" Target="@47" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@35" Target="@3" Bounds="227.406563884368,-109.100658841502,65.3575984156489,43.2653987737579" />
+    <Link Source="@35" Target="@31" Category="CodeSchema_Calls" Bounds="201.794189453125,-109.10090637207,101.230651855469,422.392562866211" Weight="1" />
+    <Link Source="@35" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="320.302185058594,-109.100662231445,253.251220703125,273.48127746582" Weight="1" />
+    <Link Source="@35" Target="@50" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@36" Target="@17" Category="CodeSchema_ReturnTypeLink" Bounds="-266.683094604357,302.204153033164,186.043604487973,69.732157007499" Weight="1" />
+    <Link Source="@36" Target="@31" Category="CodeSchema_Calls" Bounds="-240.931427001953,302.205017089844,344.640205383301,25.236572265625" Weight="1" />
+    <Link Source="@36" Target="@48" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@37" Target="@17" Category="CodeSchema_ReturnTypeLink" Bounds="-481.165771484375,229.864486694336,400.194938659668,153.889877319336" Weight="1" />
+    <Link Source="@37" Target="@31" Category="CodeSchema_Calls" Bounds="-403.080200195313,226.893661499023,538.410064697266,91.0714263916016" Weight="1" />
+    <Link Source="@37" Target="@48" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@38" Target="@17" Category="CodeSchema_ReturnTypeLink" Bounds="-108.699648987857,302.204153033164,30.5359760900825,27.3155241614547" Weight="1" />
+    <Link Source="@38" Target="@31" Category="CodeSchema_Calls" Bounds="-47.013036396391,300.109974920471,150.854952882811,21.5500537352224" Weight="1" />
+    <Link Source="@38" Target="@48" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@39" Target="@31" Category="CodeSchema_Calls" Bounds="225.326461791992,57.9444885253906,659.879592895508,259.048156738281" Weight="1" />
+    <Link Source="@39" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="770.474501075148,57.9444872002755,141.403034066985,102.758263959205" Weight="1" />
+    <Link Source="@39" Target="@47" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@4" Target="@17" Category="InheritsFrom" Bounds="85.9305114746094,244.71858215332,495.036346435547,83.0751495361328" Weight="1" />
+    <Link Source="@4" Target="@47" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@76" Category="Contains" FetchingParent="@4" />
+    <Link Source="@40" Target="@31" Category="CodeSchema_Calls" Bounds="225.326461791992,57.9444885253906,471.904678344727,259.048156738281" Weight="1" />
+    <Link Source="@40" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="694.079382981144,57.9444872002755,26.1359872028941,94.624301989443" Weight="1" />
+    <Link Source="@40" Target="@47" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@41" Target="@4" Bounds="24.1186374048303,-679.317067656562,592.307674749903,833.225556883477" />
+    <Link Source="@41" Target="@45" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@44" Target="@17" Category="References" Bounds="-96.468519519804,-623.356967656562,93.7943543546785,947.564640136899" Weight="2" />
+    <Link Source="@44" Target="@22" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@44" Target="@58" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@44" Target="@59" Category="CodeSchema_FieldRead" Weight="3">
+      <Category Ref="CodeSchema_FieldWrite" />
+    </Link>
+    <Link Source="@44" Target="@63" Category="CodeSchema_Calls" Bounds="-72.5248597264951,-801.988341554782,81.9195775789702,27.1671353814187" Weight="1" />
+    <Link Source="@44" Target="@69" Category="CodeSchema_Calls" Bounds="-49.9714897668556,-804.883416289895,197.416681968578,32.2715243446596" Weight="2" />
+    <Link Source="@44" Target="@70" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@44" Target="@74" Category="CodeSchema_FieldRead" Weight="3">
+      <Category Ref="CodeSchema_FieldWrite" />
+    </Link>
+    <Link Source="@45" Target="@34" Category="CodeSchema_Calls" Bounds="408.428700459798,44.96448802948,21.0000820922852,0" Weight="1" />
+    <Link Source="@45" Target="@35" Category="CodeSchema_Calls" Bounds="335.309089031092,-103.421316265578,166.445860492229,135.405804295058" Weight="1" />
+    <Link Source="@45" Target="@39" Category="CodeSchema_Calls" Bounds="578.441711425781,56.1188697814941,254.2294921875,11.9598350524902" Weight="1" />
+    <Link Source="@45" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="528.412052546404,57.9444872002756,79.4419181777075,96.3552953254845" Weight="1" />
+    <Link Source="@45" Target="@40" Category="CodeSchema_Calls" Bounds="605.992115885417,44.96448802948,21.000087890625,0" Weight="1" />
+    <Link Source="@46" Target="@17" Category="CodeSchema_ReturnTypeLink" Bounds="22.223527621536,229.864487200276,20.1252085935822,94.4968821784996" Weight="1" />
+    <Link Source="@46" Target="@36" Category="CodeSchema_Calls" Bounds="-230.343670559752,229.500832312734,215.03847036713,44.9036342314434" Weight="1" />
+    <Link Source="@46" Target="@37" Category="CodeSchema_Calls" Bounds="-394.080044148763,216.884475708008,377.206494700114,0" Weight="1" />
+    <Link Source="@46" Target="@38" Category="CodeSchema_Calls" Bounds="-84.7391973464684,229.864475708008,99.6502575181067,42.826895552139" Weight="1" />
+    <Link Source="@47" Target="@18" Category="References" IsTargetVirtualized="True" Weight="3">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@47" Target="@48" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@48" Target="@18" Category="References" Bounds="7.91528215861354,399.123853033197,118.08122447306,100.139223669306" Weight="1" />
+    <Link Source="@48" Target="@77" Category="CodeSchema_FieldWrite" Bounds="-4.46158401353641,399.123853033197,4.78819930238914,21.2208113871404" Weight="1" />
+    <Link Source="@49" Target="@17" Category="References" Bounds="-111.048540560941,-679.317067656562,107.708328590211,1003.53236509283" Weight="1" />
+    <Link Source="@49" Target="@52" Category="CodeSchema_Calls" Bounds="-87.2994016697762,-857.948441554782,81.722197658582,27.1615032538945" Weight="1" />
+    <Link Source="@49" Target="@59" Category="CodeSchema_FieldRead" Weight="3" />
+    <Link Source="@5" Target="@28" Category="Contains" FetchingParent="@5" />
+    <Link Source="@50" Target="@18" Category="References" Bounds="140.447470474206,42.8193911584978,6.82881072667826,453.265783103067" Weight="1" />
+    <Link Source="@50" Target="@24" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@50" Target="@47" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@50" Target="@65" Category="CodeSchema_FieldWrite" Bounds="121.806781442398,-5.1778501168417,11.6079932722631,22.0372429373007" Weight="1" />
+    <Link Source="@51" Target="@17" Bounds="16.9271510534433,-455.476667656562,114.139466505217,779.735473212562" />
+    <Link Source="@51" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="142.954001066806,-455.476667656561,469.041658482631,609.587728788167" Weight="1" />
+    <Link Source="@51" Target="@45" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@52" Target="@17" Category="CodeSchema_ReturnTypeLink" Bounds="9.13150489709357,-623.356967656562,46.1644264375003,947.53153340304" Weight="1" />
+    <Link Source="@52" Target="@46" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@53" Target="@10" Bounds="62.9635850512244,-775.276546966836,1.70237613834414,21.0294453830732" />
+    <Link Source="@53" Target="@44" Category="CodeSchema_Calls" Bounds="-90.0618575593733,-953.908641554782,137.144305523957,120.032874576063" Weight="1" />
+    <Link Source="@53" Target="@8" Category="CodeSchema_ReturnTypeLink" Bounds="-236.662231445313,-962.030334472656,259.318391799927,659.735870361328" Weight="1" />
+    <Link Source="@54" Target="@17" Bounds="-92.0896832717885,-567.396867656562,89.3201742668867,891.605594846363" />
+    <Link Source="@54" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="-81.1624893045449,-567.396867656562,680.228491271482,722.089804035377" Weight="1" />
+    <Link Source="@54" Target="@45" Category="CodeSchema_Calls" Weight="3" />
+    <Link Source="@55" Target="@17" Category="References" Bounds="1.44780075550079,-323.556243896484,110.62591445446,649.29443359375" Weight="1" />
+    <Link Source="@55" Target="@61" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="4" />
+    <Link Source="@55" Target="@68" Category="CodeSchema_FieldRead" Bounds="13.8234853617315,-336.536321703386,21.0000981648798,1.85680583513204E-05" Weight="4" />
+    <Link Source="@55" Target="@75" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="4" />
+    <Link Source="@55" Target="@8" Bounds="-10.1795335324586,-323.556246966836,87.3173279990353,38.3990695276555" />
+    <Link Source="@56" Target="@17" Category="References" Bounds="-527.711937460865,39.8644372002758,448.069624948343,306.246622444429" Weight="1" />
+    <Link Source="@56" Target="@72" Category="CodeSchema_FieldWrite" Bounds="-504.387983583781,26.884442970777,21.0000000000002,2.86377229485879E-06" Weight="1" />
+    <Link Source="@58" Target="@17" Category="References" Bounds="85.7246627807617,229.864486694336,350.64380645752,97.6722564697266" Weight="1" />
+    <Link Source="@58" Target="@73" Category="CodeSchema_FieldWrite" Bounds="235.63639831543,191.755416870117,213.719314575195,12.1490631103516" Weight="1" />
+    <Link Source="@59" Target="@17" Category="References" Bounds="-91.7600913485266,-227.596246966836,84.7350897213481,551.864400235749" Weight="1" />
+    <Link Source="@6" Target="@29" Category="Contains" FetchingParent="@6" />
+    <Link Source="@60" Target="@17" Category="References" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="@61" Target="@17" Category="References" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="@61" Target="@72" Category="CodeSchema_FieldRead" Bounds="-509.964281219735,43.7571097747014,54.4235535924088,26.1074274255744" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="@62" Target="@28" Category="CodeSchema_Calls" Weight="4" />
+    <Link Source="@62" Target="@5" Bounds="-64.7483481713717,-511.436767656562,297.939097332694,250.469654170372" />
+    <Link Source="@63" Target="@17" Bounds="10.5752802360016,-567.396867656562,59.5461488032866,891.580776150349" />
+    <Link Source="@63" Target="@27" Category="CodeSchema_Calls" Bounds="90.0287431850369,-798.689837413065,67.7861146548908,26.7015958582822" Weight="2" />
+    <Link Source="@63" Target="@49" Category="CodeSchema_Calls" Bounds="-83.756706237793,-854.734069824219,106.381723403931,82.745849609375" Weight="1" />
+    <Link Source="@63" Target="@74" Category="CodeSchema_FieldRead" Weight="4" />
+    <Link Source="@64" Target="@17" Category="References" Bounds="-51.7348373125177,-399.516567656562,51.3042776777098,723.703000925877" Weight="1" />
+    <Link Source="@64" Target="@59" Category="CodeSchema_FieldRead" Weight="3" />
+    <Link Source="@65" Target="@18" Category="References" Bounds="111.654380385117,-13.1407088415023,34.4910063205314,509.245433988105" Weight="1" />
+    <Link Source="@66" Target="@4" Category="References" Bounds="52.4587326049805,121.596641540527,519.575569152832,63.9747085571289" Weight="1" />
+    <Link Source="@67" Target="@17" Category="References" Weight="1" />
+    <Link Source="@67" Target="@4" Bounds="121.370832038419,-511.436767656562,492.806127143932,665.448090570651" />
+    <Link Source="@67" Target="@51" Category="CodeSchema_Calls" Bounds="102.766307714863,-690.068141554782,8.1802129713796,21.5842293529835" Weight="3" />
+    <Link Source="@67" Target="@52" Category="CodeSchema_Calls" Bounds="77.4815292358398,-798.124145507813,58.0496597290039,82.0960083007813" Weight="1" />
+    <Link Source="@67" Target="@59" Category="CodeSchema_FieldRead" Weight="4" />
+    <Link Source="@68" Target="@8" Category="References" Bounds="-76.2260341072251,-323.556346966836,23.0110395117068,23.5613856149664" Weight="1" />
+    <Link Source="@69" Target="@17" Bounds="24.6131987181732,-567.396867656562,216.806270101533,891.815487987631" />
+    <Link Source="@70" Target="@16" Category="CodeSchema_ReturnTypeLink" Bounds="-396.625803013249,-56.0956127997244,25.1804317601749,23.8157865731159" Weight="1" />
+    <Link Source="@70" Target="@56" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@70" Target="@73" Category="CodeSchema_FieldRead" Bounds="-352.402618408203,-56.0957870483398,483.008926391602,257.925224304199" Weight="1" />
+    <Link Source="@71" Target="@68" Category="CodeSchema_FieldWrite" Bounds="-115.899947693452,-336.312495666168,21.0001760404548,0.0864837755531198" IsSourceVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_FieldRead" />
+    </Link>
+    <Link Source="@71" Target="@8" Category="References" Bounds="-156.457221042477,-323.556346966836,1.06838791730496,21.0117119841555" IsSourceVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@72" Target="@17" Category="References" Bounds="-405.723852893776,39.8644538668535,327.298800300503,290.105197627075" Weight="1" />
+    <Link Source="@73" Target="@17" Category="References" Bounds="82.0232495700453,229.864487200276,96.2106273879356,96.9124208563123" Weight="1" />
+    <Link Source="@74" Target="@16" Category="References" Bounds="-408.351264188277,-227.596167656561,175.007346592105,194.805565052357" Weight="1" />
+    <Link Source="@75" Target="@16" Category="CodeSchema_ReturnTypeLink" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="@75" Target="@74" Category="CodeSchema_FieldRead" Bounds="-217.380669234668,-218.766337599889,4.17624782165737,21.1702678305086" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="@76" Target="@18" Category="References" Bounds="176.386649572211,227.203903033164,460.172080500718,273.284686172155" Weight="1" />
+    <Link Source="@77" Target="@18" Category="References" Bounds="29.7180065023946,455.083953033197,86.3542907142962,45.7843646647137" Weight="1" />
+    <Link Source="@78" Target="@12" Bounds="-113.631371124988,-455.476667656562,39.6605700172962,323.94770089449" />
+    <Link Source="@78" Target="@13" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@78" Target="@17" Category="References" Bounds="-71.2270736519869,-455.476667656562,69.3539167906524,779.675967020005" Weight="1" />
+    <Link Source="@78" Target="@52" Category="CodeSchema_Calls" Bounds="-80.0530395507813,-797.847961425781,89.0269508361816,137.779907226563" Weight="4" />
+    <Link Source="@78" Target="@54" Category="CodeSchema_Calls" Bounds="-103.204494409331,-737.182725545407,14.4750545835442,77.1146839906249" Weight="1" />
+    <Link Source="@78" Target="@57" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@78" Target="@59" Category="CodeSchema_FieldRead" Weight="8" />
+    <Link Source="@79" Target="@17" Category="References" Bounds="15.7692641770702,-679.317067656562,132.324249900675,1003.55820103794" Weight="1" />
+    <Link Source="@79" Target="@41" Category="CodeSchema_Calls" Bounds="60.3070135602968,-870.928441554782,21.0000002311416,0" Weight="1" />
+    <Link Source="@79" Target="@59" Category="CodeSchema_FieldRead" Weight="2" />
+    <Link Source="@8" Target="@59" Category="Contains" FetchingParent="@8" />
+    <Link Source="@8" Target="@74" Category="Contains" FetchingParent="@8" />
+    <Link Source="@8" Target="@75" Category="Contains" FetchingParent="@8" />
+  </Links>
   <Categories>
+    <Category Id="CodeSchema_Calls" Label="Calls" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Called By" OutgoingActionLabel="Calls" />
     <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Field" Label="Field" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Fields" />
+    <Category Id="CodeSchema_FieldRead" Label="Field Read" BasedOn="CodeSchema_FieldReference" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Read By" OutgoingActionLabel="Reads Fields" />
+    <Category Id="CodeSchema_FieldReference" Label="Field Reference" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Referenced By" OutgoingActionLabel="References Fields" />
+    <Category Id="CodeSchema_FieldWrite" Label="Field Write" BasedOn="CodeSchema_FieldReference" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Written By" OutgoingActionLabel="Writes Fields" />
+    <Category Id="CodeSchema_Interface" Label="Interface" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Interface" NavigationActionLabel="Interfaces" />
+    <Category Id="CodeSchema_Member" Label="Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Members" />
+    <Category Id="CodeSchema_Method" Label="Method" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="Methods" />
+    <Category Id="CodeSchema_Property" Label="Property" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Property" NavigationActionLabel="Properties" />
+    <Category Id="CodeSchema_ReturnTypeLink" Label="Return" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Return types" OutgoingActionLabel="Return types" />
     <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="Implements" Label="Implements" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Implemented by" OutgoingActionLabel="Implements" />
+    <Category Id="InheritsFrom" Label="Inherits From" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Inherited By" OutgoingActionLabel="Inherits From" />
+    <Category Id="References" Label="References" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Referenced By" OutgoingActionLabel="References" />
   </Categories>
   <Properties>
     <Property Id="Bounds" DataType="System.Windows.Rect" />
     <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="Is Abstract" Description="Flag to indicate member is 'Abstract' does not provide a full implementation" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsConstructor" Label="Is Constructor" Description="Flag to indicate the method is a constructor" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="Is Internal" Description="Flag to indicate the method is 'Internal'" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPrivate" Label="Is Private" Description="Flag to indicate the scope is Private" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsProtected" Label="Is Protected" Description="Flag to indicate the scope is Protected" DataType="System.Boolean" />
     <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
     <Property Id="CommonLabel" DataType="System.String" />
     <Property Id="DataVirtualized" Label="Data Virtualized" Description="If true, the graph can contain nodes and links that represent data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
     <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
     <Property Id="DelayedChildNodesState" Label="Delayed Child Nodes State" Description="Unspecified if the delayed child nodes state is not specified. NotFetched if the group contains child nodes that are not fetched into the graph yet. Fetched if the group has all its delayed child nodes already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="DelayedCrossGroupLinksState" Label="Delayed Cross-Group Links State" Description="Unspecified if the delayed cross-group links state is not specified. NotFetched if delayed cross-group links on this node are not fetched into the graph yet. Fetched if all delayed cross-group links have already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
     <Property Id="Expression" DataType="System.String" />
+    <Property Id="FetchingParent" DataType="Microsoft.VisualStudio.GraphModel.GraphNodeId" />
+    <Property Id="FunctionTypeFlags" Label="FunctionTypeFlags" Description="FunctionTypeFlags" DataType="System.String" />
     <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
     <Property Id="GroupLabel" DataType="System.String" />
     <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
     <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsSourceVirtualized" Label="Link Source Virtualized" Description="If true, the link source end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="IsTargetVirtualized" Label="Link Target Virtualized" Description="If true, the link target end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
     <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
     <Property Id="Language" Label="Language" Description="Language" DataType="System.String" />
     <Property Id="Layout" DataType="System.String" />
     <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
     <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
     <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
     <Property Id="Value" DataType="System.String" />
     <Property Id="ValueLabel" DataType="System.String" />
     <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
+    <Property Id="Weight" Label="Weight" Description="Weight" DataType="System.Double" />
   </Properties>
   <QualifiedNames>
+    <Name Id="ArrayRank" Label="Array Rank" ValueType="System.String" />
     <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="GenericArguments" Label="Generic Arguments" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" />
     <Name Id="GenericParameterCount" Label="Generic Parameter Count" ValueType="System.String" />
+    <Name Id="Member" Label="Member" ValueType="System.Object" />
     <Name Id="Name" Label="Name" ValueType="System.String" />
     <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="Parameter" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="ParentType" Label="Parent Type" ValueType="System.Object" />
     <Name Id="Type" Label="Type" ValueType="System.Object" />
   </QualifiedNames>
   <IdentifierAliases>
     <Alias n="1" Uri="Assembly=$(39940968-427e-4b89-8958-d79c9dc4c8b6.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=FinalProject" />
+    <Alias n="3" Id="(@1 @2 Type=ChestMapEntity)" />
+    <Alias n="4" Id="(@1 @2 Type=CollidableMapEntity)" />
+    <Alias n="5" Id="(@1 @2 Type=CollidableNullBox)" />
+    <Alias n="6" Id="(@1 @2 Type=GameEndTrigger)" />
+    <Alias n="7" Id="Type=GameMap" />
+    <Alias n="8" Id="(@1 @2 @7)" />
+    <Alias n="9" Id="Type=GameMapForest" />
+    <Alias n="10" Id="(@1 @2 @9)" />
+    <Alias n="11" Id="Type=GeneratorSimplexNoise" />
+    <Alias n="12" Id="(@1 @2 @11)" />
+    <Alias n="13" Id="(@1 @2 Type=IGenerator)" />
+    <Alias n="14" Id="(@1 @2 Type=IMapData)" />
+    <Alias n="15" Id="Type=MapData" />
+    <Alias n="16" Id="(@1 @2 @15)" />
+    <Alias n="17" Id="(@1 @2 Type=MapEntity)" />
+    <Alias n="18" Id="(@1 @2 Type=MapEntityData)" />
+    <Alias n="20" Id="Type=MapDataBuilder" />
+    <Alias n="21" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.0/mscorlib.dll" />
+    <Alias n="22" Id="(@1 @2 @20 Member=(Name=SetMapContents OverloadingParameters=[(@21 Namespace=System.Collections.Generic Type=(Name=List GenericParameterCount=1 GenericArguments=[(@1 @2 Type=(Name=MapEntity ArrayRank=1 ParentType=(Name=MapEntity ArrayRank=1 ParentType=MapEntity)))]))]))" />
+    <Alias n="23" Id="Name=.ctor" />
+    <Alias n="24" Id="(@1 @2 Type=InventoryContainer Member=(@23 OverloadingParameters=[@4]))" />
+    <Alias n="25" Uri="Assembly=$(ProgramFilesUri)/MonoGame/v3.0/Assemblies/WindowsGL/MonoGame.Framework.dll" />
+    <Alias n="26" Id="(@1 @2 Type=GamePlayContentManager Member=(Name=AddContent OverloadingParameters=[(@25 Namespace=Microsoft.Xna.Framework.Content Type=ContentManager)]))" />
+    <Alias n="27" Id="(@1 @2 @9 Member=(Name=ClearAnOpenPath OverloadingParameters=[(@25 Namespace=Microsoft.Xna.Framework Type=Point)]))" />
+    <Alias n="28" Id="(@1 @2 Type=CollidableNullBox Member=(@23 OverloadingParameters=[(@25 Namespace=Microsoft.Xna.Framework Type=Rectangle)]))" />
+    <Alias n="29" Id="(@1 @2 Type=GameEndTrigger Member=(@23 OverloadingParameters=[(@25 Namespace=Microsoft.Xna.Framework Type=Rectangle)]))" />
+    <Alias n="30" Id="Type=MapEntityFactory" />
+    <Alias n="31" Id="(@1 @2 @30 Member=(Name=CreateMapEntityData OverloadingParameters=[(@25 Namespace=Microsoft.Xna.Framework.Graphics Type=Texture2D)]))" />
+    <Alias n="32" Id="(@25 Namespace=Microsoft.Xna.Framework Type=Vector2)" />
+    <Alias n="33" Id="OverloadingParameters=[@32]" />
+    <Alias n="34" Id="(@1 @2 @30 Member=(Name=CreateBushMapEntity @33))" />
+    <Alias n="35" Id="(@1 @2 @30 Member=(Name=CreateChestMapEntityWithSword @33))" />
+    <Alias n="36" Id="(@1 @2 @30 Member=(Name=CreateDirtMapEntity @33))" />
+    <Alias n="37" Id="(@1 @2 @30 Member=(Name=CreateGrassBladesMapEntity @33))" />
+    <Alias n="38" Id="(@1 @2 @30 Member=(Name=CreateGrassMapEntity @33))" />
+    <Alias n="39" Id="(@1 @2 @30 Member=(Name=CreateTreeLargeMapEntity @33))" />
+    <Alias n="40" Id="(@1 @2 @30 Member=(Name=CreateTreeSmallMapEntity @33))" />
+    <Alias n="41" Id="(@1 @2 @9 Member=(Name=SpawnChest @33))" />
+    <Alias n="42" Id="Namespace=System" />
+    <Alias n="43" Id="(@21 @42 Type=Int32)" />
+    <Alias n="44" Id="(@1 @2 @9 Member=(@23 OverloadingParameters=[@43,@43]))" />
+    <Alias n="45" Id="(@1 @2 @30 Member=(Name=CreateCollidableMapEntity OverloadingParameters=[(@1 @2 Type=(Name=MAP_ENTITY ParentType=MapEntityFactory)),@32]))" />
+    <Alias n="46" Id="(@1 @2 @30 Member=(Name=CreateMapEntity OverloadingParameters=[(@1 @2 Type=(Name=MAP_ENTITY ParentType=MapEntityFactory)),@32]))" />
+    <Alias n="47" Id="(@1 @2 Type=CollidableMapEntity Member=(@23 OverloadingParameters=[@18,@32]))" />
+    <Alias n="48" Id="(@1 @2 Type=MapEntity Member=(@23 OverloadingParameters=[@18,@32]))" />
+    <Alias n="49" Id="(@1 @2 @9 Member=(Name=CreatePath OverloadingParameters=[(@25 Namespace=Microsoft.Xna.Framework Type=Point),(@25 Namespace=Microsoft.Xna.Framework Type=Point),(@1 @2 Type=(Name=MAP_ENTITY ParentType=MapEntityFactory))]))" />
+    <Alias n="50" Id="(@1 @2 Type=ChestMapEntity Member=(@23 OverloadingParameters=[@18,@32,(@21 Namespace=System.Collections.Generic Type=(Name=List GenericParameterCount=1 GenericArguments=[(@1 @2 Type=Item)]))]))" />
+    <Alias n="51" Id="(@1 @2 @9 Member=(Name=CreateCollidableMapEntity OverloadingParameters=[(@1 @2 Type=(Name=MAP_ENTITY ParentType=MapEntityFactory)),@43,@43]))" />
+    <Alias n="52" Id="(@1 @2 @9 Member=(Name=CreateMapEntity OverloadingParameters=[(@1 @2 Type=(Name=MAP_ENTITY ParentType=MapEntityFactory)),@43,@43]))" />
+    <Alias n="53" Id="(@1 @2 Type=MapFactory Member=(Name=GetMap OverloadingParameters=[(@1 @2 Type=(Name=MAPS ParentType=MapFactory)),@43,@43]))" />
+    <Alias n="54" Id="(@1 @2 @9 Member=(Name=CreateTreeOrBush OverloadingParameters=[(@21 @42 Type=Single),@43,@43]))" />
+    <Alias n="55" Id="(@1 @2 Type=GamePlayMapManager Member=(Name=GetDrawablesInArea OverloadingParameters=[@43,@43,@43,@43]))" />
+    <Alias n="56" Id="(@1 @2 @15 Member=(@23 OverloadingParameters=[(@21 Namespace=System.Collections.Generic Type=(Name=List GenericParameterCount=1 GenericArguments=[(@1 @2 Type=(Name=MapEntity ArrayRank=1 ParentType=(Name=MapEntity ArrayRank=1 ParentType=MapEntity)))])),@32,@43,@43,@32]))" />
+    <Alias n="57" Id="(@1 @2 @11 Member=.ctor)" />
+    <Alias n="58" Id="(@1 @2 @20 Member=.ctor)" />
+    <Alias n="59" Id="(@1 @2 @7 Member=contentLayers)" />
+    <Alias n="60" Id="(@1 @2 Type=IMapData Member=Contents)" />
+    <Alias n="61" Id="(@1 @2 @15 Member=Contents)" />
+    <Alias n="62" Id="(@1 @2 @9 Member=CreateCollidableBorder)" />
+    <Alias n="63" Id="(@1 @2 @9 Member=CreateStartAndEnd)" />
+    <Alias n="64" Id="(@1 @2 @9 Member=CutOutMiddleMapWithoutBorder)" />
+    <Alias n="65" Id="(@1 @2 Type=ChestMapEntity Member=data)" />
+    <Alias n="66" Id="(@1 @2 Type=InventoryContainer Member=ent)" />
+    <Alias n="67" Id="(@1 @2 @9 Member=FillEntireMapWithBorder)" />
+    <Alias n="68" Id="(@1 @2 Type=GamePlayMapManager Member=gameMap)" />
+    <Alias n="69" Id="(@1 @2 @9 Member=GetRandomMapPoint)" />
+    <Alias n="70" Id="(@1 @2 @20 Member=GetResult)" />
+    <Alias n="71" Id="(@1 @2 Type=GamePlayMapManager Member=Map)" />
+    <Alias n="72" Id="(@1 @2 @15 Member=mapContents)" />
+    <Alias n="73" Id="(@1 @2 @20 Member=mapContents)" />
+    <Alias n="74" Id="(@1 @2 @7 Member=mapData)" />
+    <Alias n="75" Id="(@1 @2 @7 Member=MapData)" />
+    <Alias n="76" Id="(@1 @2 Type=CollidableMapEntity Member=mapEntityData)" />
+    <Alias n="77" Id="(@1 @2 Type=MapEntity Member=mapEntityData)" />
+    <Alias n="78" Id="(@1 @2 @9 Member=RandomlyGenerateTerrain)" />
+    <Alias n="79" Id="(@1 @2 @9 Member=SpawnEntities)" />
   </IdentifierAliases>
   <Styles>
     <Style TargetType="Node" GroupLabel="Results" ValueLabel="True">
@@ -169,6 +527,9 @@
     </Style>
   </Styles>
   <Paths>
-    <Path Id="39940968-427e-4b89-8958-d79c9dc4c8b6.OutputPathUri" Value="file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/bin/x64/Release/FinalProject.exe" />
+    <Path Id="39940968-427e-4b89-8958-d79c9dc4c8b6.OutputPath" Value="C:\Users\jdlew_000\Documents\GitHub\EWU-Design-Patterns\Project\FinalProject\FinalProject\bin\WindowsGL\Debug\FinalProject.exe" />
+    <Path Id="39940968-427e-4b89-8958-d79c9dc4c8b6.OutputPathUri" Value="file:///C:/Users/jdlew_000/Documents/GitHub/EWU-Design-Patterns/Project/FinalProject/FinalProject/bin/WindowsGL/Debug/FinalProject.exe" />
+    <Path Id="FxReferenceAssembliesUri" Value="file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework" />
+    <Path Id="ProgramFilesUri" Value="file:///C:/Program Files (x86)" />
   </Paths>
 </DirectedGraph>
